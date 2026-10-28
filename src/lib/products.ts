@@ -36,7 +36,7 @@ const k = (slug: string, name: string, image: string, tagline: string, notes: st
   description: `Paper-thin, hand-rolled and slow-roasted until perfectly crisp. Our ${name} is baked in small batches for a light, crunchy bite with ${tagline.toLowerCase()}.`,
 });
 const b = (slug: string, name: string, image: string, tagline: string, notes: string[]): Product => ({
-  slug, name, category: "bhakhri", image, tagline, notes, price: 140, weight: "250 g",
+  slug, name, category: "bhakhri", image, tagline, notes, price: 140, weight: "200 g",
   description: `Thick, hearty and handmade the traditional way. Our ${name} is pressed, pricked and roasted slowly for a deep crunch and ${tagline.toLowerCase()}.`,
 });
 

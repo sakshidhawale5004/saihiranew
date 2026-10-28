@@ -5,10 +5,10 @@ const logo = { url: logoSrc };
 import { useCart } from "@/lib/cart";
 
 const nav = [
-  { to: "/about", label: "Founder's Story" },
-  { to: "/products", label: "Signature Snacks" },
+  { to: "/products", label: "Our Snacks" },
+  { to: "/about", label: "Our Story" },
+  { to: "/contact", label: "Gifting & Bulk" },
   { to: "/faq", label: "FAQ" },
-  { to: "/contact", label: "Gifting & Contact" },
 ] as const;
 
 const tickerItems = [
@@ -22,7 +22,7 @@ const tickerItems = [
 
 export function Ticker() {
   return (
-    <div className="overflow-hidden bg-primary py-2.5 text-[0.68rem] font-medium uppercase tracking-[0.22em] text-primary-foreground border-b border-primary/20">
+    <div className="overflow-hidden bg-primary py-2 text-[0.66rem] sm:text-[0.7rem] font-medium uppercase tracking-[0.24em] text-primary-foreground border-b border-primary/20">
       <div className="marquee flex w-max gap-8 whitespace-nowrap">
         {[0, 1].flatMap((j) =>
           tickerItems.map((t, i) => (
@@ -42,12 +42,15 @@ function CartLink() {
   return (
     <Link
       to="/cart"
-      className="relative inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/90 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary shadow-sm transition-all hover:border-primary hover:text-accent"
+      aria-label={`Shopping Cart with ${count} items`}
+      className="relative inline-flex items-center gap-2 rounded-full border border-border/80 bg-card px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-primary shadow-xs transition-all hover:border-accent hover:text-accent active:scale-95"
     >
-      <span className="font-serif">🛍</span>
-      <span>Cart</span>
+      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+      </svg>
+      <span className="hidden sm:inline text-[0.72rem] tracking-wider">Cart</span>
       {count > 0 && (
-        <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1.5 text-[0.65rem] font-bold text-accent-foreground shadow-sm">
+        <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1.5 text-[0.62rem] font-bold text-accent-foreground shadow-xs">
           {count}
         </span>
       )}
@@ -58,29 +61,33 @@ function CartLink() {
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 bg-background/95 backdrop-blur-md border-b border-border/60">
+    <header className="sticky top-0 z-40 bg-[#FCFAF7]/95 backdrop-blur-md border-b border-border/70 shadow-xs">
       <Ticker />
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5">
-        {/* Brand Logo & Tagline (as seen in Bakelette design) */}
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logo.url} alt="SAIHIRA Asal – Best in Taste" className="h-14 sm:h-16 w-auto" />
-          <div className="hidden sm:block text-left">
-            <span className="font-display text-xl font-bold tracking-tight text-primary block leading-none">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8 py-3.5">
+        {/* Brand Logo & Title */}
+        <Link to="/" className="flex items-center gap-3 group">
+          <img
+            src={logo.url}
+            alt="SAIHIRA Asal – Best in Taste"
+            className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="flex flex-col">
+            <span className="font-display text-xl sm:text-2xl font-bold tracking-[0.08em] text-primary leading-none group-hover:text-accent transition-colors">
               SAIHIRA
             </span>
-            <span className="font-sans text-[0.68rem] text-muted-foreground uppercase tracking-wider block mt-1">
-              Best in Taste in every bite.
+            <span className="font-sans text-[0.62rem] sm:text-[0.66rem] font-semibold text-accent uppercase tracking-[0.22em] mt-1">
+              Asal Gujarati Snacks
             </span>
           </div>
         </Link>
 
         {/* Center Nav Links */}
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-8">
           <Link
             to="/"
-            className="nav-link"
             activeOptions={{ exact: true }}
-            activeProps={{ className: "nav-link text-accent font-semibold" }}
+            className="nav-link text-foreground/80 hover:text-accent py-1 relative transition-colors"
+            activeProps={{ className: "nav-link text-accent font-semibold relative after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full" }}
           >
             Home
           </Link>
@@ -88,8 +95,8 @@ export function Header() {
             <Link
               key={n.to}
               to={n.to}
-              className="nav-link"
-              activeProps={{ className: "nav-link text-accent font-semibold" }}
+              className="nav-link text-foreground/80 hover:text-accent py-1 relative transition-colors"
+              activeProps={{ className: "nav-link text-accent font-semibold relative after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full" }}
             >
               {n.label}
             </Link>
@@ -100,44 +107,83 @@ export function Header() {
         <div className="flex items-center gap-3 sm:gap-4">
           <a
             href="tel:+919876543210"
-            className="hidden xl:inline-block font-sans text-xs font-semibold tracking-wider text-muted-foreground hover:text-primary transition-colors"
+            className="hidden xl:inline-flex items-center gap-2 font-sans text-xs font-medium tracking-wide text-foreground/75 hover:text-primary transition-colors"
           >
-            +91 98765 43210
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/10 text-accent">
+              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </span>
+            <span>+91 98765 43210</span>
           </a>
           <CartLink />
           <Link
             to="/products"
-            className="hidden sm:inline-flex items-center rounded-full bg-primary px-5 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground shadow-sm transition-all hover:bg-accent hover:text-accent-foreground active:scale-95"
+            className="hidden sm:inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-primary-foreground shadow-sm transition-all duration-300 hover:bg-accent hover:shadow-md active:scale-95"
           >
             Order Now
           </Link>
           <button
-            className="text-xs font-semibold tracking-widest uppercase md:hidden rounded-lg border border-border px-3 py-1.5"
+            type="button"
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+            className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-full border border-border/80 bg-card text-primary hover:border-accent hover:text-accent transition-colors"
             onClick={() => setOpen(!open)}
           >
-            {open ? "CLOSE" : "MENU"}
+            {open ? (
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {open && (
-        <div className="flex flex-col gap-3 border-t border-border bg-card p-6 md:hidden">
-          <Link to="/" onClick={() => setOpen(false)} className="font-display text-xl text-primary">
-            Home
-          </Link>
-          {nav.map((n) => (
-            <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="font-display text-xl text-primary">
-              {n.label}
+        <div className="lg:hidden border-t border-border bg-card/95 backdrop-blur-md px-6 py-6 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="flex flex-col gap-4">
+            <Link
+              to="/"
+              onClick={() => setOpen(false)}
+              className="font-display text-xl font-medium text-primary hover:text-accent transition-colors py-1"
+            >
+              Home
             </Link>
-          ))}
-          <Link
-            to="/products"
-            onClick={() => setOpen(false)}
-            className="btn-warm mt-2 justify-center"
-          >
-            Order Now
-          </Link>
+            {nav.map((n) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                onClick={() => setOpen(false)}
+                className="font-display text-xl font-medium text-primary hover:text-accent transition-colors py-1"
+              >
+                {n.label}
+              </Link>
+            ))}
+            <div className="pt-4 border-t border-border/60 flex flex-col gap-3">
+              <a
+                href="tel:+919876543210"
+                className="inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-primary py-1"
+              >
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/10 text-accent">
+                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </span>
+                <span>+91 98765 43210</span>
+              </a>
+              <Link
+                to="/products"
+                onClick={() => setOpen(false)}
+                className="btn-warm justify-center text-center mt-2"
+              >
+                Order Now
+              </Link>
+            </div>
+          </div>
         </div>
       )}
     </header>

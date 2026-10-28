@@ -86,57 +86,57 @@ function Index() {
   return (
     <>
       {/* ─────────────────────────────────────────────────────────────
-          1. HERO SECTION (Designed exactly like reference Image 1)
-          Full photographic backdrop, left-aligned, dashes eyebrow,
-          2-line majestic headline with gold script, 3 pill buttons,
-          and bottom scroll indicator.
+          1. HERO SECTION (Designed with light warm luxury overlay)
+          Natural photography, light cream gradient scrim, left-aligned,
+          dashes eyebrow, 2-line majestic headline with gold script,
+          2 pill buttons, and bottom scroll indicator.
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden min-h-[92vh] flex flex-col justify-between py-16 sm:py-24 border-b border-border/80">
+      <section className="relative overflow-hidden min-h-[90vh] flex flex-col justify-between py-16 sm:py-24 border-b border-border/80">
         {/* Full-Bleed Atmospheric Background Photography */}
         <img
           src={HERO_PLATTER}
           alt="SAIHIRA Artisanal Gujarati Khakhra Platter"
-          className="absolute inset-0 h-full w-full object-cover object-center brightness-[0.72] filter"
+          className="absolute inset-0 h-full w-full object-cover object-center brightness-[0.98] filter"
         />
 
-        {/* Deep Gourmet Vignette Scrim (Preserving our warm palette with high contrast) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/75 sm:via-black/60 to-black/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/45" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_left,_var(--tw-gradient-stops))] from-accent/20 via-transparent to-transparent" />
+        {/* Lighter Warm Gourmet Scrim (Soft ivory/cream gradient for high readability & appetizing brightness) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF6F0]/98 via-[#FAF6F0]/92 sm:via-[#FAF6F0]/84 md:to-[#FAF6F0]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF6F0]/95 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_left,_var(--tw-gradient-stops))] from-accent/15 via-transparent to-transparent" />
 
         {/* Top Spacer for balance */}
         <div className="hidden sm:block" />
 
-        {/* Main Content Area (Left-Aligned, exact typography structure from Image 1) */}
+        {/* Main Content Area (Left-Aligned, clean typography on light warm background) */}
         <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 my-auto">
-          <div className="max-w-2xl text-left text-white">
-            {/* Eyebrow with hairline dashes (as seen in Bakelette design) */}
-            <div className="flex items-center gap-3 text-amber-300">
-              <span className="h-px w-8 bg-amber-400/80" />
-              <span className="font-sans text-[0.72rem] sm:text-xs font-semibold uppercase tracking-[0.28em] text-amber-300">
-                ARTISANAL GUJARATI SNACKS. EST. 1994
+          <div className="max-w-2xl text-left">
+            {/* Eyebrow with hairline dashes */}
+            <div className="flex items-center gap-3 text-accent">
+              <span className="h-px w-8 bg-accent/80" />
+              <span className="font-sans text-[0.72rem] sm:text-xs font-bold uppercase tracking-[0.28em] text-accent">
+                ARTISANAL GUJARATI SNACKS · EST. 1994
               </span>
             </div>
 
-            {/* Headline: Line 1 white serif + Line 2 gold italic serif */}
-            <h1 className="mt-5 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-medium tracking-tight text-white leading-[1.05]">
+            {/* Headline: Line 1 dark espresso serif + Line 2 warm gold italic serif */}
+            <h1 className="mt-5 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-medium tracking-tight text-primary leading-[1.05]">
               Wholesome Crunch, <br />
-              <span className="font-serif italic font-normal text-amber-300 drop-shadow-sm">
+              <span className="font-serif italic font-normal text-accent">
                 Crafted with Devotion
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-6 font-sans text-base sm:text-lg font-light leading-relaxed text-amber-100/90 max-w-xl">
+            <p className="mt-6 font-sans text-base sm:text-lg font-normal leading-relaxed text-[#544237] max-w-xl">
               Because Your Tea-Time Snacks Should Uplift You, Not Weigh You Down. Hand-rolled paper-thin and slow-roasted on seasoned iron tawas.
             </p>
 
-            {/* Row of 3 Pill Action Buttons (matching Image 1) */}
+            {/* Row of 2 Pill Action Buttons (matching user reference) */}
             <div className="mt-8 flex flex-wrap items-center gap-3.5 sm:gap-4">
-              {/* Button 1: Filled Accent Pill */}
+              {/* Button 1: Filled Primary Pill */}
               <Link
                 to="/products"
-                className="inline-flex items-center justify-center rounded-full bg-accent px-7 sm:px-8 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-accent-foreground shadow-lg transition-all duration-300 hover:bg-amber-400 hover:scale-105 active:scale-95"
+                className="inline-flex items-center justify-center rounded-full bg-primary px-7 sm:px-8 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary-foreground shadow-md transition-all duration-300 hover:bg-accent hover:shadow-lg hover:scale-105 active:scale-95"
               >
                 Shop Fresh Crunch
               </Link>
@@ -144,28 +144,19 @@ function Index() {
               {/* Button 2: Outlined Glass Pill */}
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/10 px-7 sm:px-8 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:border-white hover:bg-white hover:text-primary active:scale-95"
+                className="inline-flex items-center justify-center rounded-full border border-primary/35 bg-[#FAF6F0]/85 px-7 sm:px-8 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary shadow-xs backdrop-blur-md transition-all duration-300 hover:border-primary hover:bg-primary hover:text-primary-foreground active:scale-95"
               >
                 Gift Hampers
-              </Link>
-
-              {/* Button 3: Outlined Pill with Festive Emoji */}
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-amber-300/40 bg-black/40 px-6 sm:px-7 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-amber-200 backdrop-blur-md transition-all duration-300 hover:border-amber-300 hover:text-white active:scale-95"
-              >
-                <span>🪔</span>
-                <span>Festive 2026</span>
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Bottom Centered Scroll Indicator (matching Image 1) */}
-        <div className="relative text-center pb-2 text-white/70">
+        {/* Bottom Centered Scroll Indicator */}
+        <div className="relative text-center pb-2 text-primary/70">
           <a
             href="#signature-collection"
-            className="inline-flex flex-col items-center gap-1 font-sans text-[0.68rem] uppercase tracking-[0.3em] transition-colors hover:text-amber-300"
+            className="inline-flex flex-col items-center gap-1 font-sans text-[0.68rem] uppercase tracking-[0.3em] transition-colors hover:text-accent"
           >
             <span>SCROLL</span>
             <span className="text-sm animate-bounce">↓</span>
