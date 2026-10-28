@@ -5,20 +5,33 @@ const logo = { url: logoSrc };
 import { useCart } from "@/lib/cart";
 
 const nav = [
-  { to: "/", label: "Home" },
-  { to: "/products", label: "Products" },
-  { to: "/about", label: "About" },
+  { to: "/about", label: "Founder's Story" },
+  { to: "/products", label: "Signature Snacks" },
   { to: "/faq", label: "FAQ" },
-  { to: "/contact", label: "Contact" },
+  { to: "/contact", label: "Gifting & Contact" },
 ] as const;
 
-const tickerItems = ["Free delivery on orders above ₹499", "100% handmade & baked", "No onion · No garlic options", "19 delicious flavours", "Fresh batches every week", "Bulk & gifting orders welcome"];
+const tickerItems = [
+  "🪔 FESTIVE & DIWALI HAMPERS STARTING ₹499",
+  "🥖 100% ARTISANAL TAWA ROASTED ON IRON",
+  "🥟 10,000+ HAPPY PATRONS ACROSS INDIA",
+  "📞 CORPORATE GIFTING & BULK ENQUIRIES: hello@saihira.com",
+  "✨ PURE SATTVIK & JAIN OPTIONS AVAILABLE",
+  "🌾 19 HAND-ROLLED SIGNATURE RECIPES",
+];
 
 export function Ticker() {
   return (
-    <div className="overflow-hidden bg-primary py-2.5 text-[0.7rem] uppercase tracking-[0.25em] text-primary-foreground">
-      <div className="marquee flex w-max gap-10 whitespace-nowrap">
-        {[0, 1].flatMap((j) => tickerItems.map((t, i) => <span key={`${j}-${i}`}>{t} <span className="ml-10 opacity-50">—</span></span>))}
+    <div className="overflow-hidden bg-primary py-2.5 text-[0.68rem] font-medium uppercase tracking-[0.22em] text-primary-foreground border-b border-primary/20">
+      <div className="marquee flex w-max gap-8 whitespace-nowrap">
+        {[0, 1].flatMap((j) =>
+          tickerItems.map((t, i) => (
+            <span key={`${j}-${i}`} className="inline-flex items-center">
+              <span>{t}</span>
+              <span className="mx-6 text-accent font-bold">·</span>
+            </span>
+          ))
+        )}
       </div>
     </div>
   );
@@ -27,9 +40,17 @@ export function Ticker() {
 function CartLink() {
   const { count } = useCart();
   return (
-    <Link to="/cart" className="relative inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground">
+    <Link
+      to="/cart"
+      className="relative inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/90 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary shadow-sm transition-all hover:border-primary hover:text-accent"
+    >
+      <span className="font-serif">🛍</span>
       <span>Cart</span>
-      {count > 0 && <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[0.65rem] font-bold text-accent-foreground">{count}</span>}
+      {count > 0 && (
+        <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1.5 text-[0.65rem] font-bold text-accent-foreground shadow-sm">
+          {count}
+        </span>
+      )}
     </Link>
   );
 }
@@ -37,23 +58,86 @@ function CartLink() {
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 bg-background/95 backdrop-blur">
+    <header className="sticky top-0 z-40 bg-background/95 backdrop-blur-md border-b border-border/60">
       <Ticker />
-      <div className="mx-auto flex max-w-6xl items-center justify-between border-b border-border px-5 py-3">
-        <Link to="/"><img src={logo.url} alt="SHM Asal – Best in Taste" className="h-16 w-auto" /></Link>
-        <nav className="hidden gap-7 md:flex">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5">
+        {/* Brand Logo & Tagline (as seen in Bakelette design) */}
+        <Link to="/" className="flex items-center gap-3">
+          <img src={logo.url} alt="SAIHIRA Asal – Best in Taste" className="h-14 sm:h-16 w-auto" />
+          <div className="hidden sm:block text-left">
+            <span className="font-display text-xl font-bold tracking-tight text-primary block leading-none">
+              SAIHIRA
+            </span>
+            <span className="font-sans text-[0.68rem] text-muted-foreground uppercase tracking-wider block mt-1">
+              Best in Taste in every bite.
+            </span>
+          </div>
+        </Link>
+
+        {/* Center Nav Links */}
+        <nav className="hidden lg:flex items-center gap-7">
+          <Link
+            to="/"
+            className="nav-link"
+            activeOptions={{ exact: true }}
+            activeProps={{ className: "nav-link text-accent font-semibold" }}
+          >
+            Home
+          </Link>
           {nav.map((n) => (
-            <Link key={n.to} to={n.to} className="nav-link" activeOptions={{ exact: n.to === "/" }} activeProps={{ className: "nav-link text-primary font-semibold" }}>{n.label}</Link>
+            <Link
+              key={n.to}
+              to={n.to}
+              className="nav-link"
+              activeProps={{ className: "nav-link text-accent font-semibold" }}
+            >
+              {n.label}
+            </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
+
+        {/* Right Action Cluster */}
+        <div className="flex items-center gap-3 sm:gap-4">
+          <a
+            href="tel:+919876543210"
+            className="hidden xl:inline-block font-sans text-xs font-semibold tracking-wider text-muted-foreground hover:text-primary transition-colors"
+          >
+            +91 98765 43210
+          </a>
           <CartLink />
-          <button className="text-sm tracking-widest md:hidden" onClick={() => setOpen(!open)}>{open ? "CLOSE" : "MENU"}</button>
+          <Link
+            to="/products"
+            className="hidden sm:inline-flex items-center rounded-full bg-primary px-5 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground shadow-sm transition-all hover:bg-accent hover:text-accent-foreground active:scale-95"
+          >
+            Order Now
+          </Link>
+          <button
+            className="text-xs font-semibold tracking-widest uppercase md:hidden rounded-lg border border-border px-3 py-1.5"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? "CLOSE" : "MENU"}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Drawer */}
       {open && (
-        <div className="flex flex-col gap-3 border-b border-border p-6 md:hidden">
-          {nav.map((n) => <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="font-display text-xl">{n.label}</Link>)}
+        <div className="flex flex-col gap-3 border-t border-border bg-card p-6 md:hidden">
+          <Link to="/" onClick={() => setOpen(false)} className="font-display text-xl text-primary">
+            Home
+          </Link>
+          {nav.map((n) => (
+            <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="font-display text-xl text-primary">
+              {n.label}
+            </Link>
+          ))}
+          <Link
+            to="/products"
+            onClick={() => setOpen(false)}
+            className="btn-warm mt-2 justify-center"
+          >
+            Order Now
+          </Link>
         </div>
       )}
     </header>

@@ -64,7 +64,15 @@ const tastingMoments = [
 ];
 
 function Index() {
-  const featured = [
+  // Curated 4 featured signature snacks matching the reference layout
+  const signatureItems = [
+    products.find((p) => p.slug === "methi-khakhra")!,
+    products.find((p) => p.slug === "jeera-khakhra")!,
+    products.find((p) => p.slug === "jaggery-bhakhri")!,
+    products.find((p) => p.slug === "pani-puri-khakhra")!,
+  ];
+
+  const allFeatured = [
     "jeera-khakhra",
     "methi-khakhra",
     "pani-puri-khakhra",
@@ -78,137 +86,130 @@ function Index() {
   return (
     <>
       {/* ─────────────────────────────────────────────────────────────
-          PREMIUM EDITORIAL HERO SECTION WITH BACKGROUND IMAGE
+          1. HERO SECTION (Designed exactly like reference Image 1)
+          Full photographic backdrop, left-aligned, dashes eyebrow,
+          2-line majestic headline with gold script, 3 pill buttons,
+          and bottom scroll indicator.
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden border-b border-border/70 py-16 md:py-24 lg:py-32 min-h-[85vh] flex items-center">
-        {/* Full Hero Background Image */}
+      <section className="relative overflow-hidden min-h-[92vh] flex flex-col justify-between py-16 sm:py-24 border-b border-border/80">
+        {/* Full-Bleed Atmospheric Background Photography */}
         <img
           src={HERO_PLATTER}
-          alt="Artisanal Tawa Roasted Khakhra background"
-          className="absolute inset-0 h-full w-full object-cover object-right lg:object-center brightness-[0.92] filter"
+          alt="SAIHIRA Artisanal Gujarati Khakhra Platter"
+          className="absolute inset-0 h-full w-full object-cover object-center brightness-[0.72] filter"
         />
 
-        {/* Ambient Gradient Overlays for High-Contrast Luxury Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF6F0] via-[#FAF6F0]/95 sm:via-[#FAF6F0]/90 md:via-[#FAF6F0]/80 to-[#FAF6F0]/30 lg:to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF6F0] via-transparent to-[#FAF6F0]/60" />
-        <div className="pointer-events-none absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-accent/15 blur-3xl" />
+        {/* Deep Gourmet Vignette Scrim (Preserving our warm palette with high contrast) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/75 sm:via-black/60 to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/45" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_left,_var(--tw-gradient-stops))] from-accent/20 via-transparent to-transparent" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-12 lg:gap-14 w-full">
-          {/* Left Column: Editorial Storytelling */}
-          <Reveal className="lg:col-span-6 xl:col-span-7">
-            <div className="badge-luxury">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-              <span>Est. Gujarat · Handcrafted in Small Batches</span>
+        {/* Top Spacer for balance */}
+        <div className="hidden sm:block" />
+
+        {/* Main Content Area (Left-Aligned, exact typography structure from Image 1) */}
+        <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 my-auto">
+          <div className="max-w-2xl text-left text-white">
+            {/* Eyebrow with hairline dashes (as seen in Bakelette design) */}
+            <div className="flex items-center gap-3 text-amber-300">
+              <span className="h-px w-8 bg-amber-400/80" />
+              <span className="font-sans text-[0.72rem] sm:text-xs font-semibold uppercase tracking-[0.28em] text-amber-300">
+                ARTISANAL GUJARATI SNACKS. EST. 1994
+              </span>
             </div>
 
-            <h1 className="mt-6 font-display text-5xl font-medium tracking-tight text-primary sm:text-6xl md:text-7xl xl:text-[5rem] leading-[1.04]">
-              The Art of the{" "}
-              <em className="font-serif italic font-normal text-gradient block sm:inline">
-                Perfect Crunch.
-              </em>
+            {/* Headline: Line 1 white serif + Line 2 gold italic serif */}
+            <h1 className="mt-5 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-medium tracking-tight text-white leading-[1.05]">
+              Wholesome Crunch, <br />
+              <span className="font-serif italic font-normal text-amber-300 drop-shadow-sm">
+                Crafted with Devotion
+              </span>
             </h1>
 
-            <div className="mt-7 flex items-center gap-3">
-              <div className="h-px w-14 bg-accent/60" />
-              <div className="h-1.5 w-1.5 rotate-45 bg-accent" />
-              <div className="h-px w-8 bg-accent/30" />
-            </div>
-
-            <p className="mt-7 max-w-xl font-sans text-base sm:text-lg font-light leading-relaxed text-muted-foreground">
-              Paper-thin Khakhras and hearty Bhakhris, hand-rolled one by one and slow-roasted on seasoned iron tawas. Crisp, wholesome, and perfected across three decades of authentic Gujarati kitchen craft.
+            {/* Subtitle */}
+            <p className="mt-6 font-sans text-base sm:text-lg font-light leading-relaxed text-amber-100/90 max-w-xl">
+              Because Your Tea-Time Snacks Should Uplift You, Not Weigh You Down. Hand-rolled paper-thin and slow-roasted on seasoned iron tawas.
             </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <Link to="/products" className="btn-warm group">
-                <span>Explore The Collection</span>
-                <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            {/* Row of 3 Pill Action Buttons (matching Image 1) */}
+            <div className="mt-8 flex flex-wrap items-center gap-3.5 sm:gap-4">
+              {/* Button 1: Filled Accent Pill */}
+              <Link
+                to="/products"
+                className="inline-flex items-center justify-center rounded-full bg-accent px-7 sm:px-8 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-accent-foreground shadow-lg transition-all duration-300 hover:bg-amber-400 hover:scale-105 active:scale-95"
+              >
+                Shop Fresh Crunch
               </Link>
-              <Link to="/about" className="btn-ghost">
-                Our 30-Year Story
+
+              {/* Button 2: Outlined Glass Pill */}
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/10 px-7 sm:px-8 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:border-white hover:bg-white hover:text-primary active:scale-95"
+              >
+                Gift Hampers
               </Link>
-            </div>
 
-            {/* Heritage Metric Badges */}
-            <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-border/80 pt-7">
-              {[
-                ["19", "Signature Flavours", "Sweet, spicy & sattvik"],
-                ["0%", "Preservatives", "Zero palm oil, 100% baked"],
-                ["100%", "Tawa Roasted", "Hand-rolled daily"],
-              ].map(([stat, label, note]) => (
-                <div key={label} className="space-y-1">
-                  <dt className="font-display text-3xl sm:text-4xl font-medium text-primary">{stat}</dt>
-                  <dd className="font-sans text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent">
-                    {label}
-                  </dd>
-                  <p className="text-[0.68rem] text-muted-foreground hidden sm:block">{note}</p>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
-
-          {/* Right Column: Floating Luxury Composition */}
-          <div className="relative lg:col-span-6 xl:col-span-5">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Primary Showcase Card: Kasuri Methi on Tray */}
-              <div className="relative overflow-hidden rounded-2xl border-4 border-card/90 bg-card shadow-luxury">
-                <img
-                  src={METHI_TRAY}
-                  alt="Artisanal Kasuri Methi Khakhra stack on rich wooden tray"
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 hover:scale-105"
-                />
-                <div className="p-5 bg-card flex items-center justify-between">
-                  <div>
-                    <span className="font-display text-xl font-medium text-primary block">Kasuri Methi Khakhra</span>
-                    <span className="text-xs uppercase tracking-wider text-accent">Aromatic Fenugreek & Tawa Roast</span>
-                  </div>
-                  <span className="rounded-full bg-accent/15 px-3 py-1 font-sans text-xs font-semibold text-accent uppercase tracking-wider">
-                    Best Seller
-                  </span>
-                </div>
-              </div>
-
-              {/* Floating Chai Companion Pill Card */}
-              <div className="absolute -bottom-6 -left-6 z-20 flex items-center gap-3 rounded-2xl border-2 border-white/80 bg-card/95 p-3 shadow-luxury backdrop-blur-md transition-transform hover:-translate-y-1 sm:-bottom-8 sm:-left-8">
-                <img
-                  src={KHAKHRA_CHAI}
-                  alt="Tea pairing"
-                  className="h-16 w-16 rounded-xl object-cover"
-                />
-                <div className="pr-3">
-                  <span className="text-[0.65rem] font-bold uppercase tracking-wider text-accent block">Chai Ritual</span>
-                  <span className="font-display text-sm font-medium text-primary block leading-tight">Adrak Chai Companion</span>
-                  <span className="text-[0.65rem] text-muted-foreground">Crisp & non-greasy</span>
-                </div>
-              </div>
-
-              {/* Heritage Circular Seal Medallion with Float Animation */}
-              <div className="absolute -top-6 -right-3 z-20 flex h-28 w-28 flex-col items-center justify-center rounded-full border border-accent/40 bg-card/95 p-3 text-center shadow-deep backdrop-blur-md animate-float">
-                <span className="font-cinzel text-[0.65rem] font-semibold uppercase tracking-widest text-accent">
-                  Authentic
-                </span>
-                <span className="font-display text-2xl font-medium leading-none text-primary">Tawa</span>
-                <span className="mt-1 text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground">
-                  Slow Roasted
-                </span>
-              </div>
-
-              {/* Fresh Batch Pill Indicator with Pulse */}
-              <div className="absolute -top-4 left-6 z-20 hidden items-center gap-2.5 rounded-full border border-border/80 bg-card/95 px-4 py-2 text-xs font-medium text-primary shadow-deep backdrop-blur-md sm:flex">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-                </span>
-                <span>Fresh Batches Rolled Daily</span>
-              </div>
+              {/* Button 3: Outlined Pill with Festive Emoji */}
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-amber-300/40 bg-black/40 px-6 sm:px-7 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-amber-200 backdrop-blur-md transition-all duration-300 hover:border-amber-300 hover:text-white active:scale-95"
+              >
+                <span>🪔</span>
+                <span>Festive 2026</span>
+              </Link>
             </div>
           </div>
+        </div>
+
+        {/* Bottom Centered Scroll Indicator (matching Image 1) */}
+        <div className="relative text-center pb-2 text-white/70">
+          <a
+            href="#signature-collection"
+            className="inline-flex flex-col items-center gap-1 font-sans text-[0.68rem] uppercase tracking-[0.3em] transition-colors hover:text-amber-300"
+          >
+            <span>SCROLL</span>
+            <span className="text-sm animate-bounce">↓</span>
+          </a>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          2. SIGNATURE PRODUCT SECTION (Designed exactly like reference Image 2)
+          4-column grid with image badges, quick view pill, title,
+          poetic italic subtitle, price, grams, (- 1 +) pill, and Buy Now / Add to Cart.
+          ───────────────────────────────────────────────────────────── */}
+      <section id="signature-collection" className="mx-auto max-w-7xl px-6 py-20 sm:py-24">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div>
+            <span className="eyebrow">Signature Bakes & Crunches</span>
+            <h2 className="mt-3 font-display text-4xl sm:text-5xl font-medium text-primary">
+              Our Most Loved Varieties
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground max-w-xl">
+              Slow-roasted on cast-iron tawas for clean, oil-light crunch. Pick your tea-time favorites or build a bespoke gift hamper.
+            </p>
+          </div>
+          <Link
+            to="/products"
+            className="nav-link inline-flex items-center gap-1.5 text-accent font-semibold hover:text-primary"
+          >
+            <span>View All 19 Flavours</span>
+            <span>→</span>
+          </Link>
+        </div>
+
+        {/* 4-Card Grid (Exact Layout from Image 2) */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {signatureItems.map((p) => (
+            <ProductCard key={p.slug} p={p} />
+          ))}
         </div>
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
           SHOP BY CATEGORY (Khakhras vs Bhakhris)
           ───────────────────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 py-16 border-t border-border/70">
         <div className="text-center">
           <span className="eyebrow">Handcrafted Varieties</span>
           <h2 className="mt-3 font-display text-4xl sm:text-5xl font-medium text-primary">
@@ -228,9 +229,9 @@ function Index() {
                 key={c}
                 to="/products"
                 search={{ c }}
-                className="group relative overflow-hidden rounded-xl border border-border bg-card p-8 pt-10 text-center shadow-deep transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 pt-10 text-center shadow-deep transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
               >
-                <div className="mx-auto h-64 overflow-hidden rounded-lg bg-secondary/30 p-4 transition-transform duration-500 group-hover:scale-105">
+                <div className="mx-auto h-64 overflow-hidden rounded-xl bg-secondary/30 p-4 transition-transform duration-500 group-hover:scale-105">
                   <img src={p.image} alt={c} className="h-full w-full object-contain" />
                 </div>
                 <div className="mt-6 flex items-center justify-center gap-2">
@@ -272,7 +273,7 @@ function Index() {
             {tastingMoments.map((m) => (
               <div
                 key={m.title}
-                className="group overflow-hidden rounded-xl border border-border/90 bg-card shadow-deep transition-all duration-300 hover:-translate-y-1.5 hover:shadow-luxury"
+                className="group overflow-hidden rounded-2xl border border-border/90 bg-card shadow-deep transition-all duration-300 hover:-translate-y-1.5 hover:shadow-luxury"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
                   <img
@@ -308,7 +309,7 @@ function Index() {
           {why.map(([t, d]) => (
             <div
               key={t}
-              className="rounded-xl border border-border/80 bg-card p-8 text-center shadow-sm transition-all duration-300 hover:border-accent/40 hover:shadow-deep"
+              className="rounded-2xl border border-border/80 bg-card p-8 text-center shadow-sm transition-all duration-300 hover:border-accent/40 hover:shadow-deep"
             >
               <div className="mx-auto mb-5 h-px w-10 bg-accent" />
               <h3 className="font-display text-xl font-medium text-primary">{t}</h3>
@@ -319,15 +320,15 @@ function Index() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          FEATURED PRODUCTS: PICK YOUR CRUNCH
+          MORE FAVOURITES: FULL COLLECTION TEASER
           ───────────────────────────────────────────────────────────── */}
       <section className="border-t border-border/80 bg-secondary/30 py-20">
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-end justify-between">
             <div>
-              <span className="eyebrow">Curated Favourites</span>
+              <span className="eyebrow">Explore The Pantry</span>
               <h2 className="mt-3 font-display text-4xl sm:text-5xl font-medium text-primary">
-                Pick Your Crunch
+                More Hand-Rolled Flavours
               </h2>
             </div>
             <Link to="/products" className="nav-link hidden items-center gap-1.5 md:flex">
@@ -336,14 +337,9 @@ function Index() {
             </Link>
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {featured.map((s) => (
+            {allFeatured.map((s) => (
               <ProductCard key={s} p={products.find((p) => p.slug === s)!} />
             ))}
-          </div>
-          <div className="mt-10 text-center md:hidden">
-            <Link to="/products" className="btn-warm">
-              View All 19 Flavours
-            </Link>
           </div>
         </div>
       </section>
@@ -446,7 +442,7 @@ function Index() {
           {reviews.map(([q, a]) => (
             <figure
               key={a}
-              className="relative rounded-xl border border-border/80 bg-card p-8 pt-10 text-center shadow-sm transition-all duration-300 hover:border-accent/40 hover:shadow-deep"
+              className="relative rounded-2xl border border-border/80 bg-card p-8 pt-10 text-center shadow-sm transition-all duration-300 hover:border-accent/40 hover:shadow-deep"
             >
               <span className="font-serif text-5xl text-accent/30 absolute top-3 left-6">“</span>
               <blockquote className="relative font-display text-lg italic leading-relaxed text-primary">
