@@ -98,65 +98,132 @@ function Index() {
   return (
     <>
       {/* ─────────────────────────────────────────────────────────────
-          1. HERO SECTION (Designed with light warm luxury overlay)
-          Natural photography, light cream gradient scrim, left-aligned,
-          dashes eyebrow, 2-line majestic headline with gold script,
-          2 pill buttons, and bottom scroll indicator.
+          1. HERO SECTION (Lighter Form with Foreground Editorial Images)
+          Pure light ivory background, left-aligned typography,
+          single primary pill button, and multi-image editorial showcase.
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden min-h-[90vh] flex flex-col justify-between py-16 sm:py-24 border-b border-border/80">
-        {/* Full-Bleed Atmospheric Background Photography */}
-        <img
-          src={HERO_PLATTER}
-          alt="SAIHIRA Artisanal Gujarati Khakhra Platter"
-          className="absolute inset-0 h-full w-full object-cover object-center brightness-[0.98] filter"
-        />
-
-        {/* Lighter Warm Gourmet Scrim (Soft ivory/cream gradient for high readability & appetizing brightness) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF6F0]/98 via-[#FAF6F0]/92 sm:via-[#FAF6F0]/84 md:to-[#FAF6F0]/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF6F0]/95 via-transparent to-transparent" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_left,_var(--tw-gradient-stops))] from-accent/15 via-transparent to-transparent" />
+      <section className="relative overflow-hidden min-h-[88vh] flex flex-col justify-between bg-[#FCFAF7] py-12 sm:py-16 md:py-20 border-b border-border/80">
+        {/* Soft Ambient Radial Glows for Luminous Warmth */}
+        <div className="pointer-events-none absolute top-0 left-1/4 h-[500px] w-[500px] rounded-full bg-amber-100/40 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 right-10 h-[450px] w-[450px] rounded-full bg-accent/10 blur-3xl" />
 
         {/* Top Spacer for balance */}
         <div className="hidden sm:block" />
 
-        {/* Main Content Area (Left-Aligned, clean typography on light warm background) */}
+        {/* Main Content Grid: Typography (Left) + Editorial Image Showcase (Right) */}
         <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 my-auto">
-          <div className="max-w-2xl text-left">
-            {/* Eyebrow with hairline dashes */}
-            <div className="flex items-center gap-3 text-accent">
-              <span className="h-px w-8 bg-accent/80" />
-              <span className="font-sans text-[0.72rem] sm:text-xs font-bold uppercase tracking-[0.26em] text-accent">
-                AUTHENTIC GUJARATI RECIPES · SLOW ROASTED ON IRON TAWAS
-              </span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-10 lg:gap-14">
+            {/* Left Column: Brand Typography & Primary CTA */}
+            <div className="lg:col-span-7 text-left">
+              {/* Eyebrow with hairline dashes */}
+              <div className="flex items-center gap-3 text-accent">
+                <span className="h-px w-8 bg-accent/80" />
+                <span className="font-sans text-[0.72rem] sm:text-xs font-bold uppercase tracking-[0.26em] text-accent">
+                  AUTHENTIC GUJARATI RECIPES · SLOW ROASTED ON IRON TAWAS
+                </span>
+              </div>
+
+              {/* Headline: Line 1 dark espresso serif + Line 2 warm gold italic serif */}
+              <h1 className="mt-5 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-medium tracking-tight text-primary leading-[1.05]">
+                Asal Gujarati Khakhra, <br />
+                <span className="font-serif italic font-normal text-accent">
+                  Tawa-Roasted to Crisp Perfection
+                </span>
+              </h1>
+
+              {/* Subtitle */}
+              <p className="mt-6 font-sans text-base sm:text-lg font-normal leading-relaxed text-[#544237] max-w-xl">
+                Gossamer-thin, non-greasy, and bursting with roasted cumin, fresh kasuri methi, and stone-ground grains. 19 authentic Kathiawadi recipes, vacuum-sealed for your daily chai.
+              </p>
+
+              {/* Primary Action Button */}
+              <div className="mt-8 flex flex-wrap items-center gap-6">
+                <Link
+                  to="/products"
+                  className="inline-flex items-center justify-center rounded-full bg-primary px-8 sm:px-9 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary-foreground shadow-md transition-all duration-300 hover:bg-accent hover:shadow-lg hover:scale-105 active:scale-95"
+                >
+                  Shop Fresh Crunch
+                </Link>
+
+                <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                  <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse" />
+                  <span>Fresh Batches Dispatched Daily</span>
+                </div>
+              </div>
+
+              {/* Micro Trust Strip */}
+              <div className="mt-10 pt-6 border-t border-border/60 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-muted-foreground font-sans">
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="text-accent font-bold">✓</span> 100% Cast-Iron Roasted
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="text-accent font-bold">✓</span> Zero Palm Oil
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="text-accent font-bold">✓</span> Pure Jain & Sattvik Options
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="text-accent font-bold">✓</span> Free Delivery Above ₹499
+                </span>
+              </div>
             </div>
 
-            {/* Headline: Line 1 dark espresso serif + Line 2 warm gold italic serif */}
-            <h1 className="mt-5 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-medium tracking-tight text-primary leading-[1.05]">
-              Asal Gujarati Khakhra, <br />
-              <span className="font-serif italic font-normal text-accent">
-                Tawa-Roasted to Crisp Perfection
-              </span>
-            </h1>
+            {/* Right Column: Editorial Food Images Showcase (in Lighter Form) */}
+            <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-md sm:max-w-lg lg:max-w-none">
+                {/* Main Hero Image: Golden Roasted Khakhra Platter */}
+                <div className="relative overflow-hidden rounded-3xl border-4 border-card/90 shadow-luxury bg-secondary aspect-[4/3] sm:aspect-[14/11] transition-transform duration-500 hover:scale-[1.02]">
+                  <img
+                    src={HERO_PLATTER}
+                    alt="Authentic golden roasted Gujarati khakhras on platter"
+                    className="h-full w-full object-cover object-center"
+                  />
+                  {/* Subtle Image Tag */}
+                  <div className="absolute top-3 left-3 rounded-full bg-card/90 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-accent shadow-xs backdrop-blur-sm">
+                    Signature Platter
+                  </div>
+                </div>
 
-            {/* Subtitle */}
-            <p className="mt-6 font-sans text-base sm:text-lg font-normal leading-relaxed text-[#544237] max-w-xl">
-              Gossamer-thin, non-greasy, and bursting with roasted cumin, fresh kasuri methi, and stone-ground grains. 19 authentic Kathiawadi recipes, vacuum-sealed for your daily chai.
-            </p>
+                {/* Overlapping Secondary Image: Morning Chai & Stack */}
+                <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8 w-44 sm:w-56 overflow-hidden rounded-2xl border-4 border-card shadow-luxury bg-card transition-transform duration-500 hover:scale-105">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={KHAKHRA_CHAI}
+                      alt="Crisp khakhra stack with hot tea"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className="p-2.5 text-center bg-card">
+                    <span className="font-display text-xs sm:text-sm font-semibold text-primary block">
+                      The Daily Chai Ritual
+                    </span>
+                    <span className="font-sans text-[0.62rem] text-accent uppercase tracking-wider font-medium">
+                      Wafer-Thin & Crisp
+                    </span>
+                  </div>
+                </div>
 
-            {/* Primary Action Button */}
-            <div className="mt-8 flex items-center">
-              <Link
-                to="/products"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-8 sm:px-9 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary-foreground shadow-md transition-all duration-300 hover:bg-accent hover:shadow-lg hover:scale-105 active:scale-95"
-              >
-                Shop Fresh Crunch
-              </Link>
+                {/* Floating Artisan Seal Badge */}
+                <div className="absolute -top-4 -right-4 sm:-top-5 sm:-right-5 flex h-20 w-20 sm:h-22 sm:w-22 items-center justify-center rounded-full border border-accent/40 bg-[#FCFAF7] p-2 text-center shadow-deep animate-float">
+                  <div className="flex flex-col items-center">
+                    <span className="font-serif text-sm sm:text-base font-bold text-accent leading-none">
+                      100%
+                    </span>
+                    <span className="font-sans text-[0.58rem] font-bold uppercase tracking-wider text-primary mt-0.5 leading-tight">
+                      Iron Tawa
+                    </span>
+                    <span className="font-sans text-[0.52rem] text-muted-foreground uppercase tracking-widest">
+                      Roasted
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Centered Scroll Indicator */}
-        <div className="relative text-center pb-2 text-primary/70">
+        <div className="relative text-center pt-8 pb-2 text-primary/60">
           <a
             href="#signature-collection"
             className="inline-flex flex-col items-center gap-1 font-sans text-[0.68rem] uppercase tracking-[0.3em] transition-colors hover:text-accent"
