@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site";
 import { ProductCard } from "@/components/ProductCard";
-import { FloatingChilli3D } from "@/components/FloatingChilli3D";
 import { products } from "@/lib/products";
 
 // All 5 local editorial assets from the repository assets folder (watermark-free)
@@ -120,8 +119,8 @@ function Index() {
         {/* Top Spacer for balance */}
         <div className="hidden sm:block" />
 
-        {/* Main Content Area (Left-Aligned typography + Right-Side 3D Floating Chilli) */}
-        <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 my-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+        {/* Main Content Area (Left-Aligned, clean typography on light warm background) */}
+        <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 my-auto">
           <div className="max-w-2xl text-left">
             {/* Eyebrow with hairline dashes */}
             <div className="flex items-center gap-3 text-accent">
@@ -162,11 +161,6 @@ function Index() {
                 Gift Hampers
               </Link>
             </div>
-          </div>
-
-          {/* Realistic 3D Floating Green Chilli with Interactive Mouse Parallax */}
-          <div className="flex items-center justify-center shrink-0 py-4 lg:py-0 lg:pr-6 xl:pr-14">
-            <FloatingChilli3D className="animate-in fade-in zoom-in-95 duration-1000" />
           </div>
         </div>
 
