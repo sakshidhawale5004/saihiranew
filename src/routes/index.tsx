@@ -23,23 +23,35 @@ export const Route = createFileRoute("/")({
 });
 
 const why = [
-  ["Hand-Rolled & Tawa Roasted", "Every piece is rolled thin and slow-roasted on hot iron tawas in small artisan batches."],
-  ["Baked Wholesomeness", "Light on cold-pressed oil, huge on crunch — a wholesome daily snack you can feel proud about."],
-  ["Traditional Grains", "Stone-ground whole wheat, bajri, ragi, barley, oats and moong for authentic nutrition."],
-  ["Pure & Sattvik Heritage", "Authentic Jain options without onion and garlic, plus farali snacks for fasting periods."],
+  ["Cast-Iron Tawa Roast", "Slowly toasted on seasoned iron tawas with traditional wooden presses. Never fried, crisp without greasy residue."],
+  ["Stone-Ground Flours", "Pure whole wheat, bajri, ragi, barley, oats, and moong ground in small artisan batches every morning."],
+  ["Cold-Pressed Oil Only", "Tempered lightly with cold-pressed sesame and groundnut oil. 100% free from palm oil and artificial preservatives."],
+  ["Authentic Jain & Sattvik", "Dedicated options prepared without onion, garlic, or root vegetables, plus vrat-friendly farali crisps."],
 ];
 
 const steps = [
-  ["01", "Fresh Artisanal Dough", "Stone-ground flour, fragrant spices and cold-pressed oil kneaded fresh every morning."],
-  ["02", "Hand-Rolled Paper Thin", "Khakhras rolled exquisitely thin; hearty Bhakhris pressed and pricked by hand."],
-  ["03", "Slow Cast-Iron Roast", "Evenly pressed on seasoned iron tawas until golden brown, fragrant and crisp."],
-  ["04", "Vacuum-Sealed Fresh", "Sealed immediately in protective packaging to lock in crispness for months."],
+  ["01", "Daily Stone-Ground Dough", "Whole grains milled fine, spiced with hand-roasted jeera, kasuri methi, and sea salt."],
+  ["02", "Hand-Rolled Gossamer Thin", "Artisan women roll each disc paper-thin on traditional round wooden patlas."],
+  ["03", "Even Wooden Block Press", "Pressed steadily on hot iron tawas using wooden 'dhabus' for delicate, uniform blisters."],
+  ["04", "Vacuum-Sealed Freshness", "Sealed within minutes of cooling into multi-layer packs that keep crunch intact for months."],
 ];
 
 const reviews = [
-  ["The Kasuri Methi khakhra tastes exactly like grandma's kitchen in Rajkot. Evening chai is an elevated ritual now!", "Priya Shah, Mumbai"],
-  ["Jaggery bhakhri has replaced biscuits in my kids' school tiffin. Wholesome, crunchy, and zero guilt.", "Neha Kulkarni, Pune"],
-  ["Incredible crispness, non-oily and aromatic. Ordered 20 gift hampers for Diwali and guests couldn't stop praising it.", "Rajesh Patel, Ahmedabad"],
+  [
+    "The Methi and Jeera khakhras taste just like the ones from Saurashtra. Super thin, perfectly roasted on iron tawa, and not greasy at all. Our whole family loves them with morning ginger chai.",
+    "Hetal Parekh",
+    "Verified Patron · Mumbai"
+  ],
+  [
+    "Ordered 35 custom gift hampers for our office Diwali gifting in Bangalore. Every single box arrived intact, vacuum-sealed, and fresh. The Jaggery Bhakhri was an instant favourite.",
+    "Kavita & Anand S.",
+    "Corporate Client · Bengaluru"
+  ],
+  [
+    "I was skeptical ordering snacks online, but the crunch is incredible. Crisp, aromatic, zero palm oil aftertaste. Highly recommend the Pani Puri and Bajri Methi.",
+    "Dr. Rajesh Vora",
+    "Verified Patron · Ahmedabad"
+  ],
 ];
 
 const tastingMoments = [
@@ -113,22 +125,22 @@ function Index() {
             {/* Eyebrow with hairline dashes */}
             <div className="flex items-center gap-3 text-accent">
               <span className="h-px w-8 bg-accent/80" />
-              <span className="font-sans text-[0.72rem] sm:text-xs font-bold uppercase tracking-[0.28em] text-accent">
-                ARTISANAL GUJARATI SNACKS · EST. 1994
+              <span className="font-sans text-[0.72rem] sm:text-xs font-bold uppercase tracking-[0.26em] text-accent">
+                HAND-ROLLED IN RAJKOT · SLOW ROASTED ON IRON TAWAS
               </span>
             </div>
 
             {/* Headline: Line 1 dark espresso serif + Line 2 warm gold italic serif */}
             <h1 className="mt-5 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-medium tracking-tight text-primary leading-[1.05]">
-              Wholesome Crunch, <br />
+              Asal Gujarati Khakhra, <br />
               <span className="font-serif italic font-normal text-accent">
-                Crafted with Devotion
+                Tawa-Roasted to Crisp Perfection
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="mt-6 font-sans text-base sm:text-lg font-normal leading-relaxed text-[#544237] max-w-xl">
-              Because Your Tea-Time Snacks Should Uplift You, Not Weigh You Down. Hand-rolled paper-thin and slow-roasted on seasoned iron tawas.
+              Gossamer-thin, non-greasy, and bursting with roasted cumin, fresh kasuri methi, and stone-ground grains. 19 authentic Kathiawadi recipes, vacuum-sealed for your daily chai.
             </p>
 
             {/* Row of 2 Pill Action Buttons (matching user reference) */}
@@ -161,6 +173,53 @@ function Index() {
             <span>SCROLL</span>
             <span className="text-sm animate-bounce">↓</span>
           </a>
+        </div>
+      </section>
+
+      {/* ──────────────── Brand Trust & Culinary Purity Bar ──────────────── */}
+      <section className="border-b border-border/70 bg-[#FBF7F0] py-6 sm:py-7">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 items-center text-left">
+            <div className="flex items-center gap-3.5">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent font-display text-lg font-bold">
+                01
+              </span>
+              <div>
+                <h4 className="font-display text-base font-semibold text-primary leading-tight">Cast-Iron Roasted</h4>
+                <p className="font-sans text-xs text-muted-foreground mt-0.5">Slow tawa heat, never fried</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3.5">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent font-display text-lg font-bold">
+                02
+              </span>
+              <div>
+                <h4 className="font-display text-base font-semibold text-primary leading-tight">Stone-Ground Grains</h4>
+                <p className="font-sans text-xs text-muted-foreground mt-0.5">Whole wheat, bajri & ragi</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3.5">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent font-display text-lg font-bold">
+                03
+              </span>
+              <div>
+                <h4 className="font-display text-base font-semibold text-primary leading-tight">Sattvik & Jain Friendly</h4>
+                <p className="font-sans text-xs text-muted-foreground mt-0.5">Pure no onion, no garlic recipes</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3.5">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent font-display text-lg font-bold">
+                04
+              </span>
+              <div>
+                <h4 className="font-display text-base font-semibold text-primary leading-tight">Vacuum-Sealed Crunch</h4>
+                <p className="font-sans text-xs text-muted-foreground mt-0.5">Multi-layer freshness barrier</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -291,18 +350,23 @@ function Index() {
           ───────────────────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="text-center">
-          <span className="eyebrow">Why SAIHIRA</span>
+          <span className="eyebrow">The Kathiawadi Heritage</span>
           <h2 className="mt-3 font-display text-4xl sm:text-5xl font-medium text-primary">
-            Goodness in Every Bite
+            The Craft Behind Every Crunch
           </h2>
+          <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
+            Roasted by hand using seasoned iron tawas and traditional wooden presses in Rajkot, Gujarat.
+          </p>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {why.map(([t, d]) => (
+          {why.map(([t, d], idx) => (
             <div
               key={t}
-              className="rounded-2xl border border-border/80 bg-card p-8 text-center shadow-sm transition-all duration-300 hover:border-accent/40 hover:shadow-deep"
+              className="rounded-2xl border border-border/80 bg-card p-7 text-left shadow-sm transition-all duration-300 hover:border-accent/40 hover:shadow-deep"
             >
-              <div className="mx-auto mb-5 h-px w-10 bg-accent" />
+              <span className="font-sans text-xs font-semibold uppercase tracking-widest text-accent mb-3 block">
+                Pillar 0{idx + 1}
+              </span>
               <h3 className="font-display text-xl font-medium text-primary">{t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{d}</p>
             </div>
@@ -428,19 +492,35 @@ function Index() {
           <h2 className="mt-3 font-display text-4xl sm:text-5xl font-medium text-primary">
             What Our Patrons Say
           </h2>
+          <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
+            Trusted by tea lovers, busy families, and corporate gift givers nationwide.
+          </p>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {reviews.map(([q, a]) => (
+          {reviews.map(([q, a, loc]) => (
             <figure
               key={a}
-              className="relative rounded-2xl border border-border/80 bg-card p-8 pt-10 text-center shadow-sm transition-all duration-300 hover:border-accent/40 hover:shadow-deep"
+              className="relative flex flex-col justify-between rounded-2xl border border-border/80 bg-card p-7 sm:p-8 text-left shadow-sm transition-all duration-300 hover:border-accent/40 hover:shadow-deep"
             >
-              <span className="font-serif text-5xl text-accent/30 absolute top-3 left-6">“</span>
-              <blockquote className="relative font-display text-lg italic leading-relaxed text-primary">
-                “{q}”
-              </blockquote>
-              <figcaption className="mt-6 font-sans text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                — {a}
+              <div>
+                <div className="flex items-center gap-1 text-amber-500 mb-4 text-sm">
+                  {"★".repeat(5)}
+                </div>
+                <blockquote className="font-sans text-sm sm:text-base leading-relaxed text-[#4A3B32]">
+                  “{q}”
+                </blockquote>
+              </div>
+              <figcaption className="mt-6 pt-4 border-t border-border/60 flex items-center justify-between">
+                <div>
+                  <div className="font-display text-base font-semibold text-primary">{a}</div>
+                  <div className="font-sans text-xs text-muted-foreground">{loc}</div>
+                </div>
+                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 text-[0.62rem] font-semibold text-emerald-800">
+                  <svg className="h-3 w-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Verified
+                </span>
               </figcaption>
             </figure>
           ))}

@@ -3,23 +3,31 @@ import logoSrc from "@/assets/logo-hd.png";
 
 export function Preloader() {
   const [loading, setLoading] = useState(true);
-  const [progress, setProgress] = useState(15);
+  const [progress, setProgress] = useState(30);
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    // Increment progress smoothly
-    const t1 = setTimeout(() => setProgress(45), 150);
-    const t2 = setTimeout(() => setProgress(85), 400);
-    const t3 = setTimeout(() => setProgress(100), 750);
-    const t4 = setTimeout(() => setLoading(false), 950);
-    const t5 = setTimeout(() => setHidden(true), 1550); // unmount after fade
+    // Only show once per session to avoid annoying returning users
+    if (typeof window !== "undefined" && window.sessionStorage.getItem("saihira_loaded")) {
+      setHidden(true);
+      return;
+    }
+
+    const t1 = setTimeout(() => setProgress(70), 100);
+    const t2 = setTimeout(() => setProgress(100), 280);
+    const t3 = setTimeout(() => {
+      setLoading(false);
+      if (typeof window !== "undefined") {
+        window.sessionStorage.setItem("saihira_loaded", "1");
+      }
+    }, 450);
+    const t4 = setTimeout(() => setHidden(true), 900);
 
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
       clearTimeout(t3);
       clearTimeout(t4);
-      clearTimeout(t5);
     };
   }, []);
 

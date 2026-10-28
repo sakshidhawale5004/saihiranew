@@ -7,17 +7,17 @@ import { useCart } from "@/lib/cart";
 const nav = [
   { to: "/products", label: "Our Snacks" },
   { to: "/about", label: "Our Story" },
-  { to: "/contact", label: "Gifting & Bulk" },
   { to: "/faq", label: "FAQ" },
+  { to: "/contact", label: "Contact" },
 ] as const;
 
 const tickerItems = [
-  "🪔 FESTIVE & DIWALI HAMPERS STARTING ₹499",
-  "🥖 100% ARTISANAL TAWA ROASTED ON IRON",
-  "🥟 10,000+ HAPPY PATRONS ACROSS INDIA",
-  "📞 CORPORATE GIFTING & BULK ENQUIRIES: hello@saihira.com",
-  "✨ PURE SATTVIK & JAIN OPTIONS AVAILABLE",
-  "🌾 19 HAND-ROLLED SIGNATURE RECIPES",
+  "AUTHENTIC GUJARATI KHAKHRA & BHAKHRI · ESTD. RAJKOT",
+  "100% SLOW-ROASTED ON IRON TAWAS · ZERO PALM OIL",
+  "19 ARTISANAL RECIPES · VEGETARIAN & JAIN OPTIONS",
+  "COMPLIMENTARY SHIPPING ON ORDERS OVER ₹499",
+  "CUSTOM FESTIVE & CORPORATE GIFT HAMPERS · CALL +91 98765 43210",
+  "FRESH BATCHES ROASTED DAILY & VACUUM SEALED",
 ];
 
 export function Ticker() {
@@ -28,7 +28,7 @@ export function Ticker() {
           tickerItems.map((t, i) => (
             <span key={`${j}-${i}`} className="inline-flex items-center">
               <span>{t}</span>
-              <span className="mx-6 text-accent font-bold">·</span>
+              <span className="mx-6 text-accent font-bold">✦</span>
             </span>
           ))
         )}

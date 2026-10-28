@@ -48,28 +48,28 @@ export function SprinklesCursor() {
     window.addEventListener("resize", onResize);
 
     const particles: Particle[] = [];
-    const MAX_PARTICLES = 65;
+    const MAX_PARTICLES = 28;
 
     let mouseX = -100;
     let mouseY = -100;
     let lastSpawn = 0;
 
     const createParticle = (x: number, y: number, isBurst = false): Particle => {
-      const angle = isBurst ? Math.random() * Math.PI * 2 : Math.random() * Math.PI * 2;
-      const speed = isBurst ? 1.5 + Math.random() * 3.5 : 0.4 + Math.random() * 1.6;
+      const angle = Math.random() * Math.PI * 2;
+      const speed = isBurst ? 0.8 + Math.random() * 1.8 : 0.2 + Math.random() * 0.8;
       const shapes: Array<"circle" | "sparkle" | "seed"> = ["circle", "sparkle", "seed"];
 
       return {
-        x: x + (Math.random() - 0.5) * 8,
-        y: y + (Math.random() - 0.5) * 8,
+        x: x + (Math.random() - 0.5) * 4,
+        y: y + (Math.random() - 0.5) * 4,
         vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed + 0.3, // slight gravity
-        size: isBurst ? 2 + Math.random() * 3.5 : 1.5 + Math.random() * 2.5,
+        vy: Math.sin(angle) * speed + 0.15,
+        size: isBurst ? 1.2 + Math.random() * 1.6 : 0.8 + Math.random() * 1.4,
         color: COLORS[Math.floor(Math.random() * COLORS.length)],
-        alpha: 1,
-        decay: 0.015 + Math.random() * 0.02,
+        alpha: 0.75,
+        decay: 0.025 + Math.random() * 0.03,
         rotation: Math.random() * Math.PI * 2,
-        vRot: (Math.random() - 0.5) * 0.15,
+        vRot: (Math.random() - 0.5) * 0.08,
         shape: shapes[Math.floor(Math.random() * shapes.length)],
       };
     };
@@ -78,21 +78,18 @@ export function SprinklesCursor() {
       mouseX = e.clientX;
       mouseY = e.clientY;
       const now = performance.now();
-      if (now - lastSpawn > 28) {
+      if (now - lastSpawn > 45) {
         lastSpawn = now;
         if (particles.length < MAX_PARTICLES) {
           particles.push(createParticle(mouseX, mouseY));
-          if (Math.random() > 0.5 && particles.length < MAX_PARTICLES) {
-            particles.push(createParticle(mouseX, mouseY));
-          }
         }
       }
     };
 
     const onMouseDown = (e: MouseEvent) => {
-      // Burst of sparkles on click
-      for (let i = 0; i < 10; i++) {
-        if (particles.length < MAX_PARTICLES + 20) {
+      // Subtle sparkle hint on click
+      for (let i = 0; i < 5; i++) {
+        if (particles.length < MAX_PARTICLES + 8) {
           particles.push(createParticle(e.clientX, e.clientY, true));
         }
       }
