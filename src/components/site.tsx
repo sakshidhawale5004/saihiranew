@@ -63,23 +63,38 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-border bg-secondary">
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-4">
-        <div className="md:col-span-2">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 md:grid-cols-5">
+        <div className="sm:col-span-2">
           <img src={logo.url} alt="SHM Asal" className="h-20 w-auto" />
-          <p className="mt-4 max-w-xs text-sm text-muted-foreground">Handmade Bhakhris & Khakhras, roasted slowly and made with love by SAIHIRA.</p>
+          <p className="mt-4 max-w-xs text-sm text-muted-foreground">
+            Authentic handmade Bhakhris & Khakhras, roasted slowly on cast-iron tawas and made with love by SAIHIRA.
+          </p>
+          <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-3 py-1 text-xs text-accent">
+            <span>✨ 100% Preservative Free</span>
+          </div>
         </div>
-        <div className="flex flex-col gap-2 text-sm">
+        <div className="flex flex-col gap-2.5 text-sm">
           <span className="eyebrow">Explore</span>
-          {nav.map((n) => <Link key={n.to} to={n.to} className="hover:text-primary">{n.label}</Link>)}
-          <Link to="/cart" className="hover:text-primary">Cart</Link>
+          {nav.map((n) => <Link key={n.to} to={n.to} className="transition-colors hover:text-primary">{n.label}</Link>)}
+          <Link to="/cart" className="transition-colors hover:text-primary">Cart</Link>
+        </div>
+        <div className="flex flex-col gap-2.5 text-sm">
+          <span className="eyebrow">Customer Care</span>
+          <Link to="/return-policy" className="transition-colors hover:text-primary">Return Policy</Link>
+          <Link to="/terms" className="transition-colors hover:text-primary">Terms & Conditions</Link>
+          <Link to="/privacy" className="transition-colors hover:text-primary">Privacy Policy</Link>
+          <Link to="/faq" className="transition-colors hover:text-primary">FAQ & Support</Link>
         </div>
         <div className="text-sm text-muted-foreground">
           <span className="eyebrow">Say hello</span>
-          <p className="mt-2">hello@saihira.com</p>
-          <p>Mumbai, India</p>
+          <p className="mt-2 font-medium text-primary">hello@saihira.com</p>
+          <p className="mt-1">Mumbai, Maharashtra, India</p>
+          <p className="mt-3 text-xs text-muted-foreground">Pan-India Express Shipping Available</p>
         </div>
       </div>
-      <p className="pb-8 text-center text-xs text-muted-foreground">© {new Date().getFullYear()} SAIHIRA · SHM Asal. Best in Taste.</p>
+      <div className="border-t border-border/60 py-6 text-center text-xs text-muted-foreground">
+        © {new Date().getFullYear()} SAIHIRA · SHM Asal. Best in Taste. All rights reserved.
+      </div>
     </footer>
   );
 }

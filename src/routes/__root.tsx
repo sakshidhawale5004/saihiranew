@@ -15,6 +15,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Footer, Header } from "@/components/site";
 import { CartProvider } from "@/lib/cart";
 import { Toaster } from "sonner";
+import { SprinklesCursor } from "@/components/SprinklesCursor";
+import { Preloader } from "@/components/Preloader";
 
 function NotFoundComponent() {
   return (
@@ -93,6 +95,8 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <CartProvider>
+        <Preloader />
+        <SprinklesCursor />
         <Header />
         <main>
           <Outlet />

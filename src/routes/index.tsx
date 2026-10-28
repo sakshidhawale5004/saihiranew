@@ -78,16 +78,24 @@ function Index() {
   return (
     <>
       {/* ─────────────────────────────────────────────────────────────
-          PREMIUM EDITORIAL HERO SECTION
+          PREMIUM EDITORIAL HERO SECTION WITH BACKGROUND IMAGE
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden border-b border-border/70 bg-gradient-to-b from-[#FBF8F3] via-[#F7F2E9] to-[#EFE7DC] py-16 md:py-24 lg:py-28">
-        {/* Subtle background ambient glow */}
-        <div className="pointer-events-none absolute -top-40 -left-40 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
-        <div className="pointer-events-none absolute top-1/2 -right-40 h-[450px] w-[450px] rounded-full bg-primary/5 blur-3xl" />
+      <section className="relative overflow-hidden border-b border-border/70 py-16 md:py-24 lg:py-32 min-h-[85vh] flex items-center">
+        {/* Full Hero Background Image */}
+        <img
+          src={HERO_PLATTER}
+          alt="Artisanal Tawa Roasted Khakhra background"
+          className="absolute inset-0 h-full w-full object-cover object-right lg:object-center brightness-[0.92] filter"
+        />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-12 lg:gap-14">
+        {/* Ambient Gradient Overlays for High-Contrast Luxury Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF6F0] via-[#FAF6F0]/95 sm:via-[#FAF6F0]/90 md:via-[#FAF6F0]/80 to-[#FAF6F0]/30 lg:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF6F0] via-transparent to-[#FAF6F0]/60" />
+        <div className="pointer-events-none absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-accent/15 blur-3xl" />
+
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-12 lg:gap-14 w-full">
           {/* Left Column: Editorial Storytelling */}
-          <Reveal className="lg:col-span-6 xl:col-span-6">
+          <Reveal className="lg:col-span-6 xl:col-span-7">
             <div className="badge-luxury">
               <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
               <span>Est. Gujarat · Handcrafted in Small Batches</span>
@@ -138,43 +146,43 @@ function Index() {
             </dl>
           </Reveal>
 
-          {/* Right Column: Layered Editorial Visual Collage */}
-          <div className="relative lg:col-span-6 xl:col-span-6">
-            <div className="relative mx-auto max-w-lg lg:max-w-none">
-              {/* Primary Main Showcase: Golden Khakhra Platter */}
-              <div className="relative overflow-hidden rounded-2xl border-2 border-white/80 bg-card shadow-luxury">
+          {/* Right Column: Floating Luxury Composition */}
+          <div className="relative lg:col-span-6 xl:col-span-5">
+            <div className="relative mx-auto max-w-md lg:max-w-none">
+              {/* Primary Showcase Card: Kasuri Methi on Tray */}
+              <div className="relative overflow-hidden rounded-2xl border-4 border-card/90 bg-card shadow-luxury">
                 <img
-                  src={HERO_PLATTER}
-                  alt="Authentic golden Gujarati khakhra platter with teapot"
+                  src={METHI_TRAY}
+                  alt="Artisanal Kasuri Methi Khakhra stack on rich wooden tray"
                   className="aspect-[4/3] w-full object-cover transition-transform duration-700 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
-                <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between text-white">
+                <div className="p-5 bg-card flex items-center justify-between">
                   <div>
-                    <span className="text-[0.68rem] uppercase tracking-[0.22em] text-amber-200">Signature Roast</span>
-                    <h4 className="font-display text-xl font-medium text-white">Traditional Jeera & Sada Khakhra</h4>
+                    <span className="font-display text-xl font-medium text-primary block">Kasuri Methi Khakhra</span>
+                    <span className="text-xs uppercase tracking-wider text-accent">Aromatic Fenugreek & Tawa Roast</span>
                   </div>
-                  <span className="rounded-full bg-white/20 px-3 py-1 text-[0.65rem] uppercase tracking-wider backdrop-blur-md">
-                    Hand-Pressed
+                  <span className="rounded-full bg-accent/15 px-3 py-1 font-sans text-xs font-semibold text-accent uppercase tracking-wider">
+                    Best Seller
                   </span>
                 </div>
               </div>
 
-              {/* Secondary Overlapping Showcase: Methi Khakhra Wooden Tray */}
-              <div className="absolute -bottom-8 -left-6 z-10 w-1/2 overflow-hidden rounded-xl border-4 border-card bg-card shadow-luxury md:-left-8 lg:-bottom-10">
+              {/* Floating Chai Companion Pill Card */}
+              <div className="absolute -bottom-6 -left-6 z-20 flex items-center gap-3 rounded-2xl border-2 border-white/80 bg-card/95 p-3 shadow-luxury backdrop-blur-md transition-transform hover:-translate-y-1 sm:-bottom-8 sm:-left-8">
                 <img
-                  src={METHI_TRAY}
-                  alt="Artisanal Kasuri Methi Khakhra stack on rich wooden tray"
-                  className="aspect-square w-full object-cover transition-transform duration-700 hover:scale-105"
+                  src={KHAKHRA_CHAI}
+                  alt="Tea pairing"
+                  className="h-16 w-16 rounded-xl object-cover"
                 />
-                <div className="p-3 text-center bg-card">
-                  <span className="font-display text-sm font-medium text-primary block leading-tight">Kasuri Methi</span>
-                  <span className="text-[0.62rem] uppercase tracking-[0.16em] text-accent">Aromatic Fenugreek</span>
+                <div className="pr-3">
+                  <span className="text-[0.65rem] font-bold uppercase tracking-wider text-accent block">Chai Ritual</span>
+                  <span className="font-display text-sm font-medium text-primary block leading-tight">Adrak Chai Companion</span>
+                  <span className="text-[0.65rem] text-muted-foreground">Crisp & non-greasy</span>
                 </div>
               </div>
 
-              {/* Heritage Circular Seal Medallion */}
-              <div className="absolute -top-5 right-4 z-20 flex h-28 w-28 flex-col items-center justify-center rounded-full border border-accent/40 bg-card/95 p-3 text-center shadow-deep backdrop-blur-md">
+              {/* Heritage Circular Seal Medallion with Float Animation */}
+              <div className="absolute -top-6 -right-3 z-20 flex h-28 w-28 flex-col items-center justify-center rounded-full border border-accent/40 bg-card/95 p-3 text-center shadow-deep backdrop-blur-md animate-float">
                 <span className="font-cinzel text-[0.65rem] font-semibold uppercase tracking-widest text-accent">
                   Authentic
                 </span>
@@ -184,8 +192,8 @@ function Index() {
                 </span>
               </div>
 
-              {/* Fresh Batch Pill Indicator */}
-              <div className="absolute -bottom-3 right-4 z-20 hidden items-center gap-2.5 rounded-full border border-border/80 bg-card/95 px-4 py-2 text-xs font-medium text-primary shadow-deep backdrop-blur-md sm:flex">
+              {/* Fresh Batch Pill Indicator with Pulse */}
+              <div className="absolute -top-4 left-6 z-20 hidden items-center gap-2.5 rounded-full border border-border/80 bg-card/95 px-4 py-2 text-xs font-medium text-primary shadow-deep backdrop-blur-md sm:flex">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
