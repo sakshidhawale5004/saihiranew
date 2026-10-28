@@ -50,7 +50,7 @@ function About() {
   return (
     <>
       <PageHero
-        eyebrow="Our Heritage & Philosophy"
+        eyebrow="Our Heritage & Story"
         title={
           <>
             A Venture Born of <em>Devotion</em>
@@ -58,7 +58,7 @@ function About() {
         }
         subtitle="Bringing over three decades of authentic Gujarati culinary expertise and uncompromising purity to every batch."
         image={heroImg}
-        badge="Guided by Saihira · 100% Sattvik Integrity"
+        badge="Authentic Gujarati Culinary Heritage"
         breadcrumbs={[
           { label: "Home", to: "/" },
           { label: "About Us" },

@@ -143,22 +143,13 @@ function Index() {
               Gossamer-thin, non-greasy, and bursting with roasted cumin, fresh kasuri methi, and stone-ground grains. 19 authentic Kathiawadi recipes, vacuum-sealed for your daily chai.
             </p>
 
-            {/* Row of 2 Pill Action Buttons (matching user reference) */}
-            <div className="mt-8 flex flex-wrap items-center gap-3.5 sm:gap-4">
-              {/* Button 1: Filled Primary Pill */}
+            {/* Primary Action Button */}
+            <div className="mt-8 flex items-center">
               <Link
                 to="/products"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-7 sm:px-8 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary-foreground shadow-md transition-all duration-300 hover:bg-accent hover:shadow-lg hover:scale-105 active:scale-95"
+                className="inline-flex items-center justify-center rounded-full bg-primary px-8 sm:px-9 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary-foreground shadow-md transition-all duration-300 hover:bg-accent hover:shadow-lg hover:scale-105 active:scale-95"
               >
                 Shop Fresh Crunch
-              </Link>
-
-              {/* Button 2: Outlined Glass Pill */}
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center rounded-full border border-primary/35 bg-[#FAF6F0]/85 px-7 sm:px-8 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary shadow-xs backdrop-blur-md transition-all duration-300 hover:border-primary hover:bg-primary hover:text-primary-foreground active:scale-95"
-              >
-                Gift Hampers
               </Link>
             </div>
           </div>

@@ -23,15 +23,15 @@ function Contact() {
   return (
     <>
       <PageHero
-        eyebrow="Say Hello · Corporate & Gifting"
+        eyebrow="Corporate Gifting & Support"
         title={
           <>
-            Let's Talk <em>Crunch</em>
+            Contact Our <em>Kitchen</em>
           </>
         }
-        subtitle="Custom festive gift boxes, pan-India wholesale distribution, and friendly customer care for every tea-time crunch."
+        subtitle="Custom festive gift boxes, pan-India wholesale distribution, and friendly customer care for every order."
         image={contactImg}
-        badge="Direct Kitchen Support · Rapid Dispatch"
+        badge="Direct Support · Dispatched from Mumbai"
         breadcrumbs={[
           { label: "Home", to: "/" },
           { label: "Contact Us" },

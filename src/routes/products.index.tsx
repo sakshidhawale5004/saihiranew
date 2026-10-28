@@ -31,18 +31,18 @@ function ProductsPage() {
   return (
     <>
       <PageHero
-        eyebrow="The Signature Collection"
+        eyebrow="Hand-Rolled Gujarati Snacks"
         title={
           <>
-            Authentic Gujarati <em>Crunches</em>
+            Authentic Khakhras & <em>Bhakhris</em>
           </>
         }
-        subtitle="19 hand-rolled recipes prepared in small batches. Slow-roasted on cast-iron tawas for clean, oil-light nutrition and timeless flavour."
+        subtitle="19 authentic recipes slow-roasted on cast-iron tawas for clean, oil-light crunch and traditional wheaten goodness."
         image={HERO_IMG}
-        badge="19 Flavours · Zero Preservatives · 100% Roasted"
+        badge="Zero Palm Oil · 100% Iron Tawa Roasted"
         breadcrumbs={[
           { label: "Home", to: "/" },
-          { label: "Products" },
+          { label: "Our Snacks" },
         ]}
       />
 

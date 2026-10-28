@@ -23,13 +23,13 @@ function Cart() {
   return (
     <>
       <PageHero
-        eyebrow="Shopping Bag"
+        eyebrow="Your Order"
         title={
           <>
-            Your Selected <em>Crunches</em>
+            Your Shopping <em>Cart</em>
           </>
         }
-        subtitle="Freshly pressed batches ready to be packed and dispatched straight to your home."
+        subtitle="Freshly pressed batches ready to be packed and dispatched straight to your doorstep."
         image={HERO_IMG}
         badge="Free Shipping on Orders Above ₹499"
         breadcrumbs={[
