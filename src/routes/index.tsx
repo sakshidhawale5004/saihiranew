@@ -9,6 +9,7 @@ import METHI_TRAY from "@/assets/editorial/methi-khakhra-1.jpg";
 import METHI_MACRO from "@/assets/editorial/methi-khakhra-2.jpg";
 import METHI_FLATLAY from "@/assets/editorial/methi-khakhra-3.jpg";
 import KHAKHRA_CHAI from "@/assets/editorial/khakhra-stack.jpg";
+import HOME_HERO_BG from "@/assets/hero/homeherosection.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -98,14 +99,21 @@ function Index() {
   return (
     <>
       {/* ─────────────────────────────────────────────────────────────
-          1. HERO SECTION (Lighter Form with Foreground Editorial Images)
-          Pure light ivory background, left-aligned typography,
-          single primary pill button, and multi-image editorial showcase.
+          1. HERO SECTION (Using User's homeherosection.png Background)
+          Full background image from public/homeherosection.png with
+          soft warm overlay scrim for high legibility and light form.
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden min-h-[88vh] flex flex-col justify-between bg-[#FCFAF7] py-12 sm:py-16 md:py-20 border-b border-border/80">
-        {/* Soft Ambient Radial Glows for Luminous Warmth */}
-        <div className="pointer-events-none absolute top-0 left-1/4 h-[500px] w-[500px] rounded-full bg-amber-100/40 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 right-10 h-[450px] w-[450px] rounded-full bg-accent/10 blur-3xl" />
+      <section className="relative overflow-hidden min-h-[90vh] flex flex-col justify-between py-12 sm:py-16 md:py-20 border-b border-border/80">
+        {/* User-Provided Hero Background Image */}
+        <img
+          src={HOME_HERO_BG}
+          alt="SAIHIRA Artisanal Gujarati Khakhra Hero"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+
+        {/* Lighter Warm Scrim for Crisp Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF6F0]/95 via-[#FAF6F0]/82 sm:via-[#FAF6F0]/65 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF6F0]/90 via-transparent to-transparent" />
 
         {/* Top Spacer for balance */}
         <div className="hidden sm:block" />
