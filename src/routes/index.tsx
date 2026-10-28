@@ -127,7 +127,7 @@ function Index() {
             <div className="flex items-center gap-3 text-accent">
               <span className="h-px w-8 bg-accent/80" />
               <span className="font-sans text-[0.72rem] sm:text-xs font-bold uppercase tracking-[0.26em] text-accent">
-                HAND-ROLLED IN RAJKOT · SLOW ROASTED ON IRON TAWAS
+                AUTHENTIC GUJARATI RECIPES · SLOW ROASTED ON IRON TAWAS
               </span>
             </div>
 
@@ -361,7 +361,7 @@ function Index() {
             The Craft Behind Every Crunch
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
-            Roasted by hand using seasoned iron tawas and traditional wooden presses in Rajkot, Gujarat.
+            Roasted by hand using seasoned iron tawas and traditional wooden presses following authentic Gujarati culinary heritage.
           </p>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
