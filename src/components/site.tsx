@@ -121,27 +121,6 @@ export function Header() {
 
         {/* Right Action Cluster */}
         <div className="flex items-center gap-3 sm:gap-4">
-          <a
-            href="tel:+919876543210"
-            className="hidden xl:inline-flex items-center gap-2 font-sans text-xs font-medium tracking-wide text-foreground/75 hover:text-primary transition-colors"
-          >
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/10 text-accent">
-              <svg
-                className="h-3.5 w-3.5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-            </span>
-            <span>+91 98765 43210</span>
-          </a>
           <CartLink />
           <Link
             to="/products"
@@ -202,27 +181,6 @@ export function Header() {
               </Link>
             ))}
             <div className="pt-4 border-t border-border/60 flex flex-col gap-3">
-              <a
-                href="tel:+919876543210"
-                className="inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-primary py-1"
-              >
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/10 text-accent">
-                  <svg
-                    className="h-3.5 w-3.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                </span>
-                <span>+91 98765 43210</span>
-              </a>
               <Link
                 to="/products"
                 onClick={() => setOpen(false)}
