@@ -30,7 +30,7 @@ export function Ticker() {
               <span>{t}</span>
               <span className="mx-6 text-accent font-bold">✦</span>
             </span>
-          ))
+          )),
         )}
       </div>
     </div>
@@ -45,8 +45,18 @@ function CartLink() {
       aria-label={`Shopping Cart with ${count} items`}
       className="relative inline-flex items-center gap-2 rounded-full border border-border/80 bg-card px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-primary shadow-xs transition-all hover:border-accent hover:text-accent active:scale-95"
     >
-      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+      <svg
+        className="h-4 w-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+        />
       </svg>
       <span className="hidden sm:inline text-[0.72rem] tracking-wider">Cart</span>
       {count > 0 && (
@@ -87,7 +97,10 @@ export function Header() {
             to="/"
             activeOptions={{ exact: true }}
             className="nav-link text-foreground/80 hover:text-accent py-1 relative transition-colors"
-            activeProps={{ className: "nav-link text-accent font-semibold relative after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full" }}
+            activeProps={{
+              className:
+                "nav-link text-accent font-semibold relative after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full",
+            }}
           >
             Home
           </Link>
@@ -96,7 +109,10 @@ export function Header() {
               key={n.to}
               to={n.to}
               className="nav-link text-foreground/80 hover:text-accent py-1 relative transition-colors"
-              activeProps={{ className: "nav-link text-accent font-semibold relative after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full" }}
+              activeProps={{
+                className:
+                  "nav-link text-accent font-semibold relative after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full",
+              }}
             >
               {n.label}
             </Link>
@@ -110,8 +126,18 @@ export function Header() {
             className="hidden xl:inline-flex items-center gap-2 font-sans text-xs font-medium tracking-wide text-foreground/75 hover:text-primary transition-colors"
           >
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/10 text-accent">
-              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              <svg
+                className="h-3.5 w-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
               </svg>
             </span>
             <span>+91 98765 43210</span>
@@ -130,11 +156,23 @@ export function Header() {
             onClick={() => setOpen(!open)}
           >
             {open ? (
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -169,8 +207,18 @@ export function Header() {
                 className="inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-primary py-1"
               >
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/10 text-accent">
-                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  <svg
+                    className="h-3.5 w-3.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
                   </svg>
                 </span>
                 <span>+91 98765 43210</span>
@@ -197,7 +245,8 @@ export function Footer() {
         <div className="sm:col-span-2">
           <img src={logo.url} alt="SHM Asal" className="h-20 w-auto" />
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-            Authentic handmade Bhakhris & Khakhras, roasted slowly on cast-iron tawas and made with love by SAIHIRA.
+            Authentic handmade Bhakhris & Khakhras, roasted slowly on cast-iron tawas and made with
+            love by SAIHIRA.
           </p>
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-3 py-1 text-xs text-accent">
             <span>✨ 100% Preservative Free</span>
@@ -205,15 +254,36 @@ export function Footer() {
         </div>
         <div className="flex flex-col gap-2.5 text-sm">
           <span className="eyebrow">Explore</span>
-          {nav.map((n) => <Link key={n.to} to={n.to} className="transition-colors hover:text-primary">{n.label}</Link>)}
-          <Link to="/cart" className="transition-colors hover:text-primary">Cart</Link>
+          {nav.map((n) => (
+            <Link key={n.to} to={n.to} className="transition-colors hover:text-primary">
+              {n.label}
+            </Link>
+          ))}
+          <Link to="/cart" className="transition-colors hover:text-primary">
+            Cart
+          </Link>
         </div>
         <div className="flex flex-col gap-2.5 text-sm">
           <span className="eyebrow">Customer Care</span>
-          <Link to="/return-policy" className="transition-colors hover:text-primary">Return Policy</Link>
-          <Link to="/terms" className="transition-colors hover:text-primary">Terms & Conditions</Link>
-          <Link to="/privacy" className="transition-colors hover:text-primary">Privacy Policy</Link>
-          <Link to="/faq" className="transition-colors hover:text-primary">FAQ & Support</Link>
+          <Link to="/return-policy" className="transition-colors hover:text-primary">
+            Return Policy
+          </Link>
+          <Link to="/terms" className="transition-colors hover:text-primary">
+            Terms & Conditions
+          </Link>
+          <Link to="/privacy" className="transition-colors hover:text-primary">
+            Privacy Policy
+          </Link>
+          <Link to="/faq" className="transition-colors hover:text-primary">
+            FAQ & Support
+          </Link>
+          <Link
+            to="/admin"
+            className="transition-colors text-accent hover:underline flex items-center gap-1 font-medium"
+          >
+            <span>Staff Admin CRM</span>
+            <span className="text-[10px]">🔒</span>
+          </Link>
         </div>
         <div className="text-sm text-muted-foreground">
           <span className="eyebrow">Say hello</span>
@@ -229,24 +299,51 @@ export function Footer() {
   );
 }
 
-export function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
+export function Reveal({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [shown, setShown] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => e?.isIntersecting && (setShown(true), io.disconnect()), { threshold: 0.1 });
+    const io = new IntersectionObserver(
+      ([e]) => e?.isIntersecting && (setShown(true), io.disconnect()),
+      { threshold: 0.1 },
+    );
     io.observe(el);
     return () => io.disconnect();
   }, []);
-  return <div ref={ref} className={`reveal ${shown ? "reveal-in" : ""} ${className}`} style={{ transitionDelay: `${delay}ms` }}>{children}</div>;
+  return (
+    <div
+      ref={ref}
+      className={`reveal ${shown ? "reveal-in" : ""} ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
 }
 
 export function Tilt({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`tilt ${className}`}>{children}</div>;
 }
 
-export function PageTitle({ eyebrow, title, sub }: { eyebrow: string; title: ReactNode; sub?: string }) {
+export function PageTitle({
+  eyebrow,
+  title,
+  sub,
+}: {
+  eyebrow: string;
+  title: ReactNode;
+  sub?: string;
+}) {
   return (
     <div className="border-b border-border bg-secondary py-14 text-center">
       <span className="eyebrow">{eyebrow}</span>

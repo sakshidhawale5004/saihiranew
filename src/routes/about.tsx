@@ -8,9 +8,16 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About SAIHIRA — Our Heritage Story & Leadership" },
-      { name: "description", content: "Meet the team behind SAIHIRA, bringing over three decades of experience to handmade Khakhras and Bhakhris." },
+      {
+        name: "description",
+        content:
+          "Meet the team behind SAIHIRA, bringing over three decades of experience to handmade Khakhras and Bhakhris.",
+      },
       { property: "og:title", content: "About SAIHIRA · SHM Asal" },
-      { property: "og:description", content: "Our mentor, our story and the team behind SHM Asal." },
+      {
+        property: "og:description",
+        content: "Our mentor, our story and the team behind SHM Asal.",
+      },
     ],
   }),
   component: About,
@@ -59,10 +66,7 @@ function About() {
         subtitle="Bringing over three decades of authentic Gujarati culinary expertise and uncompromising purity to every batch."
         image={heroImg}
         badge="Authentic Gujarati Culinary Heritage"
-        breadcrumbs={[
-          { label: "Home", to: "/" },
-          { label: "About Us" },
-        ]}
+        breadcrumbs={[{ label: "Home", to: "/" }, { label: "About Us" }]}
       />
 
       <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
@@ -74,10 +78,14 @@ function About() {
             </h2>
             <div className="mt-6 space-y-4 font-sans text-base leading-relaxed text-muted-foreground">
               <p>
-                In an era dominated by automated factories and industrial extrusion, SAIHIRA remains steadfastly faithful to the age-old art of the tawa roast.
+                In an era dominated by automated factories and industrial extrusion, SAIHIRA remains
+                steadfastly faithful to the age-old art of the tawa roast.
               </p>
               <p>
-                Every morning, fresh dough is kneaded with stone-ground flours, toasted jeera, fragrant kasuri methi, and cold-pressed oils. Our artisans roll each disc paper-thin before pressing it over seasoned iron tawas with wooden blocks until golden and crisp.
+                Every morning, fresh dough is kneaded with stone-ground flours, toasted jeera,
+                fragrant kasuri methi, and cold-pressed oils. Our artisans roll each disc paper-thin
+                before pressing it over seasoned iron tawas with wooden blocks until golden and
+                crisp.
               </p>
             </div>
           </Reveal>
@@ -120,7 +128,8 @@ function About() {
             Decades of Leadership
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
-            A harmonious combination of scientific research, university pedagogy, and master commercial baking.
+            A harmonious combination of scientific research, university pedagogy, and master
+            commercial baking.
           </p>
         </div>
 
@@ -132,10 +141,15 @@ function About() {
                   className="flex h-16 w-16 items-center justify-center rounded-full bg-primary font-display text-2xl text-primary-foreground shadow-sm"
                   style={{ transform: "translateZ(30px)" }}
                 >
-                  {t.name.split(" ").map((w) => w[0]).join("")}
+                  {t.name
+                    .split(" ")
+                    .map((w) => w[0])
+                    .join("")}
                 </div>
                 <h3 className="mt-6 font-display text-2xl font-medium text-primary">{t.name}</h3>
-                <span className="text-xs font-semibold uppercase tracking-wider text-accent">{t.role}</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-accent">
+                  {t.role}
+                </span>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t.bio}</p>
               </Tilt>
             </Reveal>

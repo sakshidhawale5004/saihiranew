@@ -1,19 +1,26 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site";
 import { ProductCard } from "@/components/ProductCard";
-import { products, type Category } from "@/lib/products";
+import { useProducts, type Category } from "@/lib/products";
 import { PageHero } from "@/components/PageHero";
 import HERO_IMG from "@/assets/editorial/khakhra-stack.jpg";
 
 export const Route = createFileRoute("/products/")({
   validateSearch: (s: Record<string, unknown>): { c?: Category } =>
-    s["c"] === "khakhra" || s["c"] === "bhakhri" ? { c: s["c"] } : {},
+    s["c"] === "khakhra" || s["c"] === "bhakhri" ? { c: s["c"] as Category } : {},
   head: () => ({
     meta: [
       { title: "Artisanal Khakhras & Bhakhris Collection | SAIHIRA" },
-      { name: "description", content: "Browse all 19 handmade SHM Asal Khakhras and Bhakhris — from Jeera and Methi to Jaggery and Garlic." },
+      {
+        name: "description",
+        content:
+          "Browse all handmade SHM Asal Khakhras and Bhakhris — from Jeera and Methi to Jaggery and Garlic.",
+      },
       { property: "og:title", content: "All Khakhras & Bhakhris | SAIHIRA" },
-      { property: "og:description", content: "19 handmade flavours of crunchy Khakhras and Bhakhris." },
+      {
+        property: "og:description",
+        content: "Handmade flavours of crunchy Khakhras and Bhakhris.",
+      },
     ],
   }),
   component: ProductsPage,
@@ -21,7 +28,8 @@ export const Route = createFileRoute("/products/")({
 
 function ProductsPage() {
   const { c } = Route.useSearch();
-  const list = c ? products.filter((p) => p.category === c) : products;
+  const allProducts = useProducts();
+  const list = c ? allProducts.filter((p) => p.category === c) : allProducts;
   const tabs: Array<{ label: string; c?: Category }> = [
     { label: "All Varieties" },
     { label: "Paper-Thin Khakhras", c: "khakhra" },
@@ -37,13 +45,10 @@ function ProductsPage() {
             Authentic Khakhras & <em>Bhakhris</em>
           </>
         }
-        subtitle="19 authentic recipes slow-roasted on cast-iron tawas for clean, oil-light crunch and traditional wheaten goodness."
+        subtitle="Authentic recipes slow-roasted on cast-iron tawas for clean, oil-light crunch and traditional wheaten goodness."
         image={HERO_IMG}
         badge="Zero Palm Oil · 100% Iron Tawa Roasted"
-        breadcrumbs={[
-          { label: "Home", to: "/" },
-          { label: "Our Snacks" },
-        ]}
+        breadcrumbs={[{ label: "Home", to: "/" }, { label: "Our Snacks" }]}
       />
 
       <div className="mx-auto max-w-6xl px-6 py-14">

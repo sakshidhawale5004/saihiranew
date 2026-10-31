@@ -25,7 +25,9 @@ function NotFoundComponent() {
         <h1 className="text-primary text-8xl font-bold">404</h1>
         <h2 className="mt-4 text-xl">This crumb went missing</h2>
         <div className="mt-6">
-          <Link to="/" className="btn-warm">Go home</Link>
+          <Link to="/" className="btn-warm">
+            Go home
+          </Link>
         </div>
       </div>
     </div>
@@ -42,10 +44,22 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
     <div className="flex min-h-screen items-center justify-center px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold">This page didn't load</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Something went wrong. Try refreshing or head back home.</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Something went wrong. Try refreshing or head back home.
+        </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button onClick={() => { router.invalidate(); reset(); }} className="btn-warm">Try again</button>
-          <a href="/" className="btn-ghost">Go home</a>
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="btn-warm"
+          >
+            Try again
+          </button>
+          <a href="/" className="btn-ghost">
+            Go home
+          </a>
         </div>
       </div>
     </div>
@@ -58,7 +72,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "SAIHIRA · SHM Asal — Handmade Khakhras & Bhakhris" },
-      { name: "description", content: "Crunchy, handmade Bhakhris and Khakhras in delicious flavours by SAIHIRA." },
+      {
+        name: "description",
+        content: "Crunchy, handmade Bhakhris and Khakhras in delicious flavours by SAIHIRA.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -67,7 +84,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -92,16 +112,20 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+  const pathname = router.state.location.pathname.toLowerCase();
+  const isStaffArea = pathname.startsWith("/admin") || pathname.startsWith("/crm");
+
   return (
     <QueryClientProvider client={queryClient}>
       <CartProvider>
-        <Preloader />
-        <SprinklesCursor />
-        <Header />
+        {!isStaffArea && <Preloader />}
+        {!isStaffArea && <SprinklesCursor />}
+        {!isStaffArea && <Header />}
         <main>
           <Outlet />
         </main>
-        <Footer />
+        {!isStaffArea && <Footer />}
         <Toaster position="bottom-right" richColors />
       </CartProvider>
     </QueryClientProvider>

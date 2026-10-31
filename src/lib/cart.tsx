@@ -19,18 +19,37 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartLine[]>([]);
   const [ready, setReady] = useState(false);
   useEffect(() => {
-    try { setItems(JSON.parse(localStorage.getItem(KEY) || "[]")); } catch { /* ignore */ }
+    try {
+      setItems(JSON.parse(localStorage.getItem(KEY) || "[]"));
+    } catch {
+      /* ignore */
+    }
     setReady(true);
   }, []);
-  useEffect(() => { if (ready) localStorage.setItem(KEY, JSON.stringify(items)); }, [items, ready]);
+  useEffect(() => {
+    if (ready) localStorage.setItem(KEY, JSON.stringify(items));
+  }, [items, ready]);
 
-  const lines = items.flatMap((l) => { const product = getProduct(l.slug); return product ? [{ ...l, product }] : []; });
+  const lines = items.flatMap((l) => {
+    const product = getProduct(l.slug);
+    return product ? [{ ...l, product }] : [];
+  });
   const value: Ctx = {
     lines,
     count: lines.reduce((a, l) => a + l.qty, 0),
     subtotal: lines.reduce((a, l) => a + l.qty * l.product.price, 0),
-    add: (slug, qty = 1) => setItems((cur) => cur.some((l) => l.slug === slug) ? cur.map((l) => l.slug === slug ? { ...l, qty: l.qty + qty } : l) : [...cur, { slug, qty }]),
-    setQty: (slug, qty) => setItems((cur) => qty <= 0 ? cur.filter((l) => l.slug !== slug) : cur.map((l) => l.slug === slug ? { ...l, qty } : l)),
+    add: (slug, qty = 1) =>
+      setItems((cur) =>
+        cur.some((l) => l.slug === slug)
+          ? cur.map((l) => (l.slug === slug ? { ...l, qty: l.qty + qty } : l))
+          : [...cur, { slug, qty }],
+      ),
+    setQty: (slug, qty) =>
+      setItems((cur) =>
+        qty <= 0
+          ? cur.filter((l) => l.slug !== slug)
+          : cur.map((l) => (l.slug === slug ? { ...l, qty } : l)),
+      ),
     remove: (slug) => setItems((cur) => cur.filter((l) => l.slug !== slug)),
     clear: () => setItems([]),
   };
@@ -45,4 +64,5 @@ export function useCart() {
 
 export const SHIPPING_FREE_ABOVE = 499;
 export const SHIPPING_FEE = 50;
-export const shippingFor = (subtotal: number) => (subtotal === 0 || subtotal >= SHIPPING_FREE_ABOVE ? 0 : SHIPPING_FEE);
+export const shippingFor = (subtotal: number) =>
+  subtotal === 0 || subtotal >= SHIPPING_FREE_ABOVE ? 0 : SHIPPING_FEE;

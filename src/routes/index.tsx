@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site";
 import { ProductCard } from "@/components/ProductCard";
-import { products } from "@/lib/products";
+import { products, useProducts } from "@/lib/products";
 
 // All 5 local editorial assets from the repository assets folder (watermark-free)
 import HERO_PLATTER from "@/assets/editorial/khakhra-platter.jpg";
@@ -15,43 +15,78 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "SAIHIRA — Artisanal Handmade Khakhras & Bhakhris · Best in Taste" },
-      { name: "description", content: "Crunchy, hand-rolled Gujarati Bhakhris & Khakhras roasted on iron tawas. 19 authentic flavours made with pure ingredients." },
+      {
+        name: "description",
+        content:
+          "Crunchy, hand-rolled Gujarati Bhakhris & Khakhras roasted on iron tawas. 19 authentic flavours made with pure ingredients.",
+      },
       { property: "og:title", content: "SAIHIRA — Best in Taste Handmade Gujarati Snacks" },
-      { property: "og:description", content: "Crunchy, crispy handmade Bhakhris & Khakhras in delicious flavours." },
+      {
+        property: "og:description",
+        content: "Crunchy, crispy handmade Bhakhris & Khakhras in delicious flavours.",
+      },
     ],
   }),
   component: Index,
 });
 
 const why = [
-  ["Cast-Iron Tawa Roast", "Slowly toasted on seasoned iron tawas with traditional wooden presses. Never fried, crisp without greasy residue."],
-  ["Stone-Ground Flours", "Pure whole wheat, bajri, ragi, barley, oats, and moong ground in small artisan batches every morning."],
-  ["Cold-Pressed Oil Only", "Tempered lightly with cold-pressed sesame and groundnut oil. 100% free from palm oil and artificial preservatives."],
-  ["Authentic Jain & Sattvik", "Dedicated options prepared without onion, garlic, or root vegetables, plus vrat-friendly farali crisps."],
+  [
+    "Cast-Iron Tawa Roast",
+    "Slowly toasted on seasoned iron tawas with traditional wooden presses. Never fried, crisp without greasy residue.",
+  ],
+  [
+    "Stone-Ground Flours",
+    "Pure whole wheat, bajri, ragi, barley, oats, and moong ground in small artisan batches every morning.",
+  ],
+  [
+    "Cold-Pressed Oil Only",
+    "Tempered lightly with cold-pressed sesame and groundnut oil. 100% free from palm oil and artificial preservatives.",
+  ],
+  [
+    "Authentic Jain & Sattvik",
+    "Dedicated options prepared without onion, garlic, or root vegetables, plus vrat-friendly farali crisps.",
+  ],
 ];
 
 const steps = [
-  ["01", "Daily Stone-Ground Dough", "Whole grains milled fine, spiced with hand-roasted jeera, kasuri methi, and sea salt."],
-  ["02", "Hand-Rolled Gossamer Thin", "Artisan women roll each disc paper-thin on traditional round wooden patlas."],
-  ["03", "Even Wooden Block Press", "Pressed steadily on hot iron tawas using wooden 'dhabus' for delicate, uniform blisters."],
-  ["04", "Vacuum-Sealed Freshness", "Sealed within minutes of cooling into multi-layer packs that keep crunch intact for months."],
+  [
+    "01",
+    "Daily Stone-Ground Dough",
+    "Whole grains milled fine, spiced with hand-roasted jeera, kasuri methi, and sea salt.",
+  ],
+  [
+    "02",
+    "Hand-Rolled Gossamer Thin",
+    "Artisan women roll each disc paper-thin on traditional round wooden patlas.",
+  ],
+  [
+    "03",
+    "Even Wooden Block Press",
+    "Pressed steadily on hot iron tawas using wooden 'dhabus' for delicate, uniform blisters.",
+  ],
+  [
+    "04",
+    "Vacuum-Sealed Freshness",
+    "Sealed within minutes of cooling into multi-layer packs that keep crunch intact for months.",
+  ],
 ];
 
 const reviews = [
   [
     "The Methi and Jeera khakhras taste just like the ones from Saurashtra. Super thin, perfectly roasted on iron tawa, and not greasy at all. Our whole family loves them with morning ginger chai.",
     "Hetal Parekh",
-    "Verified Patron · Mumbai"
+    "Verified Patron · Mumbai",
   ],
   [
     "Ordered 35 custom gift hampers for our office Diwali gifting in Bangalore. Every single box arrived intact, vacuum-sealed, and fresh. The Jaggery Bhakhri was an instant favourite.",
     "Kavita & Anand S.",
-    "Corporate Client · Bengaluru"
+    "Corporate Client · Bengaluru",
   ],
   [
     "I was skeptical ordering snacks online, but the crunch is incredible. Crisp, aromatic, zero palm oil aftertaste. Highly recommend the Pani Puri and Bajri Methi.",
     "Dr. Rajesh Vora",
-    "Verified Patron · Ahmedabad"
+    "Verified Patron · Ahmedabad",
   ],
 ];
 
@@ -77,15 +112,16 @@ const tastingMoments = [
 ];
 
 function Index() {
+  const allProducts = useProducts();
   // Curated 4 featured signature snacks matching the reference layout
   const signatureItems = [
-    products.find((p) => p.slug === "methi-khakhra")!,
-    products.find((p) => p.slug === "jeera-khakhra")!,
-    products.find((p) => p.slug === "jaggery-bhakhri")!,
-    products.find((p) => p.slug === "pani-puri-khakhra")!,
-  ];
+    allProducts.find((p) => p.slug === "methi-khakhra") || allProducts[0] || products[0],
+    allProducts.find((p) => p.slug === "jeera-khakhra") || allProducts[1] || products[1],
+    allProducts.find((p) => p.slug === "jaggery-bhakhri") || allProducts[2] || products[2],
+    allProducts.find((p) => p.slug === "pani-puri-khakhra") || allProducts[3] || products[3],
+  ].filter(Boolean);
 
-  const allFeatured = [
+  const allFeaturedSlugs = [
     "jeera-khakhra",
     "methi-khakhra",
     "pani-puri-khakhra",
@@ -95,6 +131,10 @@ function Index() {
     "black-pepper-bhakhri",
     "farali-bhakhri",
   ];
+
+  const featuredCards = allFeaturedSlugs
+    .map((s) => allProducts.find((p) => p.slug === s) || products.find((p) => p.slug === s))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
   return (
     <>
@@ -139,7 +179,9 @@ function Index() {
 
             {/* Subtitle */}
             <p className="mt-6 font-sans text-base sm:text-lg font-normal leading-relaxed text-[#544237] max-w-xl">
-              Gossamer-thin, non-greasy, and bursting with roasted cumin, fresh kasuri methi, and stone-ground grains. 19 authentic Kathiawadi recipes, vacuum-sealed for your daily chai.
+              Gossamer-thin, non-greasy, and bursting with roasted cumin, fresh kasuri methi, and
+              stone-ground grains. 19 authentic Kathiawadi recipes, vacuum-sealed for your daily
+              chai.
             </p>
 
             {/* Primary Action Button */}
@@ -196,8 +238,12 @@ function Index() {
                 01
               </span>
               <div>
-                <h4 className="font-display text-base font-semibold text-primary leading-tight">Cast-Iron Roasted</h4>
-                <p className="font-sans text-xs text-muted-foreground mt-0.5">Slow tawa heat, never fried</p>
+                <h4 className="font-display text-base font-semibold text-primary leading-tight">
+                  Cast-Iron Roasted
+                </h4>
+                <p className="font-sans text-xs text-muted-foreground mt-0.5">
+                  Slow tawa heat, never fried
+                </p>
               </div>
             </div>
 
@@ -206,8 +252,12 @@ function Index() {
                 02
               </span>
               <div>
-                <h4 className="font-display text-base font-semibold text-primary leading-tight">Stone-Ground Grains</h4>
-                <p className="font-sans text-xs text-muted-foreground mt-0.5">Whole wheat, bajri & ragi</p>
+                <h4 className="font-display text-base font-semibold text-primary leading-tight">
+                  Stone-Ground Grains
+                </h4>
+                <p className="font-sans text-xs text-muted-foreground mt-0.5">
+                  Whole wheat, bajri & ragi
+                </p>
               </div>
             </div>
 
@@ -216,8 +266,12 @@ function Index() {
                 03
               </span>
               <div>
-                <h4 className="font-display text-base font-semibold text-primary leading-tight">Sattvik & Jain Friendly</h4>
-                <p className="font-sans text-xs text-muted-foreground mt-0.5">Pure no onion, no garlic recipes</p>
+                <h4 className="font-display text-base font-semibold text-primary leading-tight">
+                  Sattvik & Jain Friendly
+                </h4>
+                <p className="font-sans text-xs text-muted-foreground mt-0.5">
+                  Pure no onion, no garlic recipes
+                </p>
               </div>
             </div>
 
@@ -226,8 +280,12 @@ function Index() {
                 04
               </span>
               <div>
-                <h4 className="font-display text-base font-semibold text-primary leading-tight">Vacuum-Sealed Crunch</h4>
-                <p className="font-sans text-xs text-muted-foreground mt-0.5">Multi-layer freshness barrier</p>
+                <h4 className="font-display text-base font-semibold text-primary leading-tight">
+                  Vacuum-Sealed Crunch
+                </h4>
+                <p className="font-sans text-xs text-muted-foreground mt-0.5">
+                  Multi-layer freshness barrier
+                </p>
               </div>
             </div>
           </div>
@@ -247,7 +305,8 @@ function Index() {
               Our Most Loved Varieties
             </h2>
             <p className="mt-2 text-sm text-muted-foreground max-w-xl">
-              Slow-roasted on cast-iron tawas for clean, oil-light crunch. Pick your tea-time favorites or build a bespoke gift hamper.
+              Slow-roasted on cast-iron tawas for clean, oil-light crunch. Pick your tea-time
+              favorites or build a bespoke gift hamper.
             </p>
           </div>
           <Link
@@ -283,8 +342,9 @@ function Index() {
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
           {(["khakhra", "bhakhri"] as const).map((c) => {
-            const p = products.find((x) => x.category === c)!;
-            const n = products.filter((x) => x.category === c).length;
+            const p =
+              allProducts.find((x) => x.category === c) || products.find((x) => x.category === c)!;
+            const n = allProducts.filter((x) => x.category === c).length;
             return (
               <Link
                 key={c}
@@ -303,7 +363,10 @@ function Index() {
                   <span className="h-px w-8 bg-accent/40" />
                 </div>
                 <p className="mt-3 text-sm text-muted-foreground">
-                  {n} Flavours · {c === "khakhra" ? "Paper-thin, blistered crisp & roasted" : "Thick, rustic, roasted & pressed by hand"}
+                  {n} Flavours ·{" "}
+                  {c === "khakhra"
+                    ? "Paper-thin, blistered crisp & roasted"
+                    : "Thick, rustic, roasted & pressed by hand"}
                 </p>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-accent transition-colors group-hover:text-primary">
                   <span>Explore Category</span>
@@ -326,7 +389,8 @@ function Index() {
               Moments of Authentic Taste
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
-              Whether welcoming the dawn with kadak masala chai or sharing festive hampers with loved ones.
+              Whether welcoming the dawn with kadak masala chai or sharing festive hampers with
+              loved ones.
             </p>
           </div>
 
@@ -366,7 +430,8 @@ function Index() {
             The Craft Behind Every Crunch
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
-            Roasted by hand using seasoned iron tawas and traditional wooden presses following authentic Gujarati culinary heritage.
+            Roasted by hand using seasoned iron tawas and traditional wooden presses following
+            authentic Gujarati culinary heritage.
           </p>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -398,13 +463,13 @@ function Index() {
               </h2>
             </div>
             <Link to="/products" className="nav-link hidden items-center gap-1.5 md:flex">
-              <span>View All 19 Flavours</span>
+              <span>View All {allProducts.length} Flavours</span>
               <span>→</span>
             </Link>
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {allFeatured.map((s) => (
-              <ProductCard key={s} p={products.find((p) => p.slug === s)!} />
+            {featuredCards.map((p) => (
+              <ProductCard key={p.slug} p={p} />
             ))}
           </div>
         </div>
@@ -421,7 +486,9 @@ function Index() {
             className="h-[440px] w-full object-cover transition-transform duration-700 hover:scale-105"
           />
           <div className="absolute bottom-4 left-4 rounded-lg bg-card/90 px-4 py-2 shadow-sm backdrop-blur">
-            <span className="text-[0.65rem] font-bold uppercase tracking-widest text-accent">Artisan Detail</span>
+            <span className="text-[0.65rem] font-bold uppercase tracking-widest text-accent">
+              Artisan Detail
+            </span>
             <p className="font-display text-sm font-medium text-primary">Paper-Thin Flaky Layers</p>
           </div>
         </div>
@@ -450,7 +517,9 @@ function Index() {
             ].map(([a, b]) => (
               <div key={b} className="rounded-xl border border-border/80 bg-card p-4 shadow-sm">
                 <div className="font-display text-3xl font-medium text-primary">{a}</div>
-                <div className="mt-1 font-sans text-xs uppercase tracking-wider text-muted-foreground">{b}</div>
+                <div className="mt-1 font-sans text-xs uppercase tracking-wider text-muted-foreground">
+                  {b}
+                </div>
               </div>
             ))}
           </div>
@@ -475,7 +544,8 @@ function Index() {
             The Perfect Partner for Your Chai
           </h2>
           <p className="mt-4 max-w-xl font-light text-base sm:text-lg text-amber-100/90 leading-relaxed">
-            Gift a bespoke box of handmade goodness this festive season. Custom flavor selections, corporate gift hampers, and bulk orders dispatched across India.
+            Gift a bespoke box of handmade goodness this festive season. Custom flavor selections,
+            corporate gift hampers, and bulk orders dispatched across India.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
@@ -527,7 +597,13 @@ function Index() {
                   <div className="font-sans text-xs text-muted-foreground">{loc}</div>
                 </div>
                 <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 text-[0.62rem] font-semibold text-emerald-800">
-                  <svg className="h-3 w-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <svg
+                    className="h-3 w-3 text-emerald-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={3}
+                  >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                   Verified

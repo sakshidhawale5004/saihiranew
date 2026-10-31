@@ -8,12 +8,16 @@ import { useState } from "react";
 function getProductBadges(p: Product): { primary: string; secondary?: string } {
   if (p.slug === "methi-khakhra") return { primary: "Must Try", secondary: "Aromatic Fenugreek" };
   if (p.slug === "jeera-khakhra") return { primary: "Jain Sattvik", secondary: "No Onion Garlic" };
-  if (p.slug === "pani-puri-khakhra") return { primary: "Street Food Hit", secondary: "Chatpata Crunch" };
+  if (p.slug === "pani-puri-khakhra")
+    return { primary: "Street Food Hit", secondary: "Chatpata Crunch" };
   if (p.slug === "jaggery-bhakhri") return { primary: "Desi Gud", secondary: "Refined Sugar-Free" };
-  if (p.slug === "farali-khakhra" || p.slug === "farali-bhakhri") return { primary: "Upvas Special", secondary: "Grain-Free Flours" };
-  if (p.slug === "ragi-khakhra") return { primary: "Calcium Rich", secondary: "Nutty Finger Millet" };
+  if (p.slug === "farali-khakhra" || p.slug === "farali-bhakhri")
+    return { primary: "Upvas Special", secondary: "Grain-Free Flours" };
+  if (p.slug === "ragi-khakhra")
+    return { primary: "Calcium Rich", secondary: "Nutty Finger Millet" };
   if (p.slug === "oats-masala-khakhra") return { primary: "High Fibre", secondary: "Hearty Oats" };
-  if (p.slug === "garlic-bhakhri" || p.slug === "chilli-garlic-khakhra") return { primary: "Bold Garlic", secondary: "Savory & Crispy" };
+  if (p.slug === "garlic-bhakhri" || p.slug === "chilli-garlic-khakhra")
+    return { primary: "Bold Garlic", secondary: "Savory & Crispy" };
   if (p.category === "bhakhri") return { primary: "Hand Pressed", secondary: "Thick & Hearty" };
   return { primary: "Tawa Roasted", secondary: p.notes[0] || "100% Baked" };
 }

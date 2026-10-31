@@ -6,24 +6,58 @@ export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
       { title: "Frequently Asked Questions | SAIHIRA · SHM Asal" },
-      { name: "description", content: "Answers about SAIHIRA Khakhras and Bhakhris: ingredients, shelf life, delivery, payment and bulk orders." },
+      {
+        name: "description",
+        content:
+          "Answers about SAIHIRA Khakhras and Bhakhris: ingredients, shelf life, delivery, payment and bulk orders.",
+      },
       { property: "og:title", content: "Frequently Asked Questions | SAIHIRA" },
-      { property: "og:description", content: "Everything you need to know about ordering our handmade snacks." },
+      {
+        property: "og:description",
+        content: "Everything you need to know about ordering our handmade snacks.",
+      },
     ],
   }),
   component: Faq,
 });
 
 const faqs = [
-  ["Are your Khakhras and Bhakhris 100% handmade?", "Yes! Every single piece is hand-rolled and slow-roasted on seasoned iron tawas by trained culinary artisans in small batches."],
-  ["Are any of your snacks deep fried?", "Never. SAIHIRA snacks are 100% roasted and baked on cast-iron tawas with minimal cold-pressed oil — giving you clean crunch with zero oily heaviness."],
-  ["Do you have Jain and Sattvik options (no onion, no garlic)?", "Yes, many of our 19 signature flavours are made without onion or garlic in strict accordance with pure sattvik traditions. Look for the Jain-friendly badge on each product."],
-  ["Which products are suitable for Upvas (fasting)?", "Our Farali Khakhra and Farali Bhakhri are prepared specifically for vrat, made with rajgira, moraiyo, rock salt (sendha namak), and authentic spices."],
-  ["What is the shelf life and storage recommendation?", "Our vacuum pouches keep snacks fresh and crisp for up to 3 months from packing. Once opened, simply transfer to an airtight stainless steel or glass tin."],
-  ["How much does shipping cost?", "We offer Free Shipping across India on all orders above ₹499. For smaller trial orders, a nominal flat delivery charge of ₹50 applies."],
-  ["How long does delivery take?", "Fresh batches are packed and dispatched from Mumbai within 24–48 hours. Most metropolitan locations receive delivery within 3 to 5 business days."],
-  ["What payment modes do you accept?", "We accept all major UPI apps (Google Pay, PhonePe, Paytm), Debit/Credit cards, Net Banking, and Cash on Delivery."],
-  ["Do you curate custom festive and corporate gifting hampers?", "Absolutely! We specialize in custom festive hampers (Diwali, Paryushan, New Year, weddings) with branded boxes and customized flavor assortments."],
+  [
+    "Are your Khakhras and Bhakhris 100% handmade?",
+    "Yes! Every single piece is hand-rolled and slow-roasted on seasoned iron tawas by trained culinary artisans in small batches.",
+  ],
+  [
+    "Are any of your snacks deep fried?",
+    "Never. SAIHIRA snacks are 100% roasted and baked on cast-iron tawas with minimal cold-pressed oil — giving you clean crunch with zero oily heaviness.",
+  ],
+  [
+    "Do you have Jain and Sattvik options (no onion, no garlic)?",
+    "Yes, many of our 19 signature flavours are made without onion or garlic in strict accordance with pure sattvik traditions. Look for the Jain-friendly badge on each product.",
+  ],
+  [
+    "Which products are suitable for Upvas (fasting)?",
+    "Our Farali Khakhra and Farali Bhakhri are prepared specifically for vrat, made with rajgira, moraiyo, rock salt (sendha namak), and authentic spices.",
+  ],
+  [
+    "What is the shelf life and storage recommendation?",
+    "Our vacuum pouches keep snacks fresh and crisp for up to 3 months from packing. Once opened, simply transfer to an airtight stainless steel or glass tin.",
+  ],
+  [
+    "How much does shipping cost?",
+    "We offer Free Shipping across India on all orders above ₹499. For smaller trial orders, a nominal flat delivery charge of ₹50 applies.",
+  ],
+  [
+    "How long does delivery take?",
+    "Fresh batches are packed and dispatched from Mumbai within 24–48 hours. Most metropolitan locations receive delivery within 3 to 5 business days.",
+  ],
+  [
+    "What payment modes do you accept?",
+    "We accept all major UPI apps (Google Pay, PhonePe, Paytm), Debit/Credit cards, Net Banking, and Cash on Delivery.",
+  ],
+  [
+    "Do you curate custom festive and corporate gifting hampers?",
+    "Absolutely! We specialize in custom festive hampers (Diwali, Paryushan, New Year, weddings) with branded boxes and customized flavor assortments.",
+  ],
 ];
 
 function Faq() {
@@ -39,10 +73,7 @@ function Faq() {
         subtitle="Clear details about our ingredients, slow-roast craft, shelf-life, shipping timelines, and custom gifting."
         image={HERO_IMG}
         badge="Zero Preservatives · Pan-India Dispatch"
-        breadcrumbs={[
-          { label: "Home", to: "/" },
-          { label: "FAQ" },
-        ]}
+        breadcrumbs={[{ label: "Home", to: "/" }, { label: "FAQ" }]}
       />
 
       <div className="mx-auto max-w-3xl space-y-4 px-6 py-16 sm:py-20">

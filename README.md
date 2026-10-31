@@ -3,6 +3,7 @@
 Authentic handmade Gujarati Khakhras and Bhakhris, rolled paper-thin and slow-roasted on seasoned iron tawas.
 
 ## Features
+
 - **Artisanal Recipes**: 19 signature flavours (Jeera, Kasuri Methi, Pani Puri, Masala, Jaggery, Garlic, Farali, and more)
 - **Wholesome & Traditional**: Baked wholesome crunch, light on cold-pressed oil, zero preservatives
 - **Premium Editorial Design**: Crafted with Cormorant Garamond, Cinzel, and Plus Jakarta Sans

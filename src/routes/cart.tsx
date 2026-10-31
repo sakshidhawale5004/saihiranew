@@ -32,17 +32,16 @@ function Cart() {
         subtitle="Freshly pressed batches ready to be packed and dispatched straight to your doorstep."
         image={HERO_IMG}
         badge="Free Shipping on Orders Above ₹499"
-        breadcrumbs={[
-          { label: "Home", to: "/" },
-          { label: "Cart" },
-        ]}
+        breadcrumbs={[{ label: "Home", to: "/" }, { label: "Cart" }]}
       />
 
       <div className="mx-auto max-w-5xl px-6 py-14">
         {lines.length === 0 ? (
           <div className="rounded-2xl border border-border/80 bg-card p-12 text-center shadow-sm">
             <span className="font-serif text-5xl text-accent">🧺</span>
-            <h3 className="mt-4 font-display text-2xl font-medium text-primary">Your cart is empty</h3>
+            <h3 className="mt-4 font-display text-2xl font-medium text-primary">
+              Your cart is empty
+            </h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Discover our 19 handmade Gujarati flavours and treat yourself to authentic crunch.
             </p>
