@@ -297,7 +297,17 @@ export function getStoredProducts(): Product[] {
     }
     const parsed = JSON.parse(raw);
     if (Array.isArray(parsed) && parsed.length > 0) {
-      return parsed;
+      // Ensure no duplicate items exist by slug or id
+      const seen = new Set<string>();
+      const deduplicated: Product[] = [];
+      for (const item of parsed) {
+        const key = item.slug || item.id;
+        if (key && !seen.has(key)) {
+          seen.add(key);
+          deduplicated.push(item);
+        }
+      }
+      return deduplicated;
     }
     return initialProducts;
   } catch {
@@ -326,12 +336,18 @@ export function saveStoredProducts(list: Product[]): void {
 
 export function addProduct(p: Partial<Product> & { name: string; price: number }): Product {
   const current = getStoredProducts();
-  const slug =
+  const baseSlug =
     p.slug ||
     p.name
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
+  let slug = baseSlug;
+  let counter = 1;
+  while (current.some((item) => item.slug === slug)) {
+    slug = `${baseSlug}-${counter}`;
+    counter++;
+  }
   const id = p.id || `prod-${Date.now().toString().slice(-6)}`;
 
   const created: Product = {

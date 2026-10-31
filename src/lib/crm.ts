@@ -48,168 +48,33 @@ const ORDERS_KEY = "saihira_crm_orders";
 const CUSTOMERS_KEY = "saihira_crm_customers";
 const INQUIRIES_KEY = "saihira_crm_inquiries";
 
-// Initial realistic seed data for Sai Hira
-const INITIAL_ORDERS: Order[] = [
-  {
-    id: "SH-849201",
-    customer: "Kavita Shah",
-    email: "kavita.shah@gmail.com",
-    phone: "+91 98201 44552",
-    city: "Mumbai, MH",
-    address: "B-402, Sea Pearl Apts, Worli Sea Face, Mumbai 400030",
-    items: "Methi Khakhra (200g) × 2, Jaggery Bhakhri (200g) × 2",
-    total: 520,
-    status: "Completed",
-    date: "2026-10-30",
-    time: "14:22",
-    note: "Crisp packaging requested for festive tea party",
-    source: "Store Checkout",
-  },
-  {
-    id: "SH-849202",
-    customer: "Rajesh Parekh",
-    email: "r.parekh@parekhtrading.in",
-    phone: "+91 98210 99881",
-    city: "Ahmedabad, GJ",
-    address: "12, Shanti Kunj, Navrangpura, Ahmedabad 380009",
-    items: "Jeera Khakhra × 3, Masala Khakhra × 3, Bajri Bhakhri × 2",
-    total: 1000,
-    status: "Processing",
-    date: "2026-10-30",
-    time: "17:45",
-    note: "100% Jain preparation required (No onion, no garlic)",
-    source: "WhatsApp Checkout",
-  },
-  {
-    id: "SH-849203",
-    customer: "Meera Doshi",
-    email: "meera.doshi@outlook.com",
-    phone: "+91 99304 12389",
-    city: "Surat, GJ",
-    address: "C-11, Riverfront Heights, Adajan, Surat 395009",
-    items: "Pani Puri Khakhra × 2, Chilli Garlic Khakhra × 2",
-    total: 480,
-    status: "Shipped",
-    date: "2026-10-29",
-    time: "11:10",
-    note: "Air-sealed shipment for outstation travel",
-    source: "Store Checkout",
-  },
-  {
-    id: "SH-849204",
-    customer: "Anand Singhania",
-    email: "anand@singhaniacorp.com",
-    phone: "+91 98110 56743",
-    city: "Delhi, DL",
-    address: "44, Friends Colony West, New Delhi 110065",
-    items: "Farali Khakhra × 4, Farali Bhakhri × 4, Jaggery Bhakhri × 2",
-    total: 1320,
-    status: "Pending",
-    date: "2026-10-31",
-    time: "09:30",
-    note: "Diwali Corporate Sample Box with greeting label",
-    source: "Direct Concierge",
-  },
-];
-
-const INITIAL_CUSTOMERS: Customer[] = [
-  {
-    id: "CUST-1001",
-    name: "Kavita Shah",
-    email: "kavita.shah@gmail.com",
-    phone: "+91 98201 44552",
-    city: "Mumbai, MH",
-    segment: "VIP Reserve",
-    ordersCount: 8,
-    totalSpend: 4680,
-    lastOrder: "2026-10-30",
-  },
-  {
-    id: "CUST-1002",
-    name: "Rajesh Parekh",
-    email: "r.parekh@parekhtrading.in",
-    phone: "+91 98210 99881",
-    city: "Ahmedabad, GJ",
-    segment: "Regular Patron",
-    ordersCount: 5,
-    totalSpend: 3850,
-    lastOrder: "2026-10-30",
-  },
-  {
-    id: "CUST-1003",
-    name: "Anand Singhania",
-    email: "anand@singhaniacorp.com",
-    phone: "+91 98110 56743",
-    city: "Delhi, DL",
-    segment: "Festive Corporate",
-    ordersCount: 3,
-    totalSpend: 14200,
-    lastOrder: "2026-10-31",
-  },
-  {
-    id: "CUST-1004",
-    name: "Meera Doshi",
-    email: "meera.doshi@outlook.com",
-    phone: "+91 99304 12389",
-    city: "Surat, GJ",
-    segment: "Regular Patron",
-    ordersCount: 4,
-    totalSpend: 2360,
-    lastOrder: "2026-10-29",
-  },
-  {
-    id: "CUST-1005",
-    name: "Vikramaditya Mehta",
-    email: "vikram@mehtas.org",
-    phone: "+91 98200 11223",
-    city: "Pune, MH",
-    segment: "VIP Reserve",
-    ordersCount: 6,
-    totalSpend: 5400,
-    lastOrder: "2026-10-25",
-  },
-];
-
-const INITIAL_INQUIRIES: Inquiry[] = [
-  {
-    id: "INQ-201",
-    name: "Pooja Vora",
-    email: "pooja.vora@gmail.com",
-    phone: "+91 98205 77661",
-    interest: "Festive / Corporate Gifting (Bulk)",
-    message:
-      "Looking for 250 customized boxes of Methi and Jeera Khakhra with Jaggery Bhakhri for corporate Diwali hampers. Please share bulk price slab.",
-    date: "2026-10-31",
-    time: "10:15",
-    status: "New",
-  },
-  {
-    id: "INQ-202",
-    name: "Dr. Hemant Merchant",
-    email: "dr.merchant@wellness.in",
-    phone: "+91 98330 44221",
-    interest: "Wholesale & Retail Stockist",
-    message:
-      "Interested in stocking your Bajri, Barley, and Ragi diet khakhras at our Mumbai wellness clinic counters.",
-    date: "2026-10-30",
-    time: "15:40",
-    status: "Contacted",
-  },
-];
+// IDs of any dummy/mock records that should never appear as duplicate info
+const DUMMY_ORDER_IDS = new Set(["SH-849201", "SH-849202", "SH-849203", "SH-849204"]);
+const DUMMY_INQUIRY_IDS = new Set(["INQ-201", "INQ-202"]);
+const DUMMY_CUSTOMER_IDS = new Set([
+  "CUST-1001",
+  "CUST-1002",
+  "CUST-1003",
+  "CUST-1004",
+  "CUST-1005",
+]);
 
 /* ---------------- Orders API ---------------- */
 
 export function getStoredOrders(): Order[] {
-  if (typeof window === "undefined") return INITIAL_ORDERS;
+  if (typeof window === "undefined") return [];
   try {
     const raw = localStorage.getItem(ORDERS_KEY);
-    if (!raw) {
-      localStorage.setItem(ORDERS_KEY, JSON.stringify(INITIAL_ORDERS));
-      return INITIAL_ORDERS;
+    if (!raw) return [];
+    const parsed: Order[] = JSON.parse(raw);
+    // Filter out any legacy dummy/mock orders to avoid duplicate fake info
+    const clean = parsed.filter((o) => !DUMMY_ORDER_IDS.has(o.id));
+    if (clean.length !== parsed.length) {
+      localStorage.setItem(ORDERS_KEY, JSON.stringify(clean));
     }
-    return JSON.parse(raw);
+    return clean;
   } catch {
-    return INITIAL_ORDERS;
+    return [];
   }
 }
 
@@ -239,10 +104,19 @@ export function addOrder(
     time,
   };
 
-  const updated = [created, ...orders];
+  // Prevent duplicate insertion
+  const existingIdx = orders.findIndex((o) => o.id === id);
+  let updated: Order[];
+  if (existingIdx >= 0) {
+    updated = [...orders];
+    updated[existingIdx] = created;
+  } else {
+    updated = [created, ...orders];
+  }
+
   saveStoredOrders(updated);
 
-  // Also register or update customer record
+  // Sync customer record without duplication
   syncCustomerFromOrder(created);
 
   return created;
@@ -260,19 +134,25 @@ export function deleteOrder(id: string): void {
   saveStoredOrders(updated);
 }
 
+export function clearAllOrders(): void {
+  saveStoredOrders([]);
+}
+
 /* ---------------- Customers CRM API ---------------- */
 
 export function getStoredCustomers(): Customer[] {
-  if (typeof window === "undefined") return INITIAL_CUSTOMERS;
+  if (typeof window === "undefined") return [];
   try {
     const raw = localStorage.getItem(CUSTOMERS_KEY);
-    if (!raw) {
-      localStorage.setItem(CUSTOMERS_KEY, JSON.stringify(INITIAL_CUSTOMERS));
-      return INITIAL_CUSTOMERS;
+    if (!raw) return [];
+    const parsed: Customer[] = JSON.parse(raw);
+    const clean = parsed.filter((c) => !DUMMY_CUSTOMER_IDS.has(c.id));
+    if (clean.length !== parsed.length) {
+      localStorage.setItem(CUSTOMERS_KEY, JSON.stringify(clean));
     }
-    return JSON.parse(raw);
+    return clean;
   } catch {
-    return INITIAL_CUSTOMERS;
+    return [];
   }
 }
 
@@ -288,9 +168,17 @@ export function saveStoredCustomers(customers: Customer[]): void {
 
 export function syncCustomerFromOrder(order: Order): void {
   const customers = getStoredCustomers();
-  const existingIndex = customers.findIndex(
-    (c) => c.email.toLowerCase() === order.email.toLowerCase() || c.phone === order.phone,
-  );
+  const cleanEmail = (order.email || "").trim().toLowerCase();
+  const cleanPhone = (order.phone || "").replace(/[^0-9]/g, "");
+
+  // Prevent duplicate customer profiles: match by email or phone
+  const existingIndex = customers.findIndex((c) => {
+    const cEmail = (c.email || "").trim().toLowerCase();
+    const cPhone = (c.phone || "").replace(/[^0-9]/g, "");
+    const matchEmail = cleanEmail && cEmail && cleanEmail === cEmail;
+    const matchPhone = cleanPhone && cPhone && cleanPhone === cPhone;
+    return matchEmail || matchPhone;
+  });
 
   if (existingIndex >= 0) {
     const c = customers[existingIndex];
@@ -301,6 +189,7 @@ export function syncCustomerFromOrder(order: Order): void {
     customers[existingIndex] = {
       ...c,
       name: order.customer || c.name,
+      phone: order.phone || c.phone,
       ordersCount: newCount,
       totalSpend: newSpend,
       lastOrder: order.date,
@@ -309,7 +198,7 @@ export function syncCustomerFromOrder(order: Order): void {
     };
   } else {
     const newCust: Customer = {
-      id: `CUST-${(1000 + customers.length + 1).toString()}`,
+      id: `CUST-${Date.now().toString().slice(-4)}`,
       name: order.customer,
       email: order.email,
       phone: order.phone,
@@ -325,19 +214,25 @@ export function syncCustomerFromOrder(order: Order): void {
   saveStoredCustomers(customers);
 }
 
+export function clearAllCustomers(): void {
+  saveStoredCustomers([]);
+}
+
 /* ---------------- Inquiries API ---------------- */
 
 export function getStoredInquiries(): Inquiry[] {
-  if (typeof window === "undefined") return INITIAL_INQUIRIES;
+  if (typeof window === "undefined") return [];
   try {
     const raw = localStorage.getItem(INQUIRIES_KEY);
-    if (!raw) {
-      localStorage.setItem(INQUIRIES_KEY, JSON.stringify(INITIAL_INQUIRIES));
-      return INITIAL_INQUIRIES;
+    if (!raw) return [];
+    const parsed: Inquiry[] = JSON.parse(raw);
+    const clean = parsed.filter((i) => !DUMMY_INQUIRY_IDS.has(i.id));
+    if (clean.length !== parsed.length) {
+      localStorage.setItem(INQUIRIES_KEY, JSON.stringify(clean));
     }
-    return JSON.parse(raw);
+    return clean;
   } catch {
-    return INITIAL_INQUIRIES;
+    return [];
   }
 }
 
@@ -392,7 +287,11 @@ export function deleteInquiry(id: string): void {
   saveStoredInquiries(updated);
 }
 
-/* ---------------- CSV Exporters (Artisan Scent Reference Pattern) ---------------- */
+export function clearAllInquiries(): void {
+  saveStoredInquiries([]);
+}
+
+/* ---------------- CSV Exporters ---------------- */
 
 export function exportProductsCSV(productsList: Product[]): void {
   const headers = [
