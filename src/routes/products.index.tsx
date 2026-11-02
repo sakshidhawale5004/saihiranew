@@ -66,6 +66,37 @@ function ProductsPage() {
           ))}
         </div>
 
+        {/* Category Range Highlights Strip */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 rounded-xl bg-accent/5 border border-accent/15 px-4 py-3 text-xs font-medium text-foreground/80 text-center">
+          {c === "khakhra" ? (
+            <>
+              <span className="font-semibold text-accent uppercase tracking-wider">Khakhra Range:</span>
+              <span className="inline-flex items-center gap-1"><span className="text-accent font-bold">✓</span> Slow Baked</span>
+              <span className="inline-flex items-center gap-1"><span className="text-accent font-bold">✓</span> 100% Vegan</span>
+              <span className="inline-flex items-center gap-1"><span className="text-accent font-bold">✓</span> Made of Whole Wheat only</span>
+              <span className="inline-flex items-center gap-1"><span className="text-accent font-bold">✓</span> No artificial colours or preservatives</span>
+              <span className="inline-flex items-center gap-1"><span className="text-accent font-bold">✓</span> Vacuum Packed to sustain freshness</span>
+            </>
+          ) : c === "bhakhri" ? (
+            <>
+              <span className="font-semibold text-accent uppercase tracking-wider">Bhakhri Range:</span>
+              <span className="inline-flex items-center gap-1"><span className="text-accent font-bold">✓</span> Roasted and Not fried</span>
+              <span className="inline-flex items-center gap-1"><span className="text-accent font-bold">✓</span> Whole wheat flour</span>
+              <span className="inline-flex items-center gap-1"><span className="text-accent font-bold">✓</span> 100% Vegan</span>
+              <span className="inline-flex items-center gap-1"><span className="text-accent font-bold">✓</span> No artificial colours or preservatives</span>
+            </>
+          ) : (
+            <>
+              <span className="font-semibold text-accent uppercase tracking-wider">Quality Promise:</span>
+              <span className="inline-flex items-center gap-1"><span className="text-accent font-bold">✓</span> Slow Baked & Roasted (Never Fried)</span>
+              <span className="inline-flex items-center gap-1"><span className="text-accent font-bold">✓</span> 100% Vegan</span>
+              <span className="inline-flex items-center gap-1"><span className="text-accent font-bold">✓</span> Whole Wheat Flour & Millets</span>
+              <span className="inline-flex items-center gap-1"><span className="text-accent font-bold">✓</span> No Artificial Colours or Preservatives</span>
+              <span className="inline-flex items-center gap-1"><span className="text-accent font-bold">✓</span> Vacuum Packed Freshness</span>
+            </>
+          )}
+        </div>
+
         {/* Product Count & Sub-indicator */}
         <div className="mt-8 flex items-center justify-between text-xs uppercase tracking-widest text-muted-foreground">
           <span>Showing {list.length} Artisan Snacks</span>

@@ -30,6 +30,7 @@ export type Product = {
   tagline: string;
   description: string;
   notes: string[];
+  features?: string[];
   price: number;
   salePrice?: number;
   weight: string;
@@ -57,11 +58,27 @@ export const PRODUCT_IMAGE_PRESETS = [
   { label: "Farali Bhakhri", url: faraliB },
 ];
 
+export const KHAKHRA_FEATURES = [
+  "Slow Baked",
+  "100% Vegan",
+  "Made of Whole Wheat only",
+  "No artificial colours or preservatives",
+  "Vacuum Packed to sustain freshness",
+];
+
+export const BHAKHRI_FEATURES = [
+  "Roasted and Not fried",
+  "Whole wheat flour",
+  "100% Vegan",
+  "No artificial colours or preservatives",
+];
+
 const k = (
   slug: string,
   name: string,
   image: string,
   tagline: string,
+  description: string,
   notes: string[],
   badge = "Classic Khakhra",
   family = "Whole Wheat",
@@ -72,7 +89,9 @@ const k = (
   category: "khakhra",
   image,
   tagline,
+  description,
   notes,
+  features: KHAKHRA_FEATURES,
   price: 120,
   weight: "200 g",
   stock: 45,
@@ -80,7 +99,6 @@ const k = (
   badge,
   family,
   sku: `SHM-${slug.toUpperCase()}`,
-  description: `Paper-thin, hand-rolled and slow-roasted until perfectly crisp. Our ${name} is baked in small batches for a light, crunchy bite with ${tagline.toLowerCase()}.`,
 });
 
 const b = (
@@ -88,6 +106,7 @@ const b = (
   name: string,
   image: string,
   tagline: string,
+  description: string,
   notes: string[],
   badge = "Handmade Bhakhri",
   family = "Slow Roasted",
@@ -98,7 +117,9 @@ const b = (
   category: "bhakhri",
   image,
   tagline,
+  description,
   notes,
+  features: BHAKHRI_FEATURES,
   price: 140,
   weight: "200 g",
   stock: 35,
@@ -106,7 +127,6 @@ const b = (
   badge,
   family,
   sku: `SHM-${slug.toUpperCase()}`,
-  description: `Thick, hearty and handmade the traditional way. Our ${name} is pressed, pricked and roasted slowly for a deep crunch and ${tagline.toLowerCase()}.`,
 });
 
 export const initialProducts: Product[] = [
@@ -115,7 +135,8 @@ export const initialProducts: Product[] = [
     "Plain Khakhra",
     plain,
     "A clean, wholesome wheat flavour",
-    ["Whole wheat", "Light & crisp", "Everyday classic"],
+    "Paper-thin, hand-rolled and slow-baked to perfection. Made in small batches, our Plain Khakhra delivers a light, satisfying crunch and the wholesome flavour of wheat in every bite.",
+    ["Whole wheat", "Slow baked", "Everyday classic"],
     "Bestseller",
     "Whole Wheat",
   ),
@@ -124,6 +145,7 @@ export const initialProducts: Product[] = [
     "Jeera Khakhra",
     jeera,
     "Warm notes of roasted cumin",
+    "Paper-thin, hand-rolled and slow-baked to perfection. Made in small batches, our Jeera Khakhra delivers a light, satisfying crunch with the warm, aromatic flavour of roasted cumin in every bite.",
     ["Cumin seeds", "No onion, no garlic", "Baked"],
     "Jain Sattvik",
     "Roasted Spices",
@@ -132,7 +154,8 @@ export const initialProducts: Product[] = [
     "methi-khakhra",
     "Methi Khakhra",
     methi,
-    "Gently bitter fenugreek leaves",
+    "The earthy flavour of fenugreek",
+    "Paper-thin, hand-rolled and slow-roasted to perfection. Made in small batches, our Methi Khakhra delivers a light, satisfying crunch with the earthy flavour and gentle bitterness of fenugreek leaves in every bite.",
     ["Fenugreek", "Gujarati favourite", "Baked"],
     "Signature Batch",
     "Herbal / Fenugreek",
@@ -142,7 +165,8 @@ export const initialProducts: Product[] = [
     "Masala Khakhra",
     masala,
     "A bold house spice blend",
-    ["Hand-ground spices", "Tangy & savoury", "Baked"],
+    "Paper-thin, hand-rolled and slow-roasted until perfectly crisp. Our Masala Khakhra is baked in small batches for a light, crunchy bite with a bold house spice blend.",
+    ["House spice blend", "Tangy & savoury", "Baked"],
     "Top Crunch",
     "Masala Blend",
   ),
@@ -150,8 +174,9 @@ export const initialProducts: Product[] = [
     "kothmir-marcha-khakhra",
     "Kothmir-Marcha Khakhra",
     kothmir,
-    "Fresh coriander and green chilli",
-    ["Coriander leaves", "High fibre", "No onion, no garlic"],
+    "Fresh coriander and a hint of green chilli",
+    "Paper-thin, hand-rolled and slow-roasted to perfection. Made in small batches, our Kothmir-Marcha Khakhra delivers a light, satisfying crunch with the fresh flavour of coriander and the lively warmth of green chilli in every bite.",
+    ["Fresh coriander", "Green chilli", "Baked"],
     "Zesty Green",
     "Herb & Chilli",
   ),
@@ -160,7 +185,8 @@ export const initialProducts: Product[] = [
     "Chilli Garlic Khakhra",
     chilli,
     "A fiery chilli and garlic kick",
-    ["Spicy", "Garlic-forward", "Baked"],
+    "Paper-thin, hand-rolled and slow-roasted to perfection. Made in small batches, our Chilli Garlic Khakhra delivers a light, satisfying crunch with fiery chilli and bold garlic flavour in every bite.",
+    ["Fiery chilli", "Bold garlic", "Baked"],
     "Spicy Crunch",
     "Chilli Garlic",
   ),
@@ -169,7 +195,8 @@ export const initialProducts: Product[] = [
     "Pani Puri Khakhra",
     panipuri,
     "The tangy zing of street-side pani puri",
-    ["Chatpata", "Mint & tamarind", "Baked"],
+    "Paper-thin, hand-rolled and slow-roasted to perfection. Made in small batches, our Pani Puri Khakhra delivers a light, satisfying crunch with the lively spices and tangy zing of your favourite street-side pani puri in every bite.",
+    ["Pani puri spices", "Street-side zing", "Baked"],
     "Customer Favourite",
     "Chatpata Special",
   ),
@@ -178,7 +205,8 @@ export const initialProducts: Product[] = [
     "Oats Masala Khakhra",
     oats,
     "Hearty oats with a masala twist",
-    ["Oats", "High fibre", "Baked"],
+    "Paper-thin, hand-rolled and slow-roasted to perfection. Made in small batches, our Oats Masala Khakhra delivers a light, satisfying crunch with the hearty flavour of oats and a warming blend of masala spices in every bite.",
+    ["Hearty oats", "Masala twist", "Baked"],
     "Healthy Choice",
     "High Fibre Oats",
   ),
@@ -186,8 +214,9 @@ export const initialProducts: Product[] = [
     "ragi-khakhra",
     "Ragi Khakhra",
     ragi,
-    "Nutty finger millet goodness",
-    ["Millet", "Rich in calcium", "Baked"],
+    "The earthy, nutty flavour of finger millet",
+    "Paper-thin, hand-rolled and slow-roasted to perfection. Made in small batches, our Ragi Khakhra delivers a light, satisfying crunch with the earthy, nutty flavour of finger millet in every bite.",
+    ["Finger millet", "Rich in calcium", "Baked"],
     "Superfood",
     "Millet / Ragi",
   ),
@@ -195,8 +224,9 @@ export const initialProducts: Product[] = [
     "bajri-methi-khakhra",
     "Bajri Methi Khakhra",
     bajriMethiK,
-    "Pearl millet with fenugreek",
-    ["Millet", "Earthy", "Baked"],
+    "Earthy pearl millet with aromatic fenugreek",
+    "Paper-thin, hand-rolled and slow-roasted to perfection. Made in small batches, our Bajri Methi Khakhra delivers a light, satisfying crunch with the earthy flavour of pearl millet and the gentle bitterness of fenugreek in every bite.",
+    ["Pearl millet", "Aromatic fenugreek", "Baked"],
     "Nutrient Rich",
     "Pearl Millet",
   ),
@@ -205,7 +235,8 @@ export const initialProducts: Product[] = [
     "Farali Khakhra",
     farali,
     "Fasting-friendly and pure",
-    ["Vrat friendly", "Grain-free flours", "Baked"],
+    "Paper-thin, hand-rolled and slow-roasted until perfectly crisp. Our Farali Khakhra is baked in small batches for a light, crunchy bite with a fasting-friendly and pure flavour.",
+    ["Fasting-friendly", "Pure & grain-free", "Baked"],
     "Upvas Special",
     "Vrat Sattvik",
   ),
@@ -213,8 +244,9 @@ export const initialProducts: Product[] = [
     "mug-khakhra",
     "Mug Khakhra",
     mug,
-    "Protein-rich moong dal",
-    ["Moong dal", "Protein rich", "Baked"],
+    "The mild, nutty flavour of moong dal",
+    "Paper-thin, hand-rolled and slow-roasted to perfection. Made in small batches, our Mug Khakhra delivers a light, satisfying crunch with the mild, nutty flavour of moong dal in every bite.",
+    ["Moong dal", "Mild nutty flavour", "Baked"],
     "Protein Rich",
     "Lentil / Moong",
   ),
@@ -222,8 +254,9 @@ export const initialProducts: Product[] = [
     "jaggery-bhakhri",
     "Jaggery Bhakhri",
     jaggery,
-    "A gentle sweetness of pure jaggery",
-    ["Gud", "Sweet & crunchy", "Tea-time"],
+    "The gentle sweetness of pure jaggery",
+    "Thick, hearty and handmade the traditional way. Our Jaggery Bhakhri is pressed, pricked and slowly roasted for a satisfying crunch, with the rich, mellow sweetness of pure jaggery in every bite.",
+    ["Pure jaggery", "Roasted not fried", "Sweet crunch"],
     "Sweet Special",
     "Organic Gud",
   ),
@@ -232,7 +265,8 @@ export const initialProducts: Product[] = [
     "Bajri Bhakhri",
     bajriB,
     "The rustic taste of pearl millet",
-    ["Millet", "Rustic", "Hearty"],
+    "Thick, hearty and handmade the traditional way. Our Bajri Bhakhri is pressed, pricked and roasted slowly for a deep crunch and the rustic taste of pearl millet.",
+    ["Pearl millet", "Rustic taste", "Roasted not fried"],
     "Traditional",
     "Pure Bajri",
   ),
@@ -240,8 +274,9 @@ export const initialProducts: Product[] = [
     "bajri-methi-bhakhri",
     "Bajri Methi Bhakhri",
     bajriMethiB,
-    "Millet with fragrant fenugreek",
-    ["Millet", "Fenugreek", "Hearty"],
+    "Earthy pearl millet with fragrant fenugreek",
+    "Thick, hearty and handmade the traditional way. Our Bajri Methi Bhakhri is pressed, pricked and slowly roasted for a satisfying crunch, with the earthy flavour of pearl millet and the gentle bitterness of fenugreek in every bite.",
+    ["Pearl millet", "Fragrant fenugreek", "Roasted not fried"],
     "Village Style",
     "Bajri & Methi",
   ),
@@ -249,8 +284,9 @@ export const initialProducts: Product[] = [
     "barley-bhakhri",
     "Barley Bhakhri",
     barley,
-    "A wholesome, nutty barley flavour",
-    ["Barley", "High fibre", "Hearty"],
+    "The wholesome, nutty flavour of barley",
+    "Thick, hearty and handmade the traditional way. Our Barley Bhakhri is pressed, pricked and slowly roasted for a satisfying crunch, with the wholesome, nutty flavour of barley in every bite.",
+    ["Wholesome barley", "Nutty flavour", "Roasted not fried"],
     "Diet Special",
     "Nutty Barley",
   ),
@@ -259,7 +295,8 @@ export const initialProducts: Product[] = [
     "Black Pepper Bhakhri",
     pepper,
     "A peppery, aromatic warmth",
-    ["Black pepper", "Aromatic", "Crunchy"],
+    "Thick, hearty and handmade the traditional way. Our Black Pepper Bhakhri is pressed, pricked and roasted slowly for a deep crunch and a peppery, aromatic warmth.",
+    ["Black pepper", "Aromatic warmth", "Roasted not fried"],
     "Warm Spice",
     "Malabar Pepper",
   ),
@@ -268,7 +305,8 @@ export const initialProducts: Product[] = [
     "Garlic Bhakhri",
     garlic,
     "Roasted garlic in every bite",
-    ["Garlic", "Savoury", "Crunchy"],
+    "Thick, hearty and handmade the traditional way. Our Garlic Bhakhri is pressed, pricked and roasted slowly for a deep crunch and roasted garlic in every bite.",
+    ["Roasted garlic", "Savory crunch", "Roasted not fried"],
     "Rich Flavour",
     "Roasted Garlic",
   ),
@@ -276,14 +314,15 @@ export const initialProducts: Product[] = [
     "farali-bhakhri",
     "Farali Bhakhri",
     faraliB,
-    "Pure and fasting-friendly",
-    ["Vrat friendly", "Grain-free flours", "Crunchy"],
+    "A hearty crunch for fasting days",
+    "Thick, hearty and handmade the traditional way. Our Farali Bhakhri is pressed, pricked and slowly roasted for a satisfying crunch—a simple, flavourful snack for fasting days.",
+    ["Fasting days", "Hearty crunch", "Roasted not fried"],
     "Upvas Bhakhri",
     "Vrat Sattvik",
   ),
 ];
 
-export const PRODUCTS_STORAGE_KEY = "saihira_products_catalog";
+export const PRODUCTS_STORAGE_KEY = "saihira_products_catalog_v2";
 
 /* ---------------- Dynamic Product Storage API ---------------- */
 
@@ -297,14 +336,28 @@ export function getStoredProducts(): Product[] {
     }
     const parsed = JSON.parse(raw);
     if (Array.isArray(parsed) && parsed.length > 0) {
-      // Ensure no duplicate items exist by slug or id
+      // Ensure no duplicate items exist by slug or id, and keep canonical definitions aligned
       const seen = new Set<string>();
       const deduplicated: Product[] = [];
       for (const item of parsed) {
         const key = item.slug || item.id;
         if (key && !seen.has(key)) {
           seen.add(key);
-          deduplicated.push(item);
+          const canonical = initialProducts.find((ip) => ip.slug === key);
+          if (canonical) {
+            deduplicated.push({
+              ...canonical,
+              ...item,
+              tagline: canonical.tagline,
+              description: canonical.description,
+              features: canonical.features,
+              price: item.price ?? canonical.price,
+              stock: item.stock ?? canonical.stock,
+              weight: canonical.weight,
+            });
+          } else {
+            deduplicated.push(item);
+          }
         }
       }
       return deduplicated;

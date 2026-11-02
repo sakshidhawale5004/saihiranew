@@ -1,6 +1,12 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Reveal } from "@/components/site";
-import { formatINR, getProduct, getStoredProducts } from "@/lib/products";
+import {
+  formatINR,
+  getProduct,
+  getStoredProducts,
+  KHAKHRA_FEATURES,
+  BHAKHRI_FEATURES,
+} from "@/lib/products";
 import { useCart } from "@/lib/cart";
 import { toast } from "sonner";
 import { ProductCard } from "@/components/ProductCard";
@@ -105,6 +111,24 @@ function ProductPage() {
             <Link to="/cart" className="btn-ghost">
               View cart
             </Link>
+          </div>
+
+          {/* Quality & Dietary Highlights */}
+          <div className="mt-8 rounded-xl border border-accent/20 bg-accent/5 p-4 sm:p-5">
+            <h3 className="font-display text-xs font-semibold uppercase tracking-wider text-accent flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              {p.category === "khakhra" ? "Khakhra Range Promise" : "Bhakhri Range Promise"}
+            </h3>
+            <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-medium text-foreground/80">
+              {(p.features || (p.category === "khakhra" ? KHAKHRA_FEATURES : BHAKHRI_FEATURES)).map(
+                (feat) => (
+                  <li key={feat} className="flex items-center gap-2">
+                    <span className="text-accent font-bold">✓</span>
+                    <span>{feat}</span>
+                  </li>
+                ),
+              )}
+            </ul>
           </div>
         </Reveal>
       </div>
