@@ -29,6 +29,7 @@ import {
 import {
   type Product,
   type Category,
+  CATEGORIES,
   getStoredProducts,
   addProduct,
   updateProduct,
@@ -1121,19 +1122,23 @@ export function AdminHub() {
                 <span className="text-[11px] text-muted-foreground uppercase tracking-wider font-semibold">
                   Category:
                 </span>
-                {["all", "khakhra", "bhakhri"].map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setSelectedCategory(cat)}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
-                      selectedCategory === cat
-                        ? "bg-primary text-primary-foreground font-semibold shadow-xs"
-                        : "bg-secondary/60 text-foreground/80 hover:bg-secondary"
-                    }`}
-                  >
-                    {cat === "all" ? "All Varieties" : cat.toUpperCase()}
-                  </button>
-                ))}
+                {["all", ...CATEGORIES.map((c) => c.id)].map((cat) => {
+                  const meta = CATEGORIES.find((c) => c.id === cat);
+                  const label = cat === "all" ? "All Varieties" : meta ? meta.shortLabel : cat.toUpperCase();
+                  return (
+                    <button
+                      key={cat}
+                      onClick={() => setSelectedCategory(cat)}
+                      className={`px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
+                        selectedCategory === cat
+                          ? "bg-primary text-primary-foreground font-semibold shadow-xs"
+                          : "bg-secondary/60 text-foreground/80 hover:bg-secondary"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -1671,8 +1676,11 @@ export function AdminHub() {
                     onChange={(e) => setFCategory(e.target.value)}
                     className="w-full bg-background border border-border rounded-xl px-4 py-2.5 text-xs text-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent cursor-pointer transition-all"
                   >
-                    <option value="khakhra">Paper-Thin Khakhra</option>
-                    <option value="bhakhri">Hearty Bhakhri</option>
+                    {CATEGORIES.map((cat) => (
+                      <option key={cat.id} value={cat.id}>
+                        {cat.label}
+                      </option>
+                    ))}
                     <option value="snack">Specialty Gujarati Snack</option>
                   </select>
                 </div>

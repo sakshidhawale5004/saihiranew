@@ -4,6 +4,7 @@ import {
   formatINR,
   getProduct,
   getStoredProducts,
+  CATEGORIES,
   KHAKHRA_FEATURES,
   BHAKHRI_FEATURES,
 } from "@/lib/products";
@@ -57,7 +58,7 @@ function ProductPage() {
         <Reveal>
           <div className="flex items-center gap-2">
             <span className="eyebrow">
-              {p.category === "khakhra" ? "Khakhra" : "Bhakhri"} · Handmade
+              {CATEGORIES.find((cat) => cat.id === p.category)?.shortLabel || p.category} · Handmade
             </span>
             {p.badge && (
               <span className="rounded-full bg-accent/15 text-accent text-xs px-2.5 py-0.5 font-semibold">
@@ -117,7 +118,7 @@ function ProductPage() {
           <div className="mt-8 rounded-xl border border-accent/20 bg-accent/5 p-4 sm:p-5">
             <h3 className="font-display text-xs font-semibold uppercase tracking-wider text-accent flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              {p.category === "khakhra" ? "Khakhra Range Promise" : "Bhakhri Range Promise"}
+              {CATEGORIES.find((cat) => cat.id === p.category)?.label || "Range Promise"}
             </h3>
             <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-medium text-foreground/80">
               {(p.features || (p.category === "khakhra" ? KHAKHRA_FEATURES : BHAKHRI_FEATURES)).map(

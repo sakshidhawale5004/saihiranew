@@ -1,29 +1,31 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { Reveal } from "@/components/site";
 import { ProductCard } from "@/components/ProductCard";
-import { products, useProducts } from "@/lib/products";
+import { products, useProducts, CATEGORIES } from "@/lib/products";
 
-// All 5 local editorial assets from the repository assets folder (watermark-free)
-import HERO_PLATTER from "@/assets/editorial/khakhra-platter.jpg";
-import METHI_TRAY from "@/assets/editorial/methi-khakhra-1.jpg";
-import METHI_MACRO from "@/assets/editorial/methi-khakhra-2.jpg";
-import METHI_FLATLAY from "@/assets/editorial/methi-khakhra-3.jpg";
-import KHAKHRA_CHAI from "@/assets/editorial/khakhra-stack.jpg";
-import HOME_HERO_BG from "@/assets/hero/homeherosection.png";
+// Authentic High-Resolution Visual Assets from public/saihira
+import HOME_HERO_BG from "@/assets/saihira/homehero.png";
+import RUSTIC_CHAI from "@/assets/saihira/rustic-khakhra-chai.png";
+import RUSTIC_CORIANDER from "@/assets/saihira/rustic-khakhra-coriander.png";
+import RUSTIC_BHAKRI from "@/assets/saihira/rustic-bhakri-spices.png";
+import RUSTIC_GOLDEN_FEAST from "@/assets/saihira/rustic-golden-flatbread.png";
+import RUSTIC_ROTI_FEAST from "@/assets/saihira/rustic-roti-feast.png";
+import RUSTIC_SPICES from "@/assets/saihira/rustic-khakhra-spices.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SAIHIRA — Artisanal Handmade Khakhras & Bhakhris · Best in Taste" },
+      { title: "SAIHIRA — Artisanal Handmade Bhakhris & Khakhras · Best in Taste" },
       {
         name: "description",
         content:
-          "Crunchy, hand-rolled Gujarati Bhakhris & Khakhras roasted on iron tawas. 19 authentic flavours made with pure ingredients.",
+          "Our prime specialty is authentic Gujarati Bhakhri, along with paper-thin Khakhras & Rotlas roasted on iron tawas. 50+ authentic flavours dispatched fresh weekly.",
       },
       { property: "og:title", content: "SAIHIRA — Best in Taste Handmade Gujarati Snacks" },
       {
         property: "og:description",
-        content: "Crunchy, crispy handmade Bhakhris & Khakhras in delicious flavours.",
+        content: "Authentic handmade Bhakhris & Khakhras roasted with pure quality edible oil.",
       },
     ],
   }),
@@ -40,8 +42,8 @@ const why = [
     "Pure whole wheat, bajri, ragi, barley, oats, and moong ground in small artisan batches every morning.",
   ],
   [
-    "Cold-Pressed Oil Only",
-    "Tempered lightly with cold-pressed sesame and groundnut oil. 100% free from palm oil and artificial preservatives.",
+    "Pure Quality Edible Oil",
+    "Tempered lightly with quality edible vegetable oil and hand-roasted spices. Non-greasy, wholesome crunch with zero artificial preservatives.",
   ],
   [
     "Authentic Jain & Sattvik",
@@ -74,7 +76,7 @@ const steps = [
 
 const reviews = [
   [
-    "The Methi and Jeera khakhras taste just like the ones from Saurashtra. Super thin, perfectly roasted on iron tawa, and not greasy at all. Our whole family loves them with morning ginger chai.",
+    "The Methi and Jeera snacks taste just like the ones from Saurashtra. Super thin, perfectly roasted on iron tawa, and not greasy at all. Our whole family loves them with morning ginger chai.",
     "Hetal Parekh",
     "Verified Patron · Mumbai",
   ],
@@ -84,7 +86,7 @@ const reviews = [
     "Corporate Client · Bengaluru",
   ],
   [
-    "I was skeptical ordering snacks online, but the crunch is incredible. Crisp, aromatic, zero palm oil aftertaste. Highly recommend the Pani Puri and Bajri Methi.",
+    "I was skeptical ordering snacks online, but the crunch is incredible. Crisp, aromatic, zero greasy aftertaste and authentic homemade crunch. Highly recommend the Methi Bhakhri and Bajri Methi.",
     "Dr. Rajesh Vora",
     "Verified Patron · Ahmedabad",
   ],
@@ -95,46 +97,50 @@ const tastingMoments = [
     tag: "Morning Chai",
     title: "The Classic Breakfast Pairing",
     desc: "Lightly spiced Jeera & Methi Khakhras paired with steaming adrak-wali chai to awaken the senses.",
-    img: KHAKHRA_CHAI,
+    img: RUSTIC_CHAI,
   },
   {
     tag: "Artisanal Table",
     title: "Afternoon Chutney Platter",
     desc: "Crispy roasted khakhras served with tangy sweet mango chundo, green chilli pickle, or cool mint dip.",
-    img: METHI_FLATLAY,
+    img: RUSTIC_CORIANDER,
   },
   {
     tag: "Master Roast",
     title: "Golden Tawa Perfection",
     desc: "Each piece pressed with traditional wooden blocks until the characteristic golden blisters emerge.",
-    img: HERO_PLATTER,
+    img: RUSTIC_BHAKRI,
   },
 ];
 
 function Index() {
   const allProducts = useProducts();
-  // Curated 4 featured signature snacks matching the reference layout
+  const [activeBatchCategory, setActiveBatchCategory] = useState<string>("bhakhri");
+
+  // Curated 4 featured signature snacks highlighting our Prime Product (Bhakhri) & Khakhra
   const signatureItems = [
-    allProducts.find((p) => p.slug === "methi-khakhra") || allProducts[0] || products[0],
-    allProducts.find((p) => p.slug === "jeera-khakhra") || allProducts[1] || products[1],
-    allProducts.find((p) => p.slug === "jaggery-bhakhri") || allProducts[2] || products[2],
-    allProducts.find((p) => p.slug === "pani-puri-khakhra") || allProducts[3] || products[3],
+    allProducts.find((p) => p.slug === "methi-bhakhri") || allProducts[0] || products[0],
+    allProducts.find((p) => p.slug === "masala-bhakhri") || allProducts[1] || products[1],
+    allProducts.find((p) => p.slug === "methi-khakhra") || allProducts[2] || products[2],
+    allProducts.find((p) => p.slug === "bajari-methi-premium-bhakhri") || allProducts[3] || products[3],
   ].filter(Boolean);
 
   const allFeaturedSlugs = [
-    "jeera-khakhra",
+    "methi-bhakhri",
+    "jeera-bhakhri",
+    "masala-bhakhri",
+    "bajari-methi-premium-bhakhri",
     "methi-khakhra",
-    "pani-puri-khakhra",
-    "masala-khakhra",
-    "jaggery-bhakhri",
-    "garlic-bhakhri",
-    "black-pepper-bhakhri",
-    "farali-bhakhri",
+    "jeera-khakhra",
+    "kothmir-marcha-khakhra",
+    "bajari-rotla",
   ];
 
   const featuredCards = allFeaturedSlugs
     .map((s) => allProducts.find((p) => p.slug === s) || products.find((p) => p.slug === s))
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+  const batchItems = allProducts.filter((p) => p.category === activeBatchCategory);
 
   return (
     <>
@@ -165,23 +171,23 @@ function Index() {
             <div className="flex items-center gap-3 text-accent">
               <span className="h-px w-8 bg-accent/80" />
               <span className="font-sans text-[0.72rem] sm:text-xs font-bold uppercase tracking-[0.26em] text-accent">
-                AUTHENTIC GUJARATI RECIPES · SLOW ROASTED ON IRON TAWAS
+                OUR PRIME SPECIALTY: ARTISANAL BHAKHRI · DISPATCHED FRESH WEEKLY
               </span>
             </div>
 
             {/* Headline: Dark espresso typography for crisp contrast */}
             <h1 className="mt-5 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-medium tracking-tight text-primary leading-[1.05]">
-              Asal Gujarati Khakhra, <br />
+              Asal Gujarati Bhakhri & Khakhra, <br />
               <span className="font-serif italic font-normal text-primary">
-                Tawa-Roasted to Crisp Perfection
+                Our Prime Specialty, Roasted to Perfection
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="mt-6 font-sans text-base sm:text-lg font-normal leading-relaxed text-[#544237] max-w-xl">
-              Gossamer-thin, non-greasy, and bursting with roasted cumin, fresh kasuri methi, and
-              stone-ground grains. 19 authentic Kathiawadi recipes, vacuum-sealed for your daily
-              chai.
+              Thick, hearty Bhakhris hand-pressed on cast-iron tawas alongside paper-thin Khakhras and
+              rustic Rotlas. Prepared in small artisan batches with stone-ground flours, pure quality
+              edible oil, and traditional spices.
             </p>
 
             {/* Primary Action Button */}
@@ -195,7 +201,7 @@ function Index() {
 
               <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
                 <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse" />
-                <span>Fresh Batches Dispatched Daily</span>
+                <span>Weekly Fresh Batches Dispatched</span>
               </div>
             </div>
 
@@ -205,10 +211,10 @@ function Index() {
                 <span className="text-accent font-bold">✓</span> 100% Cast-Iron Roasted
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <span className="text-accent font-bold">✓</span> Zero Palm Oil
+                <span className="text-accent font-bold">✓</span> Pure Quality Edible Oil
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <span className="text-accent font-bold">✓</span> Pure Jain & Sattvik Options
+                <span className="text-accent font-bold">✓</span> Zero Artificial Preservatives
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <span className="text-accent font-bold">✓</span> Free Delivery Above ₹499
@@ -313,7 +319,7 @@ function Index() {
             to="/products"
             className="nav-link inline-flex items-center gap-1.5 text-accent font-semibold hover:text-primary"
           >
-            <span>View All 19 Flavours</span>
+            <span>View All {allProducts.length} Flavours</span>
             <span>→</span>
           </Link>
         </div>
@@ -327,7 +333,85 @@ function Index() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SHOP BY CATEGORY (Khakhras vs Bhakhris)
+          WEEKLY FRESH BATCH DISPATCHED ITEM LIST
+          ───────────────────────────────────────────────────────────── */}
+      <section id="weekly-fresh-batch" className="border-t border-border/80 bg-[#FAF7F2] py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-600 animate-pulse" />
+                <span className="font-sans text-xs font-bold uppercase tracking-[0.22em] text-emerald-800">
+                  WEEKLY FRESH BATCH DISPATCHED
+                </span>
+              </div>
+              <h2 className="mt-2.5 font-display text-4xl sm:text-5xl font-medium text-primary">
+                Weekly Fresh Batch Menu
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
+                Slow-roasted on iron tawas every week. <span className="font-semibold text-primary">Our prime product is Bhakhri</span>, alongside premium artisan recipes, no-salt wellness options, gluten-free crunches, traditional rotla, and baked khakhras.
+              </p>
+            </div>
+            <Link
+              to="/products"
+              className="nav-link inline-flex items-center gap-1.5 text-accent font-semibold hover:text-primary whitespace-nowrap"
+            >
+              <span>Explore All {allProducts.length} Items</span>
+              <span>→</span>
+            </Link>
+          </div>
+
+          {/* Category Tabs */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-4 no-scrollbar">
+            {CATEGORIES.map((cat) => {
+              const count = allProducts.filter((p) => p.category === cat.id).length;
+              const isActive = activeBatchCategory === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveBatchCategory(cat.id)}
+                  className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                    isActive
+                      ? "bg-primary text-primary-foreground shadow-sm"
+                      : "bg-white/80 border border-border/70 text-foreground/80 hover:bg-white hover:text-primary"
+                  }`}
+                >
+                  {cat.isPrime ? `⭐ ${cat.shortLabel} (Prime)` : cat.shortLabel}
+                  <span className="ml-1.5 text-[0.65rem] opacity-75">({count})</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active Category Tagline Banner */}
+          {(() => {
+            const currentMeta = CATEGORIES.find((c) => c.id === activeBatchCategory);
+            return currentMeta ? (
+              <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl bg-accent/10 border border-accent/20 px-5 py-3 text-xs">
+                <span className="font-medium text-foreground">
+                  <strong className="text-accent uppercase tracking-wider mr-2">
+                    {currentMeta.label}:
+                  </strong>
+                  {currentMeta.tagline}
+                </span>
+                <span className="text-[0.7rem] uppercase tracking-wider text-muted-foreground font-semibold">
+                  Dispatched in 24–48 Hours
+                </span>
+              </div>
+            ) : null;
+          })()}
+
+          {/* Batch Grid */}
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {batchItems.map((p) => (
+              <ProductCard key={p.slug} p={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          SHOP BY CATEGORY (Bhakhris vs Khakhris)
           ───────────────────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-6 py-16 border-t border-border/70">
         <div className="text-center">
@@ -336,12 +420,12 @@ function Index() {
             Authentic Gujarati Delights
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-sm text-muted-foreground">
-            From gossamer paper-thin crisps to hearty rustic rounds pricked by hand.
+            From hearty rustic Bhakhri rounds pricked by hand to gossamer paper-thin Khakhras.
           </p>
         </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {(["khakhra", "bhakhri"] as const).map((c) => {
+          {(["bhakhri", "khakhra"] as const).map((c) => {
             const p =
               allProducts.find((x) => x.category === c) || products.find((x) => x.category === c)!;
             const n = allProducts.filter((x) => x.category === c).length;
@@ -358,15 +442,15 @@ function Index() {
                 <div className="mt-6 flex items-center justify-center gap-2">
                   <span className="h-px w-8 bg-accent/40" />
                   <span className="font-display text-2xl font-medium text-primary">
-                    {c === "khakhra" ? "Signature Khakhras" : "Hearty Bhakhris"}
+                    {c === "bhakhri" ? "Handmade Bhakhris (Prime Product)" : "Signature Khakhras"}
                   </span>
                   <span className="h-px w-8 bg-accent/40" />
                 </div>
                 <p className="mt-3 text-sm text-muted-foreground">
                   {n} Flavours ·{" "}
-                  {c === "khakhra"
-                    ? "Paper-thin, blistered crisp & roasted"
-                    : "Thick, rustic, roasted & pressed by hand"}
+                  {c === "bhakhri"
+                    ? "Thick, rustic, roasted & pressed by hand — our prime specialty"
+                    : "Paper-thin, blistered crisp & roasted on iron tawas"}
                 </p>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-accent transition-colors group-hover:text-primary">
                   <span>Explore Category</span>
@@ -481,8 +565,8 @@ function Index() {
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2">
         <div className="relative overflow-hidden rounded-2xl border-2 border-border/80 bg-card shadow-luxury">
           <img
-            src={METHI_MACRO}
-            alt="Close-up macro of paper-thin crispy layers of Gujarati khakhra"
+            src={RUSTIC_GOLDEN_FEAST}
+            alt="Hand-pressed golden roasted flatbreads and bhakhris"
             className="h-[440px] w-full object-cover transition-transform duration-700 hover:scale-105"
           />
           <div className="absolute bottom-4 left-4 rounded-lg bg-card/90 px-4 py-2 shadow-sm backdrop-blur">
@@ -512,7 +596,7 @@ function Index() {
           <div className="mt-10 grid grid-cols-3 gap-4 text-center">
             {[
               ["30+", "Years of Craft"],
-              ["19", "Recipes"],
+              ["50+", "Artisan Flavours"],
               ["100%", "Handmade"],
             ].map(([a, b]) => (
               <div key={b} className="rounded-xl border border-border/80 bg-card p-4 shadow-sm">
@@ -531,8 +615,8 @@ function Index() {
           ───────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden py-24 my-10">
         <img
-          src={METHI_FLATLAY}
-          alt="Artisanal khakhra with hot tea in earthen cup"
+          src={RUSTIC_ROTI_FEAST}
+          alt="Artisanal khakhra and bhakhri feast with tea and traditional spices"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75 backdrop-blur-[2px]" />

@@ -28,11 +28,11 @@ const faqs = [
   ],
   [
     "Are any of your snacks deep fried?",
-    "Never. SAIHIRA snacks are 100% roasted and baked on cast-iron tawas with minimal cold-pressed oil — giving you clean crunch with zero oily heaviness.",
+    "Never. SAIHIRA snacks are 100% roasted and baked on cast-iron tawas with minimal pure edible oil — giving you clean crunch with zero oily heaviness.",
   ],
   [
     "Do you have Jain and Sattvik options (no onion, no garlic)?",
-    "Yes, many of our 19 signature flavours are made without onion or garlic in strict accordance with pure sattvik traditions. Look for the Jain-friendly badge on each product.",
+    "Yes, many of our 50+ artisanal flavours are made without onion or garlic in strict accordance with pure sattvik traditions. Look for the Jain-friendly badge on each product.",
   ],
   [
     "Which products are suitable for Upvas (fasting)?",

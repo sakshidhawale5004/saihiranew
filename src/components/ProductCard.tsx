@@ -6,19 +6,19 @@ import { useState } from "react";
 
 // Helper to determine badges for each product based on category & notes
 function getProductBadges(p: Product): { primary: string; secondary?: string } {
-  if (p.slug === "methi-khakhra") return { primary: "Must Try", secondary: "Aromatic Fenugreek" };
-  if (p.slug === "jeera-khakhra") return { primary: "Jain Sattvik", secondary: "No Onion Garlic" };
-  if (p.slug === "pani-puri-khakhra")
+  if (p.slug === "methi-khakhra") return { primary: "Bestseller", secondary: "Aromatic Fenugreek" };
+  if (p.slug === "jeera-khakhra" || p.slug === "jeera-bhakhri") return { primary: "Jain Sattvik", secondary: "No Onion Garlic" };
+  if (p.slug === "pani-puri-khakhra" || p.slug === "pani-puri-bhakhri")
     return { primary: "Street Food Hit", secondary: "Chatpata Crunch" };
-  if (p.slug === "jaggery-bhakhri") return { primary: "Desi Gud", secondary: "Refined Sugar-Free" };
-  if (p.slug === "farali-khakhra" || p.slug === "farali-bhakhri")
+  if (p.slug === "jaggery-bhakhri" || p.slug === "bajari-gud-rotla") return { primary: "Desi Gud", secondary: "Refined Sugar-Free" };
+  if (p.slug.includes("farali"))
     return { primary: "Upvas Special", secondary: "Grain-Free Flours" };
-  if (p.slug === "ragi-khakhra")
-    return { primary: "Calcium Rich", secondary: "Nutty Finger Millet" };
-  if (p.slug === "oats-masala-khakhra") return { primary: "High Fibre", secondary: "Hearty Oats" };
-  if (p.slug === "garlic-bhakhri" || p.slug === "chilli-garlic-khakhra")
-    return { primary: "Bold Garlic", secondary: "Savory & Crispy" };
-  if (p.category === "bhakhri") return { primary: "Hand Pressed", secondary: "Thick & Hearty" };
+  if (p.category === "gluten-free-bhakhri") return { primary: "Gluten Free", secondary: "100% Wheat-Free" };
+  if (p.category === "no-salt-bhakhri") return { primary: "Zero Added Salt", secondary: "Heart Healthy" };
+  if (p.category === "rotla") return { primary: "Village Rotla", secondary: "Hearth Roasted" };
+  if (p.category === "mobile-khakhra") return { primary: "Pocket Khakhra", secondary: "Travel Friendly" };
+  if (p.category === "premium-bhakhri") return { primary: "Artisan Premium", secondary: p.notes[0] || "Special Recipe" };
+  if (p.category === "bhakhri") return { primary: "Prime Product", secondary: p.notes[0] || "Thick & Hearty" };
   return { primary: "Tawa Roasted", secondary: p.notes[0] || "100% Baked" };
 }
 

@@ -1,5 +1,9 @@
-import aboutImg from "@/assets/editorial/methi-khakhra-2.jpg";
-import heroImg from "@/assets/editorial/khakhra-platter.jpg";
+import heroImg from "@/assets/saihira/rustic-roti-feast.png";
+import aboutImg from "@/assets/saihira/rustic-bhakri-spices.png";
+import RUSTIC_CHAI from "@/assets/saihira/rustic-khakhra-chai.png";
+import RUSTIC_CORIANDER from "@/assets/saihira/rustic-khakhra-coriander.png";
+import RUSTIC_GOLDEN from "@/assets/saihira/rustic-golden-flatbread.png";
+import RUSTIC_SPICES from "@/assets/saihira/rustic-khakhra-spices.png";
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal, Tilt } from "@/components/site";
 import { PageHero } from "@/components/PageHero";
@@ -83,7 +87,7 @@ function About() {
               </p>
               <p>
                 Every morning, fresh dough is kneaded with stone-ground flours, toasted jeera,
-                fragrant kasuri methi, and cold-pressed oils. Our artisans roll each disc paper-thin
+                fragrant kasuri methi, aromatic spices, and quality edible oil. Our artisans roll each disc paper-thin
                 before pressing it over seasoned iron tawas with wooden blocks until golden and
                 crisp.
               </p>
@@ -92,9 +96,61 @@ function About() {
           <div className="overflow-hidden rounded-2xl border-2 border-border/80 shadow-luxury">
             <img
               src={aboutImg}
-              alt="Paper-thin hand-roasted fenugreek khakhras"
+              alt="Authentic hand-pressed Gujarati bhakhri with spices and herbs"
               className="h-[380px] w-full object-cover transition-transform duration-700 hover:scale-105"
             />
+          </div>
+        </div>
+
+        {/* Heritage Kitchen Gallery Strip */}
+        <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="overflow-hidden rounded-xl border border-border shadow-xs group bg-card">
+            <img
+              src={RUSTIC_CHAI}
+              alt="Morning Chai and Khakhra Pairing"
+              className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="p-2.5 text-center">
+              <span className="font-sans text-[0.68rem] font-semibold uppercase tracking-wider text-accent">
+                Morning Chai Ritual
+              </span>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-border shadow-xs group bg-card">
+            <img
+              src={RUSTIC_CORIANDER}
+              alt="Fresh Herbs and Spices"
+              className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="p-2.5 text-center">
+              <span className="font-sans text-[0.68rem] font-semibold uppercase tracking-wider text-accent">
+                Fresh Herbs & Coriander
+              </span>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-border shadow-xs group bg-card">
+            <img
+              src={RUSTIC_GOLDEN}
+              alt="Iron Tawa Slow Roast"
+              className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="p-2.5 text-center">
+              <span className="font-sans text-[0.68rem] font-semibold uppercase tracking-wider text-accent">
+                Iron Tawa Roast
+              </span>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-border shadow-xs group bg-card">
+            <img
+              src={RUSTIC_SPICES}
+              alt="Whole Grains & Hand-Ground Spices"
+              className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="p-2.5 text-center">
+              <span className="font-sans text-[0.68rem] font-semibold uppercase tracking-wider text-accent">
+                Pure Stone-Ground Spices
+              </span>
+            </div>
           </div>
         </div>
 
