@@ -167,27 +167,32 @@ function Index() {
         {/* Main Content Area (Left-Aligned, allowing the background artwork to shine) */}
         <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 my-auto">
           <div className="max-w-2xl text-left">
-            {/* Eyebrow with hairline dashes */}
-            <div className="flex items-center gap-3 text-accent">
-              <span className="h-px w-8 bg-accent/80" />
-              <span className="font-sans text-[0.72rem] sm:text-xs font-bold uppercase tracking-[0.26em] text-accent">
-                OUR PRIME SPECIALTY: ARTISANAL BHAKHRI · DISPATCHED FRESH WEEKLY
+            {/* Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-[#F6EDE2]/95 px-4 py-1.5 shadow-xs backdrop-blur-sm">
+              <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse shrink-0" />
+              <span className="font-sans text-[0.68rem] sm:text-xs font-bold uppercase tracking-[0.18em] text-accent">
+                Prime Specialty · Dispatched Fresh Weekly
               </span>
             </div>
 
-            {/* Headline: Dark espresso typography for crisp contrast */}
-            <h1 className="mt-5 font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-medium tracking-tight text-primary leading-[1.05]">
-              Asal Gujarati Bhakhri & Khakhra, <br />
-              <span className="font-serif italic font-normal text-primary">
-                Our Prime Specialty, Roasted to Perfection
+            {/* Headline: Balanced, majestic typography */}
+            <h1 className="mt-5 font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-medium tracking-tight text-primary leading-[1.12]">
+              Asal Gujarati Bhakhri <br />
+              <span className="font-serif italic font-normal text-accent">
+                &amp; Artisan Khakhra
               </span>
             </h1>
 
+            {/* Sub-headline: Poetic prime product callout */}
+            <p className="mt-3.5 font-serif italic text-lg sm:text-xl md:text-2xl text-[#6D4733] font-normal leading-snug">
+              Our Prime Specialty — Slow-Roasted on Cast-Iron Tawas
+            </p>
+
             {/* Subtitle */}
-            <p className="mt-6 font-sans text-base sm:text-lg font-normal leading-relaxed text-[#544237] max-w-xl">
+            <p className="mt-4 font-sans text-sm sm:text-base font-normal leading-relaxed text-[#544237]/90 max-w-xl">
               Thick, hearty Bhakhris hand-pressed on cast-iron tawas alongside paper-thin Khakhras and
               rustic Rotlas. Prepared in small artisan batches with stone-ground flours, pure quality
-              edible oil, and traditional spices.
+              edible oil, and traditional Gujarati spices.
             </p>
 
             {/* Primary Action Button */}
