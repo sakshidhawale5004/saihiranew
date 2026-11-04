@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Reveal } from "@/components/site";
 import { ProductCard } from "@/components/ProductCard";
-import { products, useProducts, CATEGORIES } from "@/lib/products";
+import { products, useProducts, CATEGORIES, imgMethiBhakhri, methi } from "@/lib/products";
 
 // Authentic High-Resolution Visual Assets from public/saihira
 import HOME_HERO_BG from "@/assets/saihira/homehero.png";
@@ -430,40 +430,62 @@ function Index() {
         </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {(["bhakhri", "khakhra"] as const).map((c) => {
-            const p =
-              allProducts.find((x) => x.category === c) || products.find((x) => x.category === c)!;
-            const n = allProducts.filter((x) => x.category === c).length;
-            return (
-              <Link
-                key={c}
-                to="/products"
-                search={{ c }}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 pt-10 text-center shadow-deep transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
-              >
-                <div className="mx-auto h-64 overflow-hidden rounded-xl bg-secondary/30 p-4 transition-transform duration-500 group-hover:scale-105">
-                  <img src={p.image} alt={c} className="h-full w-full object-contain" />
-                </div>
-                <div className="mt-6 flex items-center justify-center gap-2">
-                  <span className="h-px w-8 bg-accent/40" />
-                  <span className="font-display text-2xl font-medium text-primary">
-                    {c === "bhakhri" ? "Handmade Bhakhris (Prime Product)" : "Signature Khakhras"}
-                  </span>
-                  <span className="h-px w-8 bg-accent/40" />
-                </div>
-                <p className="mt-3 text-sm text-muted-foreground">
-                  {n} Flavours ·{" "}
-                  {c === "bhakhri"
-                    ? "Thick, rustic, roasted & pressed by hand — our prime specialty"
-                    : "Paper-thin, blistered crisp & roasted on iron tawas"}
-                </p>
-                <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-accent transition-colors group-hover:text-primary">
-                  <span>Explore Category</span>
-                  <span>→</span>
+          {[
+            {
+              id: "bhakhri",
+              title: "Handmade Bhakhris (Prime Product)",
+              badge: "OUR PRIME SPECIALTY",
+              desc: "Thick, rustic, roasted & pressed by hand — our signature creation",
+              count: allProducts.filter((x) => x.category.includes("bhakhri")).length,
+              image:
+                allProducts.find((x) => x.slug === "methi-bhakhri")?.image || imgMethiBhakhri,
+              linkCategory: "bhakhri",
+            },
+            {
+              id: "khakhra",
+              title: "Signature Khakhras",
+              badge: "TRADITIONAL CRISP",
+              desc: "Paper-thin, blistered crisp & roasted on iron tawas",
+              count: allProducts.filter((x) => x.category.includes("khakhra")).length,
+              image:
+                allProducts.find((x) => x.slug === "methi-khakhra")?.image || methi,
+              linkCategory: "khakhra",
+            },
+          ].map((cat) => (
+            <Link
+              key={cat.id}
+              to="/products"
+              search={{ c: cat.linkCategory }}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 pt-10 text-center shadow-deep transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+            >
+              <div className="absolute top-4 left-4">
+                <span className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1 font-sans text-[0.65rem] font-bold uppercase tracking-wider text-accent">
+                  {cat.badge}
                 </span>
-              </Link>
-            );
-          })}
+              </div>
+              <div className="mx-auto h-64 overflow-hidden rounded-xl bg-secondary/30 p-4 transition-transform duration-500 group-hover:scale-105 flex items-center justify-center">
+                <img
+                  src={cat.image}
+                  alt={cat.title}
+                  className="h-full w-full object-contain drop-shadow-md"
+                />
+              </div>
+              <div className="mt-6 flex items-center justify-center gap-2">
+                <span className="h-px w-8 bg-accent/40" />
+                <span className="font-display text-2xl font-medium text-primary">
+                  {cat.title}
+                </span>
+                <span className="h-px w-8 bg-accent/40" />
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground">
+                {cat.count} Flavours · {cat.desc}
+              </p>
+              <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-accent transition-colors group-hover:text-primary">
+                <span>Explore Category</span>
+                <span>→</span>
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
 

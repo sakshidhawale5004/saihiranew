@@ -19,6 +19,62 @@ import pepper from "@/assets/p/premium-black-pepper-bhakhri-packaging.jpg";
 import faraliB from "@/assets/p/premium-farali-bhakhri-packaging.jpg";
 import garlic from "@/assets/p/premium-garlic-bhakhri-packaging-render.jpg";
 
+// Authentic High-Resolution Packaging Images from productsimage
+import imgMethiBhakhri from "@/assets/productsimage/shm-methi-bhakhri.png";
+import imgJeeraBhakhri from "@/assets/productsimage/shm-jeera-bhakhri.png";
+import imgMasalaBhakhri from "@/assets/productsimage/shm-masala-bhakhri.png";
+import imgPlainBhakhri from "@/assets/productsimage/shm-plain-bhakhri.png";
+import imgKotmirMarchaBhakhri from "@/assets/productsimage/shm-kotmir-marcha-bhakhri.png";
+import imgPavBhajiBhakhri from "@/assets/productsimage/shm-pav-bhaji-bhakhri.png";
+import imgPaniPuriBhakhri from "@/assets/productsimage/shm-pani-puri-bhakhri.png";
+import imgKokiBitesBhakhri from "@/assets/productsimage/shm-koki-bites-bhakhri.png";
+import imgLolaBitesBhakhri from "@/assets/productsimage/shm-lola-bites-bhakhri.png";
+import imgOnionPepperBhakhri from "@/assets/productsimage/shm-onion-pepper-bhakhri.png";
+import imgRagiBhakhri from "@/assets/productsimage/shm-ragi-bhakhri.png";
+import imgMoongBhakhri from "@/assets/productsimage/shm-moong-bhakhri.png";
+import imgCurryPattaBhakhri from "@/assets/productsimage/shm-curry-patta-bhakhri.png";
+import imgAuthenticFlavours from "@/assets/productsimage/shm-authentic-flavours.png";
+
+// No-Salt Bhakhri
+import imgNoSaltMethiBhakhri from "@/assets/productsimage/shm-no-salt-methi-bhakhri.png";
+import imgNoSaltJeeraBhakhri from "@/assets/productsimage/shm-no-salt-jeera-bhakhri.png";
+import imgNoSaltMasalaBhakhri from "@/assets/productsimage/shm-no-salt-masala-bhakhri.png";
+import imgNoSaltBajariBhakhri from "@/assets/productsimage/shm-no-salt-bajari-bhakhri.png";
+
+// Gluten-Free Bhakhri
+import imgGfMethiBhakhri from "@/assets/productsimage/shm-gf-methi-bhakhri.png";
+import imgGfJeeraBhakhri from "@/assets/productsimage/shm-gf-jeera-bhakhri.png";
+import imgGfKotmirMarchaBhakhri from "@/assets/productsimage/shm-gf-kotmir-marcha-bhakhri.png";
+import imgGfKokiBitesBhakhri from "@/assets/productsimage/shm-gf-koki-bites-bhakhri.png";
+import imgGfOnionPepperBhakhri from "@/assets/productsimage/shm-gf-onion-pepper-bhakhri.png";
+
+// Rotla
+import imgBajariRotla from "@/assets/productsimage/shm-bajari-rotla.png";
+import imgBajariGudRotla from "@/assets/productsimage/shm-bajari-gud-rotla.png";
+
+// Khakhra
+import imgBajraMethiKhakhra from "@/assets/productsimage/shm-bajri-methi-khakhra.png";
+import imgLemonChilliKhakhra from "@/assets/productsimage/shm-lemon-chilli-khakhra.png";
+import imgChorafaliKhakhra from "@/assets/productsimage/shm-chorafali-khakhra.png";
+import imgJiraluKhakhra from "@/assets/productsimage/shm-jiralu-khakhra.png";
+
+// Mobile Khakhra
+import imgMobileJeeraAjwain from "@/assets/productsimage/shm-mobile-jeera-ajwain.png";
+import imgMobileRagi from "@/assets/productsimage/shm-mobile-ragi.png";
+import imgMobileKokiBite from "@/assets/productsimage/shm-mobile-koki-bite.png";
+import imgMobileLasuniPalak from "@/assets/productsimage/shm-mobile-lasuni-palak.png";
+import imgMobileJuvar from "@/assets/productsimage/shm-mobile-juvar.png";
+
+export {
+  imgMethiBhakhri,
+  imgJeeraBhakhri,
+  imgMasalaBhakhri,
+  imgPlainBhakhri,
+  imgBajariRotla,
+  imgBajraMethiKhakhra,
+  methi,
+};
+
 export type Category =
   | "bhakhri"
   | "premium-bhakhri"
@@ -104,23 +160,53 @@ export type Product = {
 };
 
 export const PRODUCT_IMAGE_PRESETS = [
-  { label: "Plain Khakhra", url: plain },
+  { label: "Methi Bhakhri Box", url: imgMethiBhakhri },
+  { label: "Jeera Bhakhri Box", url: imgJeeraBhakhri },
+  { label: "Masala Bhakhri Box", url: imgMasalaBhakhri },
+  { label: "Plain Bhakhri Box", url: imgPlainBhakhri },
+  { label: "Kotmir Marcha Bhakhri", url: imgKotmirMarchaBhakhri },
+  { label: "Pav Bhaji Bhakhri", url: imgPavBhajiBhakhri },
+  { label: "Pani Puri Bhakhri", url: imgPaniPuriBhakhri },
+  { label: "Koki Bites Bhakhri", url: imgKokiBitesBhakhri },
+  { label: "Lola Bites Bhakhri", url: imgLolaBitesBhakhri },
+  { label: "Onion Pepper Bhakhri", url: imgOnionPepperBhakhri },
+  { label: "Ragi Bhakhri", url: imgRagiBhakhri },
+  { label: "Moong Bhakhri", url: imgMoongBhakhri },
+  { label: "Curry Patta Bhakhri", url: imgCurryPattaBhakhri },
+  { label: "No-Salt Methi Bhakhri", url: imgNoSaltMethiBhakhri },
+  { label: "No-Salt Jeera Bhakhri", url: imgNoSaltJeeraBhakhri },
+  { label: "No-Salt Masala Bhakhri", url: imgNoSaltMasalaBhakhri },
+  { label: "No-Salt Bajari Bhakhri", url: imgNoSaltBajariBhakhri },
+  { label: "Gluten-Free Methi Bhakhri", url: imgGfMethiBhakhri },
+  { label: "Gluten-Free Jeera Bhakhri", url: imgGfJeeraBhakhri },
+  { label: "Gluten-Free Kotmir Marcha", url: imgGfKotmirMarchaBhakhri },
+  { label: "Gluten-Free Koki Bites", url: imgGfKokiBitesBhakhri },
+  { label: "Gluten-Free Onion Pepper", url: imgGfOnionPepperBhakhri },
+  { label: "Bajari Rotla", url: imgBajariRotla },
+  { label: "Bajari Gud Rotla", url: imgBajariGudRotla },
   { label: "Methi Khakhra", url: methi },
   { label: "Jeera Khakhra", url: jeera },
   { label: "Masala Khakhra", url: masala },
-  { label: "Kothmir Marcha", url: kothmir },
-  { label: "Chilli Garlic", url: chilli },
+  { label: "Kothmir Marcha Khakhra", url: kothmir },
+  { label: "Plain Khakhra", url: plain },
   { label: "Pani Puri Khakhra", url: panipuri },
-  { label: "Oats Masala", url: oats },
+  { label: "Oats Masala Khakhra", url: oats },
   { label: "Ragi Khakhra", url: ragi },
-  { label: "Mug Khakhra", url: mug },
-  { label: "Jaggery Bhakhri", url: jaggery },
-  { label: "Bajri Bhakhri", url: bajriB },
-  { label: "Bajri Methi Bhakhri", url: bajriMethiB },
+  { label: "Bajri Methi Khakhra", url: imgBajraMethiKhakhra },
+  { label: "Lemon Chilli Khakhra", url: imgLemonChilliKhakhra },
+  { label: "Chorafali Khakhra", url: imgChorafaliKhakhra },
+  { label: "Jiralu Khakhra", url: imgJiraluKhakhra },
+  { label: "Mobile Jeera Ajwain", url: imgMobileJeeraAjwain },
+  { label: "Mobile Raagi", url: imgMobileRagi },
+  { label: "Mobile Koki Bite", url: imgMobileKokiBite },
+  { label: "Mobile Lasuni Palak", url: imgMobileLasuniPalak },
+  { label: "Mobile Juvar", url: imgMobileJuvar },
+  { label: "Authentic Gujarati Flavours", url: imgAuthenticFlavours },
   { label: "Garlic Bhakhri", url: garlic },
   { label: "Farali Bhakhri", url: faraliB },
   { label: "Black Pepper Bhakhri", url: pepper },
   { label: "Barley Bhakhri", url: barley },
+  { label: "Jaggery Bhakhri", url: jaggery },
 ];
 
 export const BHAKHRI_FEATURES = [
@@ -222,7 +308,7 @@ export const initialProducts: Product[] = [
     "methi-bhakhri",
     "Methi Bhakhri",
     "bhakhri",
-    methi,
+    imgMethiBhakhri,
     "Fragrant kasuri methi in hearty roasted wheat",
     "Thick, hearty, and hand-pressed. Made from whole wheat flour kneaded with aromatic kasuri methi and slow-roasted on seasoned cast-iron tawas for satisfying crunch.",
     ["Kasuri Methi", "Whole Wheat", "Roasted Not Fried"],
@@ -236,7 +322,7 @@ export const initialProducts: Product[] = [
     "jeera-bhakhri",
     "Jeera Bhakhri",
     "bhakhri",
-    jeera,
+    imgJeeraBhakhri,
     "Warm notes of slow-roasted whole cumin seeds",
     "Hand-rolled and pricked for delicate blisters. Spiced with roasted cumin seeds that release soothing digestive warmth in every crunch.",
     ["Roasted Cumin", "Jain Sattvik", "Roasted Not Fried"],
@@ -250,7 +336,7 @@ export const initialProducts: Product[] = [
     "masala-bhakhri",
     "Masala Bhakhri",
     "bhakhri",
-    masala,
+    imgMasalaBhakhri,
     "Signature Kathiyawadi spiced whole wheat roast",
     "Richly blended with roasted coriander, cumin, turmeric, and dry ginger for an authentic Saurashtra tea-time experience.",
     ["Kathiyawadi Masala", "Warm & Savoury", "Roasted Not Fried"],
@@ -264,7 +350,7 @@ export const initialProducts: Product[] = [
     "plain-bhakhri",
     "Plain Bhakhri",
     "bhakhri",
-    plain,
+    imgPlainBhakhri,
     "Clean wholesome roasted wheat disc",
     "Pure whole wheat dough lightly salted and roasted over seasoned tawas. Pair with fresh white butter (makhan), pickle, or hot masala chai.",
     ["100% Whole Wheat", "Everyday Classic", "Roasted Not Fried"],
@@ -278,7 +364,7 @@ export const initialProducts: Product[] = [
     "bajari-bhakhri",
     "Bajari Bhakhri",
     "bhakhri",
-    bajriB,
+    imgNoSaltBajariBhakhri,
     "Rustic Saurashtra pearl millet crunch",
     "Stone-ground bajra flour pressed by hand and roasted until nutty and golden. Wholesome rustic energy in every bite.",
     ["Desi Bajari", "Rustic Flavour", "Roasted Not Fried"],
@@ -292,7 +378,7 @@ export const initialProducts: Product[] = [
     "kotmir-marcha-bhakhri",
     "Kotmir Marcha Bhakhri",
     "bhakhri",
-    kothmir,
+    imgKotmirMarchaBhakhri,
     "Garden-fresh coriander & lively green chilli",
     "Freshly harvested green coriander leaves finely chopped and kneaded with pungent green chilli for an aromatic, herbal punch.",
     ["Fresh Coriander", "Green Chilli", "Roasted Not Fried"],
@@ -334,7 +420,7 @@ export const initialProducts: Product[] = [
     "pav-bhaji-bhakhri",
     "Pav Bhaji Bhakhri",
     "bhakhri",
-    masala,
+    imgPavBhajiBhakhri,
     "Mumbai street-style spiced bhaji crunch",
     "Infused with authentic aromatic pav bhaji spices, dehydrated tomatoes, and herbs for a nostalgic chatpata bite.",
     ["Pav Bhaji Spices", "Chatpata Hit", "Roasted Not Fried"],
@@ -348,7 +434,7 @@ export const initialProducts: Product[] = [
     "pani-puri-bhakhri",
     "Pani Puri Bhakhri",
     "bhakhri",
-    panipuri,
+    imgPaniPuriBhakhri,
     "Zingy pudina and chatpata pani puri seasoning",
     "A creative fusion of authentic pani puri spices, tangy amchur, and roasted mint kneaded into hearty roasted bhakhri.",
     ["Pani Puri Zing", "Tangy Mint", "Roasted Not Fried"],
@@ -380,7 +466,7 @@ export const initialProducts: Product[] = [
     "koki-bites-bhakhri",
     "Koki Bites Bhakhri",
     "premium-bhakhri",
-    methi,
+    imgKokiBitesBhakhri,
     "Sindhi koki inspired crisp roasted bites",
     "Layered with cracked spices, onions, coriander, and pomegranate seeds, roasted to golden perfection like authentic Sindhi Koki.",
     ["Koki Recipe", "Herb Spiced", "Tea-Time Hit"],
@@ -394,7 +480,7 @@ export const initialProducts: Product[] = [
     "lola-bites-bhakhri",
     "Lola Bites Bhakhri",
     "premium-bhakhri",
-    jaggery,
+    imgLolaBitesBhakhri,
     "Traditional festive sweet & savoury lola disc",
     "Inspired by festive Sindhi Lola, lightly sweetened and spiced with green cardamom and roasted seeds for a delicate melt-in-mouth crunch.",
     ["Lola Specialty", "Festive Delicacy", "Cardamom & Gud"],
@@ -408,7 +494,7 @@ export const initialProducts: Product[] = [
     "onion-pepper-bhakhri",
     "Onion Pepper Bhakhri",
     "premium-bhakhri",
-    pepper,
+    imgOnionPepperBhakhri,
     "Caramelized onion notes with cracked black pepper",
     "Slow-caramelized onion flakes blended with coarse black pepper. Rich, savory, and deeply satisfying with evening tea.",
     ["Sweet Onion", "Black Pepper", "Rich Savory"],
@@ -436,7 +522,7 @@ export const initialProducts: Product[] = [
     "raggi-nachni-bhakhri",
     "Raggi (Nachni) Bhakhri",
     "premium-bhakhri",
-    ragi,
+    imgRagiBhakhri,
     "Calcium-rich red finger millet artisanal roast",
     "100% nutrient-dense ragi roasted into a satisfying earthy disc. Rich in natural calcium, iron, and slow-burning energy.",
     ["Ragi (Nachni)", "Calcium Rich", "Super Grain"],
@@ -478,7 +564,7 @@ export const initialProducts: Product[] = [
     "fafdi-ghatiya-bhakhri",
     "Fafdi Ghatiya Bhakhri",
     "premium-bhakhri",
-    plain,
+    imgAuthenticFlavours,
     "Savory fafda spices baked to crisp perfection",
     "Captures the iconic Gujarati morning fafda flavour with carom seeds (ajwain), black pepper, and asafoetida in a roasted bhakhri.",
     ["Fafda Spices", "Ajwain Infused", "Snack Specialty"],
@@ -492,7 +578,7 @@ export const initialProducts: Product[] = [
     "moong-bhakhri",
     "Moong Bhakhri",
     "premium-bhakhri",
-    mug,
+    imgMoongBhakhri,
     "Protein-packed yellow moong flour roasted disc",
     "Wholesome yellow moong dal ground and spiced with cumin and ginger. Light on the stomach and rich in plant-based protein.",
     ["Moong Lentil", "High Protein", "Light Digestion"],
@@ -506,7 +592,7 @@ export const initialProducts: Product[] = [
     "curry-patta-bhakhri",
     "Curry Patta Bhakhri",
     "premium-bhakhri",
-    kothmir,
+    imgCurryPattaBhakhri,
     "Fragrant hand-picked curry leaves & mustard",
     "Infused with crisp sun-dried curry leaves, mustard seeds, and gentle green chillies for a revitalizing herbal aroma.",
     ["Curry Leaves", "Coastal Aroma", "Herbal Crunch"],
@@ -524,7 +610,7 @@ export const initialProducts: Product[] = [
     "no-salt-methi-bhakhri",
     "No-Salt Methi Bhakhri",
     "no-salt-bhakhri",
-    methi,
+    imgNoSaltMethiBhakhri,
     "Pure fenugreek crunch with zero added salt",
     "Specially rolled for sodium-conscious patrons and blood pressure care, letting the natural herbal bitterness of methi shine.",
     ["Zero Added Salt", "Fenugreek Rich", "Heart Friendly"],
@@ -538,7 +624,7 @@ export const initialProducts: Product[] = [
     "no-salt-jeera-bhakhri",
     "No-Salt Jeera Bhakhri",
     "no-salt-bhakhri",
-    jeera,
+    imgNoSaltJeeraBhakhri,
     "Natural roasted cumin aromatics with zero salt",
     "Whole roasted cumin seeds provide rich digestive flavor without requiring a single grain of added salt.",
     ["Zero Added Salt", "Cumin Aromatic", "Diet Essential"],
@@ -552,7 +638,7 @@ export const initialProducts: Product[] = [
     "no-salt-masala-bhakhri",
     "No-Salt Masala Bhakhri",
     "no-salt-bhakhri",
-    masala,
+    imgNoSaltMasalaBhakhri,
     "Herbal spice blend crafted without sodium",
     "Blended with black pepper, dry ginger, ajwain, and coriander seeds for a punchy, savory flavor without added sodium.",
     ["Zero Added Salt", "Herbal Spices", "Light & Crisp"],
@@ -566,7 +652,7 @@ export const initialProducts: Product[] = [
     "no-salt-bajari-bhakhri",
     "No-Salt Bajari Bhakhri",
     "no-salt-bhakhri",
-    bajriB,
+    imgNoSaltBajariBhakhri,
     "Rustic pearl millet without added salt",
     "Wholesome Saurashtra pearl millet flour roasted slowly on iron tawas with zero added sodium.",
     ["Zero Added Salt", "100% Bajra", "Wholesome Grain"],
@@ -584,7 +670,7 @@ export const initialProducts: Product[] = [
     "gluten-free-methi-bhakhri",
     "Gluten Free Methi Bhakhri",
     "gluten-free-bhakhri",
-    methi,
+    imgGfMethiBhakhri,
     "Wheat-free millet base with aromatic fenugreek",
     "Crafted from certified gluten-free millet flours and fragrant kasuri methi on dedicated tawas for maximum gut comfort.",
     ["Gluten-Free Flour", "Methi Leaves", "Gut Friendly"],
@@ -598,7 +684,7 @@ export const initialProducts: Product[] = [
     "gluten-free-jeera-bhakhri",
     "Gluten Free Jeera Bhakhri",
     "gluten-free-bhakhri",
-    jeera,
+    imgGfJeeraBhakhri,
     "Wheat-free crunchy base tempered with cumin",
     "A blend of sorghum, pearl millet, and roasted cumin seeds, providing a crisp texture without gluten.",
     ["Gluten-Free Flour", "Roasted Cumin", "Digestive"],
@@ -612,7 +698,7 @@ export const initialProducts: Product[] = [
     "gluten-free-masala-bhakhri",
     "Gluten Free Masala Bhakhri",
     "gluten-free-bhakhri",
-    masala,
+    imgMasalaBhakhri,
     "Spiced artisanal disc made without wheat",
     "Savory blend of roasted turmeric, coriander, cumin, and dry mango powder on a gluten-free multi-millet base.",
     ["Gluten-Free Flour", "Aromatic Spices", "Safe & Crisp"],
@@ -626,7 +712,7 @@ export const initialProducts: Product[] = [
     "gluten-free-kotmir-marcha-bhakhri",
     "Gluten Free Kotmir Marcha Bhakhri",
     "gluten-free-bhakhri",
-    kothmir,
+    imgGfKotmirMarchaBhakhri,
     "Fresh herbs & green chilli on gluten-free base",
     "Hand-kneaded with garden coriander and green chilli on a pure gluten-free grain dough.",
     ["Gluten-Free Flour", "Fresh Coriander", "Spicy Herbs"],
@@ -640,7 +726,7 @@ export const initialProducts: Product[] = [
     "gluten-free-koki-bites-bhakhri",
     "Gluten Free Koki Bites Bhakhri",
     "gluten-free-bhakhri",
-    methi,
+    imgGfKokiBitesBhakhri,
     "Wheat-free recreation of authentic spiced koki",
     "Crispy, spiced koki bites made with gut-friendly gluten-free grains, toasted seeds, and warming spices.",
     ["Gluten-Free Flour", "Traditional Spices", "Crunchy Bites"],
@@ -654,7 +740,7 @@ export const initialProducts: Product[] = [
     "gluten-free-onion-pepper-bhakhri",
     "Gluten Free Onion Pepper Bhakhri",
     "gluten-free-bhakhri",
-    pepper,
+    imgGfOnionPepperBhakhri,
     "Roasted onion & black pepper on gluten-free base",
     "Delightful caramelised onion sweetness and sharp black pepper crunch on a pure wheat-free canvas.",
     ["Gluten-Free Flour", "Roasted Onion", "Cracked Pepper"],
@@ -672,7 +758,7 @@ export const initialProducts: Product[] = [
     "bajari-rotla",
     "Bajari Rotla",
     "rotla",
-    bajriB,
+    imgBajariRotla,
     "Thick traditional Kathiyawadi pearl millet rotla",
     "Hand-patted thick bajra disc slow-baked on open cast-iron hearth tawas. Deep, rustic, nutty flavor straight from Saurashtra.",
     ["Desi Bajari", "Thick Hearth Roast", "Authentic Village Style"],
@@ -686,7 +772,7 @@ export const initialProducts: Product[] = [
     "bajari-gud-rotla",
     "Bajari Gud Rotla",
     "rotla",
-    jaggery,
+    imgBajariGudRotla,
     "Rustic bajra rotla sweetened with desi jaggery",
     "Kneaded with pure melted desi jaggery and roasted bajra flour. A warm, nourishing Gujarati winter favorite.",
     ["Bajra & Desi Gud", "Natural Jaggery", "Traditional Energy"],
@@ -802,7 +888,7 @@ export const initialProducts: Product[] = [
     "bajri-methi-khakhra",
     "Bajari Methi Khakhra",
     "khakhra",
-    bajriMethiK,
+    imgBajraMethiKhakhra,
     "Earthy pearl millet with aromatic fenugreek",
     "Wholesome pearl millet flour combined with sun-dried methi leaves and slow-baked for a satisfying village-style crunch.",
     ["Pearl Millet", "Fenugreek", "Baked"],
@@ -858,7 +944,7 @@ export const initialProducts: Product[] = [
     "lemon-chilli-khakhra",
     "Lemon Chilli Khakhra",
     "khakhra",
-    chilli,
+    imgLemonChilliKhakhra,
     "Zesty citrus tang paired with spicy green chilli",
     "A vibrant combination of bright citrus lemon flavor with the fiery warmth of green chillies in a gossamer-thin disc.",
     ["Lemon Tang", "Green Chilli", "Baked"],
@@ -872,7 +958,7 @@ export const initialProducts: Product[] = [
     "chorafali-khakhra",
     "Chorafali Khakhra",
     "khakhra",
-    masala,
+    imgChorafaliKhakhra,
     "Festive spiced crispy chorafali crunch baked thin",
     "Recreates the iconic Diwali chorafali crunch with gram flour, black salt, and dry mango seasoning in a baked khakhra.",
     ["Chorafali Masala", "Gujarati Festive", "Baked"],
@@ -886,7 +972,7 @@ export const initialProducts: Product[] = [
     "jiralu-khakhra",
     "Jiralu Khakhra",
     "khakhra",
-    jeera,
+    imgJiraluKhakhra,
     "Dusted with authentic Gujarati digestive jiralu",
     "Sprinkled with authentic Saurashtra jiralu powder — a therapeutic digestive blend of cumin, ginger, and rock salt.",
     ["Digestive Jiralu", "Aromatic Cumin", "Baked"],
@@ -904,7 +990,7 @@ export const initialProducts: Product[] = [
     "mobile-bajari-methi-khakhra",
     "Bajari Methi Mobile Khakhra",
     "mobile-khakhra",
-    bajriMethiK,
+    imgBajraMethiKhakhra,
     "Pocket-sized pearl millet & fenugreek crunch",
     "Miniature 10cm crispy baked discs packed into portable pouches for mess-free snacking in the office or on the road.",
     ["Pocket Sized", "Bajra Methi", "On-The-Go"],
@@ -918,7 +1004,7 @@ export const initialProducts: Product[] = [
     "mobile-jeera-ajwain-khakhra",
     "Jeera Ajwain Mobile Khakhra",
     "mobile-khakhra",
-    jeera,
+    imgMobileJeeraAjwain,
     "Bite-sized digestives with cumin & carom seeds",
     "Infused with digestion-friendly jeera and ajwain, portioned perfectly for travel, flights, and lunchboxes.",
     ["Pocket Sized", "Jeera Ajwain", "Digestive"],
@@ -932,7 +1018,7 @@ export const initialProducts: Product[] = [
     "mobile-raagi-khakhra",
     "Raagi Mobile Khakhra",
     "mobile-khakhra",
-    ragi,
+    imgMobileRagi,
     "Crispy finger millet mini discs for healthy snacking",
     "Bite-sized calcium-rich ragi discs that easily fit in your bag, car console, or backpack for guilt-free anytime munching.",
     ["Pocket Sized", "Ragi Millet", "Superfood"],
@@ -946,7 +1032,7 @@ export const initialProducts: Product[] = [
     "mobile-koki-bite-khakhra",
     "Koki Bite Mobile Khakhra",
     "mobile-khakhra",
-    methi,
+    imgMobileKokiBite,
     "Crunchy miniature spiced koki wafers",
     "Inspired by Sindhi koki, packed in miniature wafer discs with onion seeds, cumin, and fresh herbal spices.",
     ["Pocket Sized", "Koki Spices", "Travel Friendly"],
@@ -960,7 +1046,7 @@ export const initialProducts: Product[] = [
     "mobile-lasuni-palak-khakhra",
     "Lasuni Palak Mobile Khakhra",
     "mobile-khakhra",
-    kothmir,
+    imgMobileLasuniPalak,
     "Fresh spinach puree with roasted garlic in bite size",
     "Pureed fresh palak (spinach) and fragrant garlic cloves kneaded into mini baked khakhras for iron-rich crunchy snacking.",
     ["Pocket Sized", "Spinach & Garlic", "Iron Rich"],
@@ -974,7 +1060,7 @@ export const initialProducts: Product[] = [
     "mobile-juvar-khakhra",
     "Juvar Mobile Khakhra",
     "mobile-khakhra",
-    plain,
+    imgMobileJuvar,
     "Gluten-friendly sorghum (jowar) mini crispy discs",
     "Light, airy, and easily digestible white sorghum grain baked into convenient mini discs for health-conscious foodies.",
     ["Pocket Sized", "Juvar / Sorghum", "Light Crunch"],
@@ -986,7 +1072,7 @@ export const initialProducts: Product[] = [
   ),
 ];
 
-export const PRODUCTS_STORAGE_KEY = "saihira_products_catalog_v3";
+export const PRODUCTS_STORAGE_KEY = "saihira_products_catalog_v5";
 
 /* ---------------- Dynamic Product Storage API ---------------- */
 
@@ -1011,6 +1097,7 @@ export function getStoredProducts(): Product[] {
             deduplicated.push({
               ...canonical,
               ...item,
+              image: canonical.image || item.image,
               tagline: canonical.tagline,
               description: canonical.description,
               features: canonical.features,

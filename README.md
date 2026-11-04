@@ -1,13 +1,14 @@
-# SAIHIRA · SHM Asal — Handmade Khakhras & Bhakhris
+# SAIHIRA · SHM Asal — Handmade Bhakhris & Khakhras
 
-Authentic handmade Gujarati Khakhras and Bhakhris, rolled paper-thin and slow-roasted on seasoned iron tawas.
+Authentic handmade Gujarati Bhakhris (our prime specialty) and paper-thin Khakhras, slow-roasted on seasoned iron tawas.
 
 ## Features
 
-- **Artisanal Recipes**: 19 signature flavours (Jeera, Kasuri Methi, Pani Puri, Masala, Jaggery, Garlic, Farali, and more)
-- **Wholesome & Traditional**: Baked wholesome crunch, light on cold-pressed oil, zero preservatives
+- **Prime Specialty**: Thick, hearty handmade Bhakhris alongside paper-thin Khakhras and rustic Rotlas
+- **50+ Artisan Flavours**: Dispatched fresh weekly across Everyday, Premium, No-Salt, and Gluten-Free varieties
+- **Wholesome & Traditional**: Baked slow on iron tawas, tempered lightly with quality edible oil, zero artificial preservatives
 - **Premium Editorial Design**: Crafted with Cormorant Garamond, Cinzel, and Plus Jakarta Sans
-- **Clean Assets**: High-resolution, watermark-free editorial food photography stored in `src/assets/editorial/`
+- **Clean Assets**: High-resolution authentic packaging and food photography in `src/assets/productsimage/` and `src/assets/saihira/`
 
 ## Development
 
