@@ -125,21 +125,6 @@ function Index() {
     allProducts.find((p) => p.slug === "bajari-methi-premium-bhakhri") || allProducts[3] || products[3],
   ].filter(Boolean);
 
-  const allFeaturedSlugs = [
-    "methi-bhakhri",
-    "jeera-bhakhri",
-    "masala-bhakhri",
-    "bajari-methi-premium-bhakhri",
-    "methi-khakhra",
-    "jeera-khakhra",
-    "kothmir-marcha-khakhra",
-    "bajari-rotla",
-  ];
-
-  const featuredCards = allFeaturedSlugs
-    .map((s) => allProducts.find((p) => p.slug === s) || products.find((p) => p.slug === s))
-    .filter((p): p is NonNullable<typeof p> => Boolean(p));
-
   const batchItems = allProducts.filter((p) => p.category === activeBatchCategory);
 
   return (
@@ -558,31 +543,6 @@ function Index() {
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{d}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────
-          MORE FAVOURITES: FULL COLLECTION TEASER
-          ───────────────────────────────────────────────────────────── */}
-      <section className="border-t border-border/80 bg-secondary/30 py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex items-end justify-between">
-            <div>
-              <span className="eyebrow">Explore The Pantry</span>
-              <h2 className="mt-3 font-display text-4xl sm:text-5xl font-medium text-primary">
-                More Hand-Rolled Flavours
-              </h2>
-            </div>
-            <Link to="/products" className="nav-link hidden items-center gap-1.5 md:flex">
-              <span>View All {allProducts.length} Flavours</span>
-              <span>→</span>
-            </Link>
-          </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredCards.map((p) => (
-              <ProductCard key={p.slug} p={p} />
-            ))}
-          </div>
         </div>
       </section>
 
