@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import logoSrc from "@/assets/logo-hd.png";
 const logo = { url: logoSrc };
 import { useCart } from "@/lib/cart";
+import { CATEGORIES } from "@/lib/products";
 
 const nav = [
   { to: "/products", label: "Our Snacks" },
@@ -105,19 +106,87 @@ export function Header() {
           >
             Home
           </Link>
-          {nav.map((n) => (
+
+          {/* Our Snacks with Hover Dropdown for all categories */}
+          <div className="relative group py-1">
             <Link
-              key={n.to}
-              to={n.to}
-              className="nav-link text-foreground/80 hover:text-accent py-1 relative transition-colors"
+              to="/products"
+              className="nav-link text-foreground/80 hover:text-accent inline-flex items-center gap-1 transition-colors"
               activeProps={{
                 className:
                   "nav-link text-accent font-semibold relative after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full",
               }}
             >
-              {n.label}
+              <span>Our Snacks</span>
+              <svg
+                className="h-3 w-3 text-muted-foreground transition-transform group-hover:rotate-180"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
             </Link>
-          ))}
+
+            {/* Dropdown Menu */}
+            <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full left-0 mt-2 w-64 rounded-xl border border-border/80 bg-card p-2 shadow-xl backdrop-blur-md z-50">
+              <Link
+                to="/products"
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-primary hover:bg-accent/10 transition-colors"
+              >
+                <span>All Varieties (53 Flavours)</span>
+                <span className="text-[10px] text-accent font-mono">View All</span>
+              </Link>
+              <div className="h-px bg-border/60 my-1" />
+              {CATEGORIES.map((cat) => (
+                <Link
+                  key={cat.id}
+                  to="/products"
+                  search={{ c: cat.id as any }}
+                  className="flex items-center justify-between px-3 py-1.5 rounded-lg text-xs text-foreground/80 hover:text-accent hover:bg-accent/5 transition-colors"
+                >
+                  <span className="truncate">{cat.shortLabel}</span>
+                  {cat.isPrime && (
+                    <span className="text-[9px] uppercase px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold shrink-0">
+                      Prime
+                    </span>
+                  )}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <Link
+            to="/about"
+            className="nav-link text-foreground/80 hover:text-accent py-1 relative transition-colors"
+            activeProps={{
+              className:
+                "nav-link text-accent font-semibold relative after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full",
+            }}
+          >
+            Our Story
+          </Link>
+          <Link
+            to="/faq"
+            className="nav-link text-foreground/80 hover:text-accent py-1 relative transition-colors"
+            activeProps={{
+              className:
+                "nav-link text-accent font-semibold relative after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full",
+            }}
+          >
+            FAQ
+          </Link>
+          <Link
+            to="/contact"
+            className="nav-link text-foreground/80 hover:text-accent py-1 relative transition-colors"
+            activeProps={{
+              className:
+                "nav-link text-accent font-semibold relative after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-0.5 after:bg-accent after:rounded-full",
+            }}
+          >
+            Contact
+          </Link>
         </nav>
 
         {/* Right Action Cluster */}
@@ -171,16 +240,50 @@ export function Header() {
             >
               Home
             </Link>
-            {nav.map((n) => (
+            <div>
               <Link
-                key={n.to}
-                to={n.to}
+                to="/products"
                 onClick={() => setOpen(false)}
-                className="font-display text-xl font-medium text-primary hover:text-accent transition-colors py-1"
+                className="font-display text-xl font-medium text-primary hover:text-accent transition-colors py-1 flex items-center justify-between"
               >
-                {n.label}
+                <span>Our Snacks</span>
+                <span className="text-xs font-sans text-accent font-semibold">53 Flavours</span>
               </Link>
-            ))}
+              <div className="mt-2 pl-3 border-l-2 border-accent/30 grid grid-cols-2 gap-1.5 py-1">
+                {CATEGORIES.map((cat) => (
+                  <Link
+                    key={cat.id}
+                    to="/products"
+                    search={{ c: cat.id as any }}
+                    onClick={() => setOpen(false)}
+                    className="text-xs text-muted-foreground hover:text-accent py-1 truncate"
+                  >
+                    {cat.shortLabel} {cat.isPrime && "⭐"}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <Link
+              to="/about"
+              onClick={() => setOpen(false)}
+              className="font-display text-xl font-medium text-primary hover:text-accent transition-colors py-1"
+            >
+              Our Story
+            </Link>
+            <Link
+              to="/faq"
+              onClick={() => setOpen(false)}
+              className="font-display text-xl font-medium text-primary hover:text-accent transition-colors py-1"
+            >
+              FAQ
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setOpen(false)}
+              className="font-display text-xl font-medium text-primary hover:text-accent transition-colors py-1"
+            >
+              Contact
+            </Link>
             <div className="pt-4 border-t border-border/60 flex flex-col gap-3">
               <Link
                 to="/products"
@@ -200,17 +303,36 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-border bg-secondary">
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 md:grid-cols-5">
+      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         <div className="sm:col-span-2">
           <img src={logo.url} alt="SHM Asal" className="h-20 w-auto" />
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-            Authentic handmade Bhakhris & Khakhras, roasted slowly on cast-iron tawas and made with
+            Authentic handmade Bhakhris &amp; Khakhras, roasted slowly on cast-iron tawas and made with
             love by SAIHIRA.
           </p>
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-3 py-1 text-xs text-accent">
             <span>✨ 100% Preservative Free</span>
           </div>
         </div>
+
+        {/* Categories Column */}
+        <div className="flex flex-col gap-2 text-sm">
+          <span className="eyebrow">Varieties</span>
+          {CATEGORIES.map((cat) => (
+            <Link
+              key={cat.id}
+              to="/products"
+              search={{ c: cat.id as any }}
+              className="transition-colors hover:text-primary text-xs"
+            >
+              {cat.shortLabel} {cat.isPrime && "⭐"}
+            </Link>
+          ))}
+          <Link to="/products" className="transition-colors font-semibold text-accent text-xs mt-1">
+            All 53 Varieties →
+          </Link>
+        </div>
+
         <div className="flex flex-col gap-2.5 text-sm">
           <span className="eyebrow">Explore</span>
           {nav.map((n) => (
@@ -222,6 +344,7 @@ export function Footer() {
             Cart
           </Link>
         </div>
+
         <div className="flex flex-col gap-2.5 text-sm">
           <span className="eyebrow">Customer Care</span>
           <Link to="/return-policy" className="transition-colors hover:text-primary">
@@ -244,6 +367,7 @@ export function Footer() {
             <span className="text-[10px]">🔒</span>
           </Link>
         </div>
+
         <div className="text-sm text-muted-foreground">
           <span className="eyebrow">Say hello</span>
           <p className="mt-2 font-medium text-primary">hello@saihira.com</p>

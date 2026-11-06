@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Reveal } from "@/components/site";
 import { ProductCard } from "@/components/ProductCard";
-import { products, useProducts, CATEGORIES, imgMethiBhakhri, methi } from "@/lib/products";
+import { products, useProducts, CATEGORIES, imgMethiBhakhri, imgBajariRotla, imgKokiBitesBhakhri, imgNoSaltMethiBhakhri, imgGfMethiBhakhri, imgMobileJeeraAjwain, imgAuthenticFlavours, methi } from "@/lib/products";
 
 // Authentic High-Resolution Visual Assets from public/saihira
 import HOME_HERO_BG from "@/assets/saihira/homehero.png";
@@ -401,74 +401,156 @@ function Index() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SHOP BY CATEGORY (Bhakhris vs Khakhris)
+          SHOP BY CATEGORY (All 7 Handcrafted Varieties + Full Catalog)
           ───────────────────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-6xl px-6 py-16 border-t border-border/70">
-        <div className="text-center">
+      <section className="mx-auto max-w-7xl px-6 py-20 border-t border-border/70">
+        <div className="text-center max-w-3xl mx-auto">
           <span className="eyebrow">Handcrafted Varieties</span>
           <h2 className="mt-3 font-display text-4xl sm:text-5xl font-medium text-primary">
             Authentic Gujarati Delights
           </h2>
-          <p className="mx-auto mt-3 max-w-lg text-sm text-muted-foreground">
-            From hearty rustic Bhakhri rounds pricked by hand to gossamer paper-thin Khakhras.
+          <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
+            From our prime specialty rustic Bhakhri rounds pricked by hand, ancient-grain &amp; gluten-free bakes, to village Rotlas, gossamer paper-thin Khakhras, and travel-ready mobile crisps.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {[
             {
               id: "bhakhri",
               title: "Handmade Bhakhris (Prime Product)",
               badge: "OUR PRIME SPECIALTY",
               desc: "Thick, rustic, roasted & pressed by hand — our signature creation",
-              count: allProducts.filter((x) => x.category.includes("bhakhri")).length,
+              count: allProducts.filter((x) => x.category === "bhakhri").length,
               image:
                 allProducts.find((x) => x.slug === "methi-bhakhri")?.image || imgMethiBhakhri,
               linkCategory: "bhakhri",
+              isPrime: true,
             },
             {
               id: "khakhra",
               title: "Signature Khakhras",
               badge: "TRADITIONAL CRISP",
-              desc: "Paper-thin, blistered crisp & roasted on iron tawas",
-              count: allProducts.filter((x) => x.category.includes("khakhra")).length,
+              desc: "Paper-thin, blistered crisp & slow-roasted on iron tawas",
+              count: allProducts.filter((x) => x.category === "khakhra").length,
               image:
                 allProducts.find((x) => x.slug === "methi-khakhra")?.image || methi,
               linkCategory: "khakhra",
+              isPrime: false,
+            },
+            {
+              id: "premium-bhakhri",
+              title: "Premium Bhakhris",
+              badge: "ARTISAN GRAINS & BITES",
+              desc: "Ancient grains, Sindhi Koki bites, Lola bites, Bajri, Moong & Curry Patta",
+              count: allProducts.filter((x) => x.category === "premium-bhakhri").length,
+              image:
+                allProducts.find((x) => x.slug === "koki-bites-bhakhri")?.image || imgKokiBitesBhakhri,
+              linkCategory: "premium-bhakhri",
+              isPrime: false,
+            },
+            {
+              id: "gluten-free-bhakhri",
+              title: "Gluten-Free Bhakhris",
+              badge: "100% WHEAT-FREE",
+              desc: "Nutritious multi-millets & wheat-free dough roasted on dedicated tawas",
+              count: allProducts.filter((x) => x.category === "gluten-free-bhakhri").length,
+              image:
+                allProducts.find((x) => x.slug === "gf-methi-bhakhri")?.image || imgGfMethiBhakhri,
+              linkCategory: "gluten-free-bhakhri",
+              isPrime: false,
+            },
+            {
+              id: "no-salt-bhakhri",
+              title: "No-Salt Bhakhris",
+              badge: "ZERO ADDED SALT",
+              desc: "Zero added sodium for heart wellness with aromatic cumin & fenugreek",
+              count: allProducts.filter((x) => x.category === "no-salt-bhakhri").length,
+              image:
+                allProducts.find((x) => x.slug === "no-salt-methi-bhakhri")?.image || imgNoSaltMethiBhakhri,
+              linkCategory: "no-salt-bhakhri",
+              isPrime: false,
+            },
+            {
+              id: "rotla",
+              title: "Kathiyawadi Rotlas",
+              badge: "HEARTH ROASTED",
+              desc: "Authentic Saurashtra hearth-roasted Bajari Rotla & Desi Gud sweet Rotla",
+              count: allProducts.filter((x) => x.category === "rotla").length,
+              image:
+                allProducts.find((x) => x.slug === "bajari-rotla")?.image || imgBajariRotla,
+              linkCategory: "rotla",
+              isPrime: false,
+            },
+            {
+              id: "mobile-khakhra",
+              title: "Mobile Khakhras",
+              badge: "POCKET TRAVEL CRISPS",
+              desc: "Compact pocket-sized crispy discs designed for effortless travel & snacking",
+              count: allProducts.filter((x) => x.category === "mobile-khakhra").length,
+              image:
+                allProducts.find((x) => x.slug === "mobile-jeera-ajwain-khakhra")?.image || imgMobileJeeraAjwain,
+              linkCategory: "mobile-khakhra",
+              isPrime: false,
+            },
+            {
+              id: "all-varieties",
+              title: "All Handcrafted Flavours",
+              badge: "BESPOKE HAMPERS",
+              desc: "Explore all 53 handcrafted flavours or build a custom festive gift hamper",
+              count: allProducts.length,
+              image: imgAuthenticFlavours,
+              linkCategory: undefined,
+              isPrime: false,
             },
           ].map((cat) => (
             <Link
               key={cat.id}
               to="/products"
-              search={{ c: cat.linkCategory }}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 pt-10 text-center shadow-deep transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+              search={cat.linkCategory ? { c: cat.linkCategory as any } : {}}
+              className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border bg-card p-6 pt-9 text-center shadow-deep transition-all duration-300 hover:-translate-y-1.5 hover:shadow-luxury ${
+                cat.isPrime
+                  ? "border-emerald-600/30 hover:border-emerald-600/70 ring-1 ring-emerald-600/20"
+                  : "border-border hover:border-accent/60"
+              }`}
             >
-              <div className="absolute top-4 left-4">
-                <span className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1 font-sans text-[0.65rem] font-bold uppercase tracking-wider text-accent">
+              <div className="absolute top-3.5 left-3.5">
+                <span
+                  className={`rounded-full border px-2.5 py-0.5 font-sans text-[0.62rem] font-bold uppercase tracking-wider ${
+                    cat.isPrime
+                      ? "border-emerald-600/40 bg-emerald-50 text-emerald-800"
+                      : "border-accent/40 bg-accent/10 text-accent"
+                  }`}
+                >
                   {cat.badge}
                 </span>
               </div>
-              <div className="mx-auto h-64 overflow-hidden rounded-xl bg-secondary/30 p-4 transition-transform duration-500 group-hover:scale-105 flex items-center justify-center">
-                <img
-                  src={cat.image}
-                  alt={cat.title}
-                  className="h-full w-full object-contain drop-shadow-md"
-                />
+              <div>
+                <div className="mx-auto h-48 sm:h-52 overflow-hidden rounded-xl bg-secondary/30 p-3 transition-transform duration-500 group-hover:scale-105 flex items-center justify-center">
+                  <img
+                    src={cat.image}
+                    alt={cat.title}
+                    className="h-full w-full object-contain drop-shadow-md"
+                  />
+                </div>
+                <div className="mt-5 flex items-center justify-center gap-2">
+                  <span className="h-px w-6 bg-accent/40" />
+                  <span className="font-display text-xl font-medium text-primary leading-tight">
+                    {cat.title}
+                  </span>
+                  <span className="h-px w-6 bg-accent/40" />
+                </div>
+                <p className="mt-2.5 text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                  <span className="font-semibold text-foreground/90">{cat.count} Flavours</span> ·{" "}
+                  {cat.desc}
+                </p>
               </div>
-              <div className="mt-6 flex items-center justify-center gap-2">
-                <span className="h-px w-8 bg-accent/40" />
-                <span className="font-display text-2xl font-medium text-primary">
-                  {cat.title}
+              <div className="mt-5 pt-3 border-t border-border/50">
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent transition-colors group-hover:text-primary">
+                  <span>Explore Category</span>
+                  <span>→</span>
                 </span>
-                <span className="h-px w-8 bg-accent/40" />
               </div>
-              <p className="mt-3 text-sm text-muted-foreground">
-                {cat.count} Flavours · {cat.desc}
-              </p>
-              <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-accent transition-colors group-hover:text-primary">
-                <span>Explore Category</span>
-                <span>→</span>
-              </span>
             </Link>
           ))}
         </div>

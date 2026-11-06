@@ -72,6 +72,11 @@ export {
   imgPlainBhakhri,
   imgBajariRotla,
   imgBajraMethiKhakhra,
+  imgKokiBitesBhakhri,
+  imgNoSaltMethiBhakhri,
+  imgGfMethiBhakhri,
+  imgMobileJeeraAjwain,
+  imgAuthenticFlavours,
   methi,
 };
 
