@@ -4,14 +4,8 @@ import { Reveal } from "@/components/site";
 import { ProductCard } from "@/components/ProductCard";
 import { products, useProducts, CATEGORIES, imgMethiBhakhri, imgBajariRotla, imgKokiBitesBhakhri, imgNoSaltMethiBhakhri, imgGfMethiBhakhri, imgMobileJeeraAjwain, imgAuthenticFlavours, methi } from "@/lib/products";
 
-// Authentic High-Resolution Visual Assets from public/saihira
-import HOME_HERO_BG from "@/assets/saihira/homehero.png";
-import RUSTIC_CHAI from "@/assets/saihira/rustic-khakhra-chai.png";
-import RUSTIC_CORIANDER from "@/assets/saihira/rustic-khakhra-coriander.png";
-import RUSTIC_BHAKRI from "@/assets/saihira/rustic-bhakri-spices.png";
-import RUSTIC_GOLDEN_FEAST from "@/assets/saihira/rustic-golden-flatbread.png";
+// Authentic High-Resolution Visual Assets
 import RUSTIC_ROTI_FEAST from "@/assets/saihira/rustic-roti-feast.png";
-import RUSTIC_SPICES from "@/assets/saihira/rustic-khakhra-spices.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -97,19 +91,19 @@ const tastingMoments = [
     tag: "Morning Chai",
     title: "The Classic Breakfast Pairing",
     desc: "Lightly spiced Jeera & Methi Khakhras paired with steaming adrak-wali chai to awaken the senses.",
-    img: RUSTIC_CHAI,
+    img: "/SAIHIRAIMAGES/SAIHIRA%20(3).jpg",
   },
   {
     tag: "Artisanal Table",
     title: "Afternoon Chutney Platter",
     desc: "Crispy roasted khakhras served with tangy sweet mango chundo, green chilli pickle, or cool mint dip.",
-    img: RUSTIC_CORIANDER,
+    img: "/SAIHIRAIMAGES/SAIHIRA%20(2).jpg",
   },
   {
     tag: "Master Roast",
     title: "Golden Tawa Perfection",
     desc: "Each piece pressed with traditional wooden blocks until the characteristic golden blisters emerge.",
-    img: RUSTIC_BHAKRI,
+    img: "/SAIHIRAIMAGES/SAIHIRA%20(4).jpg",
   },
 ];
 
@@ -130,21 +124,19 @@ function Index() {
   return (
     <>
       {/* ─────────────────────────────────────────────────────────────
-          1. HERO SECTION (Using User's homeherosection.png Background)
-          Full background image from public/homeherosection.png with
-          soft warm overlay scrim for high legibility and light form.
+          1. HERO SECTION (Using User's HERO SECTION IMAGE.png)
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden min-h-[90vh] flex flex-col justify-between py-12 sm:py-16 md:py-20 border-b border-border/80">
+      <section className="relative overflow-hidden min-h-[90vh] flex flex-col justify-between py-12 sm:py-16 md:py-20 border-b border-border/80 bg-stone-950">
         {/* User-Provided Hero Background Image */}
         <img
-          src={HOME_HERO_BG}
-          alt="SAIHIRA Artisanal Gujarati Khakhra Hero"
+          src="/SAIHIRAIMAGES/HERO%20SECTION%20IMAGE.png"
+          alt="SAIHIRA Artisanal Gujarati Khakhra & Bhakhri Hero"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
 
-        {/* Lighter Warm Scrim for Crisp Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF6F0]/95 via-[#FAF6F0]/82 sm:via-[#FAF6F0]/65 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF6F0]/90 via-transparent to-transparent" />
+        {/* Cinematic Scrim for High-Contrast Crisp Readability on Dark Rustic Feast Banner */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 sm:via-black/55 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/40" />
 
         {/* Top Spacer for balance */}
         <div className="hidden sm:block" />
@@ -153,28 +145,28 @@ function Index() {
         <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 my-auto">
           <div className="max-w-2xl text-left">
             {/* Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-[#F6EDE2]/95 px-4 py-1.5 shadow-xs backdrop-blur-sm">
-              <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse shrink-0" />
-              <span className="font-sans text-[0.68rem] sm:text-xs font-bold uppercase tracking-[0.18em] text-accent">
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-amber-400/30 bg-black/50 px-4 py-1.5 shadow-xs backdrop-blur-md">
+              <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse shrink-0" />
+              <span className="font-sans text-[0.68rem] sm:text-xs font-bold uppercase tracking-[0.18em] text-amber-300">
                 Prime Specialty · Dispatched Fresh Weekly
               </span>
             </div>
 
             {/* Headline: Balanced, majestic typography */}
-            <h1 className="mt-5 font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-medium tracking-tight text-primary leading-[1.12]">
+            <h1 className="mt-5 font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-medium tracking-tight text-white leading-[1.12]">
               Asal Gujarati Bhakhri <br />
-              <span className="font-serif italic font-normal text-accent">
+              <span className="font-serif italic font-normal text-amber-300">
                 &amp; Artisan Khakhra
               </span>
             </h1>
 
             {/* Sub-headline: Poetic prime product callout */}
-            <p className="mt-3.5 font-serif italic text-lg sm:text-xl md:text-2xl text-[#6D4733] font-normal leading-snug">
+            <p className="mt-3.5 font-serif italic text-lg sm:text-xl md:text-2xl text-amber-100/90 font-normal leading-snug">
               Our Prime Specialty — Slow-Roasted on Cast-Iron Tawas
             </p>
 
             {/* Subtitle */}
-            <p className="mt-4 font-sans text-sm sm:text-base font-normal leading-relaxed text-[#544237]/90 max-w-xl">
+            <p className="mt-4 font-sans text-sm sm:text-base font-normal leading-relaxed text-stone-200/90 max-w-xl">
               Thick, hearty Bhakhris hand-pressed on cast-iron tawas alongside paper-thin Khakhras and
               rustic Rotlas. Prepared in small artisan batches with stone-ground flours, pure quality
               edible oil, and traditional Gujarati spices.
@@ -184,40 +176,40 @@ function Index() {
             <div className="mt-8 flex flex-wrap items-center gap-6">
               <Link
                 to="/products"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-8 sm:px-9 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary-foreground shadow-md transition-all duration-300 hover:bg-accent hover:shadow-lg hover:scale-105 active:scale-95"
+                className="inline-flex items-center justify-center rounded-full bg-accent px-8 sm:px-9 py-3.5 font-sans text-xs sm:text-sm font-semibold uppercase tracking-wider text-white shadow-lg transition-all duration-300 hover:bg-amber-600 hover:shadow-xl hover:scale-105 active:scale-95"
               >
                 Shop Fresh Crunch
               </Link>
 
-              <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
-                <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse" />
+              <div className="flex items-center gap-2 text-xs font-medium text-stone-300">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span>Weekly Fresh Batches Dispatched</span>
               </div>
             </div>
 
             {/* Micro Trust Strip */}
-            <div className="mt-10 pt-6 border-t border-border/60 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-muted-foreground font-sans">
+            <div className="mt-10 pt-6 border-t border-white/15 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-stone-300 font-sans">
               <span className="inline-flex items-center gap-1.5">
-                <span className="text-accent font-bold">✓</span> 100% Cast-Iron Roasted
+                <span className="text-amber-400 font-bold">✓</span> 100% Cast-Iron Roasted
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <span className="text-accent font-bold">✓</span> Pure Quality Edible Oil
+                <span className="text-amber-400 font-bold">✓</span> Pure Quality Edible Oil
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <span className="text-accent font-bold">✓</span> Zero Artificial Preservatives
+                <span className="text-amber-400 font-bold">✓</span> Zero Artificial Preservatives
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <span className="text-accent font-bold">✓</span> Free Delivery Above ₹499
+                <span className="text-amber-400 font-bold">✓</span> Free Delivery Above ₹499
               </span>
             </div>
           </div>
         </div>
 
         {/* Bottom Centered Scroll Indicator */}
-        <div className="relative text-center pt-8 pb-2 text-primary/60">
+        <div className="relative text-center pt-8 pb-2 text-stone-300/80">
           <a
             href="#signature-collection"
-            className="inline-flex flex-col items-center gap-1 font-sans text-[0.68rem] uppercase tracking-[0.3em] transition-colors hover:text-accent"
+            className="inline-flex flex-col items-center gap-1 font-sans text-[0.68rem] uppercase tracking-[0.3em] transition-colors hover:text-amber-300"
           >
             <span>SCROLL</span>
             <span className="text-sm animate-bounce">↓</span>
@@ -634,7 +626,7 @@ function Index() {
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2">
         <div className="relative overflow-hidden rounded-2xl border-2 border-border/80 bg-card shadow-luxury">
           <img
-            src={RUSTIC_GOLDEN_FEAST}
+            src="/SAIHIRAIMAGES/SAIHIRA%20(1).jpg"
             alt="Hand-pressed golden roasted flatbreads and bhakhris"
             className="h-[440px] w-full object-cover transition-transform duration-700 hover:scale-105"
           />
