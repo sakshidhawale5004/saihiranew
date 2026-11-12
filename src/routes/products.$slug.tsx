@@ -11,6 +11,7 @@ import {
 import { useCart } from "@/lib/cart";
 import { toast } from "sonner";
 import { ProductCard } from "@/components/ProductCard";
+import { ProductGallery } from "@/components/ProductGallery";
 
 export const Route = createFileRoute("/products/$slug")({
   loader: ({ params }) => {
@@ -47,14 +48,12 @@ function ProductPage() {
       <Link to="/products" className="nav-link">
         ← All products
       </Link>
-      <div className="mt-8 grid items-center gap-14 md:grid-cols-2">
-        <div className="frame p-6 pt-10 shadow-deep rounded-2xl bg-card border border-border">
-          <img
-            src={p.image}
-            alt={p.name}
-            className="w-full rounded-md object-contain max-h-[460px] mx-auto"
-          />
-        </div>
+      <div className="mt-8 grid items-start gap-12 md:grid-cols-2">
+        <ProductGallery
+          images={p.gallery && p.gallery.length > 0 ? p.gallery : [p.image]}
+          productName={p.name}
+          badge={p.badge}
+        />
         <Reveal>
           <div className="flex items-center gap-2">
             <span className="eyebrow">

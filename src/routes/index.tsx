@@ -456,7 +456,7 @@ function Index() {
               desc: "Nutritious multi-millets & wheat-free dough roasted on dedicated tawas",
               count: allProducts.filter((x) => x.category === "gluten-free-bhakhri").length,
               image:
-                allProducts.find((x) => x.slug === "gf-methi-bhakhri")?.image || imgGfMethiBhakhri,
+                allProducts.find((x) => x.slug === "gluten-free-methi-bhakhri")?.image || imgGfMethiBhakhri,
               linkCategory: "gluten-free-bhakhri",
               isPrime: false,
             },
