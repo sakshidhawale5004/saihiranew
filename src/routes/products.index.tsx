@@ -49,7 +49,7 @@ function ProductsPage() {
             Authentic Bhakhris & <em>Khakhras</em>
           </>
         }
-        subtitle="Our prime specialty is handcrafted Bhakhri, roasted slowly on cast-iron tawas alongside paper-thin Khakhras and rustic Rotlas with pure quality edible oil."
+        subtitle="Over 90% of our craft is dedicated to handcrafted Bhakhri — our primary and most important product, slow-roasted on cast-iron tawas alongside 100% baked, paper-thin Khakhras and rustic Rotlas with pure quality edible oil."
         image={HERO_IMG}
         badge="100% Iron Tawa Roasted · Zero Preservatives"
         breadcrumbs={[{ label: "Home", to: "/" }, { label: "Our Snacks" }]}
@@ -78,7 +78,7 @@ function ProductsPage() {
           {c === "bhakhri" ? (
             <>
               <span className="font-semibold text-accent uppercase tracking-wider">
-                Bhakhri Range (Our Prime Product):
+                Bhakhri Range (Our #1 Product · 90% Focus):
               </span>
               <span className="inline-flex items-center gap-1">
                 <span className="text-accent font-bold">✓</span> Thick & Hearty Crunch
@@ -210,10 +210,10 @@ function ProductsPage() {
                 Weekly Fresh Quality Promise:
               </span>
               <span className="inline-flex items-center gap-1">
-                <span className="text-accent font-bold">✓</span> Prime Product: Handcrafted Bhakhri
+                <span className="text-accent font-bold">✓</span> 90% Focus: Handcrafted Bhakhri (Our #1 Product)
               </span>
               <span className="inline-flex items-center gap-1">
-                <span className="text-accent font-bold">✓</span> Slow Baked & Roasted (Never Fried)
+                <span className="text-accent font-bold">✓</span> 100% Baked Khakhras (Never Fried)
               </span>
               <span className="inline-flex items-center gap-1">
                 <span className="text-accent font-bold">✓</span> Pure Quality Edible Vegetable Oil

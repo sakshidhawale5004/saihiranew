@@ -101,9 +101,9 @@ export interface CategoryMeta {
 export const CATEGORIES: CategoryMeta[] = [
   {
     id: "bhakhri",
-    label: "Bhakhri (Our Prime Product)",
-    shortLabel: "Bhakhri",
-    tagline: "Thick, hearty & hand-pressed. Roasted slow on cast-iron tawas.",
+    label: "Bhakhri (Our #1 Product · 90% Focus)",
+    shortLabel: "Bhakhri (90% Focus)",
+    tagline: "Over 90% of our craft is dedicated to thick, hearty Bhakhris hand-pressed & slow-roasted on cast-iron tawas.",
     isPrime: true,
   },
   {
@@ -132,15 +132,15 @@ export const CATEGORIES: CategoryMeta[] = [
   },
   {
     id: "khakhra",
-    label: "Round Baked Khakhra",
+    label: "Round Baked Khakhra (100% Baked)",
     shortLabel: "Baked Khakhra",
-    tagline: "Paper-thin gossamer discs roasted on seasoned iron tawas.",
+    tagline: "100% slow-baked gossamer-thin discs roasted on seasoned iron tawas — never fried.",
   },
   {
     id: "mobile-khakhra",
-    label: "Mobile Khakhra",
-    shortLabel: "Mobile Khakhra",
-    tagline: "Pocket-sized crispy bites designed for effortless travel & snacking.",
+    label: "Mobile Baked Khakhra",
+    shortLabel: "Mobile Baked Khakhra",
+    tagline: "100% baked pocket-sized crispy bites designed for effortless travel & snacking.",
   },
 ];
 

@@ -16,10 +16,11 @@ function getProductBadges(p: Product): { primary: string; secondary?: string } {
   if (p.category === "gluten-free-bhakhri") return { primary: "Gluten Free", secondary: "100% Wheat-Free" };
   if (p.category === "no-salt-bhakhri") return { primary: "Zero Added Salt", secondary: "Heart Healthy" };
   if (p.category === "rotla") return { primary: "Village Rotla", secondary: "Hearth Roasted" };
-  if (p.category === "mobile-khakhra") return { primary: "Pocket Khakhra", secondary: "Travel Friendly" };
+  if (p.category === "mobile-khakhra") return { primary: "100% Baked Mobile", secondary: "Travel Friendly" };
+  if (p.category === "khakhra") return { primary: "100% Baked Khakhra", secondary: p.notes[0] || "Crispy & Thin" };
   if (p.category === "premium-bhakhri") return { primary: "Artisan Premium", secondary: p.notes[0] || "Special Recipe" };
-  if (p.category === "bhakhri") return { primary: "Prime Product", secondary: p.notes[0] || "Thick & Hearty" };
-  return { primary: "Tawa Roasted", secondary: p.notes[0] || "100% Baked" };
+  if (p.category === "bhakhri") return { primary: "Prime Product (90% Focus)", secondary: p.notes[0] || "Thick & Hand-Pressed" };
+  return { primary: "100% Baked", secondary: p.notes[0] || "Tawa Roasted" };
 }
 
 export function ProductCard({ p }: { p: Product }) {

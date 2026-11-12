@@ -149,7 +149,7 @@ function Index() {
             <div className="inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-[#F6EDE2]/95 px-4 py-1.5 shadow-xs backdrop-blur-sm">
               <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse shrink-0" />
               <span className="font-sans text-[0.68rem] sm:text-xs font-bold uppercase tracking-[0.18em] text-accent">
-                Prime Specialty · Dispatched Fresh Weekly
+                90% Bhakhri Specialty · Our #1 Important Product
               </span>
             </div>
 
@@ -157,20 +157,20 @@ function Index() {
             <h1 className="mt-5 font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-medium tracking-tight text-primary leading-[1.12]">
               Asal Gujarati Bhakhri <br />
               <span className="font-serif italic font-normal text-accent">
-                &amp; Artisan Khakhra
+                &amp; Crispy Baked Khakhra
               </span>
             </h1>
 
             {/* Sub-headline: Poetic prime product callout */}
             <p className="mt-3.5 font-serif italic text-lg sm:text-xl md:text-2xl text-[#6D4733] font-normal leading-snug">
-              Our Prime Specialty — Slow-Roasted on Cast-Iron Tawas
+              90% Dedicated to Bhakhris — Our #1 Important Prime Product
             </p>
 
             {/* Subtitle */}
             <p className="mt-4 font-sans text-sm sm:text-base font-normal leading-relaxed text-[#544237]/90 max-w-xl">
-              Thick, hearty Bhakhris hand-pressed on cast-iron tawas alongside paper-thin Khakhras and
-              rustic Rotlas. Prepared in small artisan batches with stone-ground flours, pure quality
-              edible oil, and traditional Gujarati spices.
+              Over 90% of our artisan craft is dedicated to authentic Gujarati Bhakhri, hand-pressed
+              and slow-roasted on seasoned cast-iron tawas. Complemented by 100% baked, paper-thin
+              crispy Khakhras, prepared with stone-ground flours, pure quality edible oil, and zero preservatives.
             </p>
 
             {/* Primary Action Button */}
@@ -191,13 +191,13 @@ function Index() {
             {/* Micro Trust Strip */}
             <div className="mt-10 pt-6 border-t border-border/60 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-muted-foreground font-sans">
               <span className="inline-flex items-center gap-1.5">
-                <span className="text-accent font-bold">✓</span> 100% Cast-Iron Roasted
+                <span className="text-accent font-bold">✓</span> 90% Bhakhri Specialty (Our #1 Product)
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="text-accent font-bold">✓</span> 100% Baked Khakhra (Never Fried)
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <span className="text-accent font-bold">✓</span> Pure Quality Edible Oil
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <span className="text-accent font-bold">✓</span> Zero Artificial Preservatives
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <span className="text-accent font-bold">✓</span> Free Delivery Above ₹499
@@ -228,10 +228,10 @@ function Index() {
               </span>
               <div>
                 <h4 className="font-display text-base font-semibold text-primary leading-tight">
-                  Cast-Iron Roasted
+                  90% Bhakhri Focus
                 </h4>
                 <p className="font-sans text-xs text-muted-foreground mt-0.5">
-                  Slow tawa heat, never fried
+                  Our prime & most important craft
                 </p>
               </div>
             </div>
@@ -242,10 +242,10 @@ function Index() {
               </span>
               <div>
                 <h4 className="font-display text-base font-semibold text-primary leading-tight">
-                  Stone-Ground Grains
+                  100% Baked Khakhra
                 </h4>
                 <p className="font-sans text-xs text-muted-foreground mt-0.5">
-                  Whole wheat, bajri & ragi
+                  Slow baked on tawa, never fried
                 </p>
               </div>
             </div>
@@ -332,7 +332,7 @@ function Index() {
                 Weekly Fresh Batch Menu
               </h2>
               <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
-                Slow-roasted on iron tawas every week. <span className="font-semibold text-primary">Our prime product is Bhakhri</span>, alongside premium artisan recipes, no-salt wellness options, gluten-free crunches, traditional rotla, and baked khakhras.
+                Slow-roasted on iron tawas every week. <span className="font-semibold text-primary">Over 90% of our production is dedicated to Bhakhri — our #1 most important product</span>, alongside our 100% baked crispy khakhras, ancient-grain recipes, and wellness varieties.
               </p>
             </div>
             <Link
@@ -411,8 +411,8 @@ function Index() {
           {[
             {
               id: "bhakhri",
-              title: "Handmade Bhakhris (Prime Product)",
-              badge: "OUR PRIME SPECIALTY",
+              title: "Handmade Bhakhris (Our #1 Product · 90% Focus)",
+              badge: "90% PRODUCTION FOCUS · PRIME PRODUCT",
               desc: "Thick, rustic, roasted & pressed by hand — our signature creation",
               count: allProducts.filter((x) => x.category === "bhakhri").length,
               image:
@@ -422,9 +422,9 @@ function Index() {
             },
             {
               id: "khakhra",
-              title: "Signature Khakhras",
-              badge: "TRADITIONAL CRISP",
-              desc: "Paper-thin, blistered crisp & slow-roasted on iron tawas",
+              title: "100% Baked Khakhras",
+              badge: "100% BAKED · NEVER FRIED",
+              desc: "Paper-thin, blistered crisp & slow-baked on iron tawas",
               count: allProducts.filter((x) => x.category === "khakhra").length,
               image:
                 allProducts.find((x) => x.slug === "methi-khakhra")?.image || methi,
@@ -477,9 +477,9 @@ function Index() {
             },
             {
               id: "mobile-khakhra",
-              title: "Mobile Khakhras",
-              badge: "POCKET TRAVEL CRISPS",
-              desc: "Compact pocket-sized crispy discs designed for effortless travel & snacking",
+              title: "Mobile Baked Khakhras",
+              badge: "100% BAKED TRAVEL CRISPS",
+              desc: "Compact pocket-sized crispy baked discs designed for effortless travel & snacking",
               count: allProducts.filter((x) => x.category === "mobile-khakhra").length,
               image:
                 allProducts.find((x) => x.slug === "mobile-jeera-ajwain-khakhra")?.image || imgMobileJeeraAjwain,
@@ -657,9 +657,9 @@ function Index() {
           </div>
           <div className="mt-10 grid grid-cols-3 gap-4 text-center">
             {[
-              ["30+", "Years of Craft"],
+              ["90%", "Bhakhri Specialty Focus"],
+              ["100%", "Baked & Handmade"],
               ["50+", "Artisan Flavours"],
-              ["100%", "Handmade"],
             ].map(([a, b]) => (
               <div key={b} className="rounded-xl border border-border/80 bg-card p-4 shadow-sm">
                 <div className="font-display text-3xl font-medium text-primary">{a}</div>
