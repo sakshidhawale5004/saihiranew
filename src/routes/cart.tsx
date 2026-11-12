@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { useCart, shippingFor, SHIPPING_FREE_ABOVE } from "@/lib/cart";
 import { formatINR } from "@/lib/products";
+import { ShoppingBag } from "lucide-react";
 import HERO_IMG from "@/assets/editorial/khakhra-stack.jpg";
 
 export const Route = createFileRoute("/cart")({
@@ -38,7 +39,9 @@ function Cart() {
       <div className="mx-auto max-w-5xl px-6 py-14">
         {lines.length === 0 ? (
           <div className="rounded-2xl border border-border/80 bg-card p-12 text-center shadow-sm">
-            <span className="font-serif text-5xl text-accent">🧺</span>
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent">
+              <ShoppingBag className="h-8 w-8 stroke-[1.5]" />
+            </div>
             <h3 className="mt-4 font-display text-2xl font-medium text-primary">
               Your cart is empty
             </h3>

@@ -4,6 +4,7 @@ import logoSrc from "@/assets/logo-hd.png";
 const logo = { url: logoSrc };
 import { useCart } from "@/lib/cart";
 import { CATEGORIES } from "@/lib/products";
+import { Lock } from "lucide-react";
 
 const nav = [
   { to: "/products", label: "Our Snacks" },
@@ -13,7 +14,7 @@ const nav = [
 ] as const;
 
 const tickerItems = [
-  "90% SPECIALTY: AUTHENTIC ARTISANAL BHAKHRIS (OUR #1 IMPORTANT PRODUCT)",
+  "OUR PRIME SPECIALTY: AUTHENTIC ARTISANAL BHAKHRIS (FLAGSHIP PRODUCT)",
   "100% BAKED CRISPY KHAKHRAS · NEVER DEEP FRIED",
   "50+ SIGNATURE FLAVOURS · WEEKLY FRESH BATCH DISPATCHED",
   "100% HAND-ROLLED & TAWA ROASTED · QUALITY EDIBLE OIL",
@@ -259,7 +260,7 @@ export function Header() {
                     onClick={() => setOpen(false)}
                     className="text-xs text-muted-foreground hover:text-accent py-1 truncate"
                   >
-                    {cat.shortLabel} {cat.isPrime && "⭐"}
+                    {cat.shortLabel} {cat.isPrime && "(Prime)"}
                   </Link>
                 ))}
               </div>
@@ -312,7 +313,7 @@ export function Footer() {
             love by SAIHIRA.
           </p>
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-3 py-1 text-xs text-accent">
-            <span>✨ 100% Preservative Free</span>
+            <span>100% Preservative Free</span>
           </div>
         </div>
 
@@ -326,7 +327,7 @@ export function Footer() {
               search={{ c: cat.id as any }}
               className="transition-colors hover:text-primary text-xs"
             >
-              {cat.shortLabel} {cat.isPrime && "⭐"}
+              {cat.shortLabel} {cat.isPrime && "(Prime)"}
             </Link>
           ))}
           <Link to="/products" className="transition-colors font-semibold text-accent text-xs mt-1">
@@ -365,7 +366,7 @@ export function Footer() {
             className="transition-colors text-accent hover:underline flex items-center gap-1 font-medium"
           >
             <span>Staff Admin CRM</span>
-            <span className="text-[10px]">🔒</span>
+            <Lock className="h-3 w-3 text-muted-foreground" />
           </Link>
         </div>
 

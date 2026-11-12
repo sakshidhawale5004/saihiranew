@@ -35,7 +35,7 @@ function ProductsPage() {
   const tabs: Array<{ label: string; c?: Category }> = [
     { label: `All Varieties (${allProducts.length})` },
     ...CATEGORIES.map((cat) => ({
-      label: cat.isPrime ? `⭐ ${cat.shortLabel} (Prime)` : cat.shortLabel,
+      label: cat.isPrime ? `${cat.shortLabel} (Prime)` : cat.shortLabel,
       c: cat.id,
     })),
   ];
@@ -49,7 +49,7 @@ function ProductsPage() {
             Authentic Bhakhris & <em>Khakhras</em>
           </>
         }
-        subtitle="Over 90% of our craft is dedicated to handcrafted Bhakhri — our primary and most important product, slow-roasted on cast-iron tawas alongside 100% baked, paper-thin Khakhras and rustic Rotlas with pure quality edible oil."
+        subtitle="Our prime specialty is handcrafted Bhakhri — our primary and most important product, slow-roasted on cast-iron tawas alongside 100% baked, paper-thin Khakhras and rustic Rotlas with pure quality edible oil."
         image={HERO_IMG}
         badge="100% Iron Tawa Roasted · Zero Preservatives"
         breadcrumbs={[{ label: "Home", to: "/" }, { label: "Our Snacks" }]}
@@ -78,7 +78,7 @@ function ProductsPage() {
           {c === "bhakhri" ? (
             <>
               <span className="font-semibold text-accent uppercase tracking-wider">
-                Bhakhri Range (Our #1 Product · 90% Focus):
+                Bhakhri Range (Our Prime Product):
               </span>
               <span className="inline-flex items-center gap-1">
                 <span className="text-accent font-bold">✓</span> Thick & Hearty Crunch
@@ -210,7 +210,7 @@ function ProductsPage() {
                 Weekly Fresh Quality Promise:
               </span>
               <span className="inline-flex items-center gap-1">
-                <span className="text-accent font-bold">✓</span> 90% Focus: Handcrafted Bhakhri (Our #1 Product)
+                <span className="text-accent font-bold">✓</span> Prime Product: Handcrafted Bhakhri
               </span>
               <span className="inline-flex items-center gap-1">
                 <span className="text-accent font-bold">✓</span> 100% Baked Khakhras (Never Fried)

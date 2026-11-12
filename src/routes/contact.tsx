@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Reveal } from "@/components/site";
 import { PageHero } from "@/components/PageHero";
 import { addInquiry } from "@/lib/crm";
+import { Mail, MapPin, Gift } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -76,8 +77,8 @@ function Contact() {
 
             <div className="space-y-4">
               <div className="flex items-start gap-4 rounded-xl border border-border/80 bg-card p-5 shadow-sm">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent text-lg">
-                  ✉
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
+                  <Mail className="h-5 w-5 stroke-[1.75]" />
                 </div>
                 <div>
                   <h4 className="font-display text-lg font-medium text-primary">Email Support</h4>
@@ -94,8 +95,8 @@ function Contact() {
               </div>
 
               <div className="flex items-start gap-4 rounded-xl border border-border/80 bg-card p-5 shadow-sm">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent text-lg">
-                  📍
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
+                  <MapPin className="h-5 w-5 stroke-[1.75]" />
                 </div>
                 <div>
                   <h4 className="font-display text-lg font-medium text-primary">
@@ -109,8 +110,8 @@ function Contact() {
               </div>
 
               <div className="flex items-start gap-4 rounded-xl border border-border/80 bg-card p-5 shadow-sm">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent text-lg">
-                  🎁
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
+                  <Gift className="h-5 w-5 stroke-[1.75]" />
                 </div>
                 <div>
                   <h4 className="font-display text-lg font-medium text-primary">

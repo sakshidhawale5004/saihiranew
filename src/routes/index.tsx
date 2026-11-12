@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Reveal } from "@/components/site";
 import { ProductCard } from "@/components/ProductCard";
+import { Star } from "lucide-react";
 import { products, useProducts, CATEGORIES, imgMethiBhakhri, imgBajariRotla, imgKokiBitesBhakhri, imgNoSaltMethiBhakhri, imgGfMethiBhakhri, imgMobileJeeraAjwain, imgAuthenticFlavours, methi } from "@/lib/products";
 
 // Authentic High-Resolution Visual Assets
@@ -149,7 +150,7 @@ function Index() {
             <div className="inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-[#F6EDE2]/95 px-4 py-1.5 shadow-xs backdrop-blur-sm">
               <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse shrink-0" />
               <span className="font-sans text-[0.68rem] sm:text-xs font-bold uppercase tracking-[0.18em] text-accent">
-                90% Bhakhri Specialty · Our #1 Important Product
+                Prime Specialty · Dispatched Fresh Weekly
               </span>
             </div>
 
@@ -163,13 +164,13 @@ function Index() {
 
             {/* Sub-headline: Poetic prime product callout */}
             <p className="mt-3.5 font-serif italic text-lg sm:text-xl md:text-2xl text-[#6D4733] font-normal leading-snug">
-              90% Dedicated to Bhakhris — Our #1 Important Prime Product
+              Hand-Pressed Bhakhri — Our Prime Specialty
             </p>
 
             {/* Subtitle */}
             <p className="mt-4 font-sans text-sm sm:text-base font-normal leading-relaxed text-[#544237]/90 max-w-xl">
-              Over 90% of our artisan craft is dedicated to authentic Gujarati Bhakhri, hand-pressed
-              and slow-roasted on seasoned cast-iron tawas. Complemented by 100% baked, paper-thin
+              Our artisan craft is dedicated to authentic Gujarati Bhakhri, hand-pressed
+              and slow-roasted on seasoned cast-iron tawas as our prime flagship product. Complemented by 100% baked, paper-thin
               crispy Khakhras, prepared with stone-ground flours, pure quality edible oil, and zero preservatives.
             </p>
 
@@ -191,7 +192,7 @@ function Index() {
             {/* Micro Trust Strip */}
             <div className="mt-10 pt-6 border-t border-border/60 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-muted-foreground font-sans">
               <span className="inline-flex items-center gap-1.5">
-                <span className="text-accent font-bold">✓</span> 90% Bhakhri Specialty (Our #1 Product)
+                <span className="text-accent font-bold">✓</span> Prime Specialty: Handcrafted Bhakhri
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <span className="text-accent font-bold">✓</span> 100% Baked Khakhra (Never Fried)
@@ -228,10 +229,10 @@ function Index() {
               </span>
               <div>
                 <h4 className="font-display text-base font-semibold text-primary leading-tight">
-                  90% Bhakhri Focus
+                  Prime Bhakhri Specialty
                 </h4>
                 <p className="font-sans text-xs text-muted-foreground mt-0.5">
-                  Our prime & most important craft
+                  Our core &amp; flagship craft
                 </p>
               </div>
             </div>
@@ -332,7 +333,7 @@ function Index() {
                 Weekly Fresh Batch Menu
               </h2>
               <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
-                Slow-roasted on iron tawas every week. <span className="font-semibold text-primary">Over 90% of our production is dedicated to Bhakhri — our #1 most important product</span>, alongside our 100% baked crispy khakhras, ancient-grain recipes, and wellness varieties.
+                Slow-roasted on iron tawas every week. <span className="font-semibold text-primary">Our prime specialty is Bhakhri — our signature flagship creation</span>, alongside our 100% baked crispy khakhras, ancient-grain recipes, and wellness varieties.
               </p>
             </div>
             <Link
@@ -359,7 +360,7 @@ function Index() {
                       : "bg-white/80 border border-border/70 text-foreground/80 hover:bg-white hover:text-primary"
                   }`}
                 >
-                  {cat.isPrime ? `⭐ ${cat.shortLabel} (Prime)` : cat.shortLabel}
+                  {cat.isPrime ? `${cat.shortLabel} (Prime)` : cat.shortLabel}
                   <span className="ml-1.5 text-[0.65rem] opacity-75">({count})</span>
                 </button>
               );
@@ -411,8 +412,8 @@ function Index() {
           {[
             {
               id: "bhakhri",
-              title: "Handmade Bhakhris (Our #1 Product · 90% Focus)",
-              badge: "90% PRODUCTION FOCUS · PRIME PRODUCT",
+              title: "Handmade Bhakhris (Our Prime Product)",
+              badge: "OUR FLAGSHIP SPECIALTY",
               desc: "Thick, rustic, roasted & pressed by hand — our signature creation",
               count: allProducts.filter((x) => x.category === "bhakhri").length,
               image:
@@ -657,7 +658,7 @@ function Index() {
           </div>
           <div className="mt-10 grid grid-cols-3 gap-4 text-center">
             {[
-              ["90%", "Bhakhri Specialty Focus"],
+              ["30+", "Years of Craft"],
               ["100%", "Baked & Handmade"],
               ["50+", "Artisan Flavours"],
             ].map(([a, b]) => (
@@ -730,8 +731,10 @@ function Index() {
               className="relative flex flex-col justify-between rounded-2xl border border-border/80 bg-card p-7 sm:p-8 text-left shadow-sm transition-all duration-300 hover:border-accent/40 hover:shadow-deep"
             >
               <div>
-                <div className="flex items-center gap-1 text-amber-500 mb-4 text-sm">
-                  {"★".repeat(5)}
+                <div className="flex items-center gap-1 text-amber-500 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-amber-500 text-amber-500" />
+                  ))}
                 </div>
                 <blockquote className="font-sans text-sm sm:text-base leading-relaxed text-[#4A3B32]">
                   “{q}”

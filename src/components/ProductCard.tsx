@@ -19,7 +19,7 @@ function getProductBadges(p: Product): { primary: string; secondary?: string } {
   if (p.category === "mobile-khakhra") return { primary: "100% Baked Mobile", secondary: "Travel Friendly" };
   if (p.category === "khakhra") return { primary: "100% Baked Khakhra", secondary: p.notes[0] || "Crispy & Thin" };
   if (p.category === "premium-bhakhri") return { primary: "Artisan Premium", secondary: p.notes[0] || "Special Recipe" };
-  if (p.category === "bhakhri") return { primary: "Prime Product (90% Focus)", secondary: p.notes[0] || "Thick & Hand-Pressed" };
+  if (p.category === "bhakhri") return { primary: "Prime Product", secondary: p.notes[0] || "Thick & Hand-Pressed" };
   return { primary: "100% Baked", secondary: p.notes[0] || "Tawa Roasted" };
 }
 

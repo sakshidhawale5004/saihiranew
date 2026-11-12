@@ -83,7 +83,7 @@ function About() {
             <div className="mt-6 space-y-4 font-sans text-base leading-relaxed text-muted-foreground">
               <p>
                 In an era dominated by automated factories and industrial extrusion, SAIHIRA remains
-                steadfastly faithful to the age-old art of the tawa roast. Over 90% of our kitchen production
+                steadfastly faithful to the age-old art of the tawa roast. Our kitchen production
                 is dedicated to our most important flagship product — authentic, thick Gujarati Bhakhri hand-pressed
                 on cast-iron tawas.
               </p>

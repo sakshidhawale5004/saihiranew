@@ -101,9 +101,9 @@ export interface CategoryMeta {
 export const CATEGORIES: CategoryMeta[] = [
   {
     id: "bhakhri",
-    label: "Bhakhri (Our #1 Product · 90% Focus)",
-    shortLabel: "Bhakhri (90% Focus)",
-    tagline: "Over 90% of our craft is dedicated to thick, hearty Bhakhris hand-pressed & slow-roasted on cast-iron tawas.",
+    label: "Bhakhri (Our Prime Product)",
+    shortLabel: "Bhakhri",
+    tagline: "Our prime specialty — thick, hearty Bhakhris hand-pressed & slow-roasted on cast-iron tawas.",
     isPrime: true,
   },
   {
