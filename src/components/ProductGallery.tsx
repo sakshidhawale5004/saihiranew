@@ -63,6 +63,9 @@ function getImageLabel(index: number, total: number): string {
         return `Photo ${index + 1}`;
     }
   }
+  if (index === 0) {
+    return "Vacuum Pouch";
+  }
   return `View ${index + 1}`;
 }
 
