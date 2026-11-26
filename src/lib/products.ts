@@ -1410,7 +1410,7 @@ export const initialProducts: Product[] = [
   ),
 ];
 
-export const PRODUCTS_STORAGE_KEY = "saihira_products_catalog_v7";
+export const PRODUCTS_STORAGE_KEY = "saihira_products_catalog_v8";
 
 /* ---------------- Dynamic Product Storage API ---------------- */
 

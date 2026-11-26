@@ -108,7 +108,7 @@ export function ProductGallery({ images, productName, badge }: ProductGalleryPro
   return (
     <div className="flex flex-col gap-4">
       {/* ──────────────── Main Hero Image Frame ──────────────── */}
-      <div className="relative group overflow-hidden rounded-2xl border border-border/80 bg-[#FAF7F2] p-6 sm:p-8 shadow-deep transition-all duration-300">
+      <div className="relative group overflow-hidden rounded-2xl border border-border/80 bg-[#FAF7F2] p-4 sm:p-6 shadow-deep transition-all duration-300">
         {/* Top Badges */}
         <div className="absolute top-4 left-4 z-10 flex flex-wrap gap-2">
           {badge && (
